@@ -1,0 +1,29 @@
+{
+  "name": "ng.connector.services",
+  "authors": [
+    "nazeels <nazeel.ak@gmail.com>"
+  ],
+  "description": "Wariyum-Connector service library for Angular ver 1.xx",
+   "main": [
+    "./js/app.js",
+    "./js/services/categoryService.js",
+    "./js/services/productService.js"
+  ],
+  "keywords": [
+    "Wariyum",
+    "connector",
+    "angular",
+    "1.x",
+    "service"
+  ],
+  "license": "MIT",
+  "homepage": "http://wariyum.com/connector/",
+  "private": true,
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components",
+    "test",
+    "tests"
+  ]
+}

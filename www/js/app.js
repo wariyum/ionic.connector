@@ -45,7 +45,8 @@ angular.module('starter', ['ionic', 'starter.controllers','wrConnector'])
       url: '/browse',
       views: {
         'menuContent': {
-          templateUrl: 'templates/browse.html'
+          templateUrl: 'templates/hardware.html',
+          controller:'hardwareCtrl as vm'
         }
       }
     })

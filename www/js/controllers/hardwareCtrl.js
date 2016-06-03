@@ -1,7 +1,7 @@
 
  angular.module('starter')
 
-.controller('hardwareCtrl', function() {
+.controller('hardwareCtrl', function($cordovaGeolocation) {
 
 	var vm = this;
 	vm.btnGpsClick = function () {

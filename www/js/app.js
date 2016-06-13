@@ -61,11 +61,11 @@ angular.module('starter', ['ionic', 'starter.controllers','wrConnector','ngCordo
     })
 
   .state('app.single', {
-    url: '/playlists/:playlistId',
+    url: '/playlists/:productId',
     views: {
       'menuContent': {
         templateUrl: 'templates/playlist.html',
-        controller: 'productsCtrl'
+        controller: 'productDetailCtrl as vm'
       }
     }
   });

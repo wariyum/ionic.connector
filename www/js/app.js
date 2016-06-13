@@ -55,7 +55,7 @@ angular.module('starter', ['ionic', 'starter.controllers','wrConnector','ngCordo
       views: {
         'menuContent': {
           templateUrl: 'templates/playlists.html',
-          controller: 'playlistCtrl as vm'
+          controller: 'productsCtrl as vm'
         }
       }
     })
@@ -65,7 +65,7 @@ angular.module('starter', ['ionic', 'starter.controllers','wrConnector','ngCordo
     views: {
       'menuContent': {
         templateUrl: 'templates/playlist.html',
-        controller: 'PlaylistCtrl'
+        controller: 'productsCtrl'
       }
     }
   });

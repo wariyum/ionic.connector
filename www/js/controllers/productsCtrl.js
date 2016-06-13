@@ -1,12 +1,12 @@
 
  angular.module('starter')
 
-.controller('playlistCtrl', playlistCtrl);
+.controller('productsCtrl', productsCtrl);
 
-playlistCtrl.$inject = ['productService'];
+productsCtrl.$inject = ['productService'];
 
 
- function playlistCtrl(productService) {
+ function productsCtrl(productService) {
 
 	var vm = this;
 

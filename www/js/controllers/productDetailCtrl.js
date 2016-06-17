@@ -15,10 +15,10 @@ productDetailCtrl.$inject = ['productService','$stateParams'];
 	vm.productId = $stateParams.productId;
 		 // alert(config.PROG_ID);
 
-	alert(vm.productId);
+	// alert(vm.productId);
 
-     productService.getProductsPublished().then(function (response) {
-        vm.products = response.data.success;
+     productService.getProductDetailsPublished(vm.productId).then(function (response) {
+        vm.productDetail = response.data.success;
       });
     
   }

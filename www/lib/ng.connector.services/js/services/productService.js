@@ -17,7 +17,8 @@
     function productService($http,appService,appConstants,$state) {
         return {
             getProductsPublished: getProductsPublished,
-            getProductsByCategoryId: getProductsByCategoryId
+            getProductsByCategoryId: getProductsByCategoryId,
+            getProductDetailsPublished: getProductDetailsPublished
         };
 
         function getProductsByCategoryId(categoryId) {
@@ -33,6 +34,13 @@
                 return $http.get(appService.getUrl()+'published-products.json');
             else
                 return $http.get(appService.getUrl() +'connector/'+ appConstants.prog_id + '/published');
+        }
+
+        function getProductDetailsPublished(productId) {
+            if(appConstants.mode === 'dev')
+                return $http.get(appService.getUrl()+'published-products.json');
+            else
+                return $http.get(appService.getUrl() +'connector/'+ appConstants.prog_id + '/product/' + productId);
         }
 
     }

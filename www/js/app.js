@@ -64,7 +64,7 @@ angular.module('starter', ['ionic', 'starter.controllers','wrConnector','ngCordo
     url: '/productDetails/:productId',
     views: {
       'menuContent': {
-        templateUrl: 'templates/playlist.html',
+        templateUrl: 'templates/productDetail.html',
         controller: 'productDetailCtrl as vm'
       }
     }

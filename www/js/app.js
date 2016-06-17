@@ -50,18 +50,18 @@ angular.module('starter', ['ionic', 'starter.controllers','wrConnector','ngCordo
         }
       }
     })
-    .state('app.playlists', {
-      url: '/playlists',
+    .state('app.products', {
+      url: '/products',
       views: {
         'menuContent': {
-          templateUrl: 'templates/playlists.html',
+          templateUrl: 'templates/productLists.html',
           controller: 'productsCtrl as vm'
         }
       }
     })
 
   .state('app.single', {
-    url: '/playlists/:productId',
+    url: '/productDetails/:productId',
     views: {
       'menuContent': {
         templateUrl: 'templates/playlist.html',
@@ -70,5 +70,5 @@ angular.module('starter', ['ionic', 'starter.controllers','wrConnector','ngCordo
     }
   });
   // if none of the above states are matched, use this as the fallback
-  $urlRouterProvider.otherwise('/app/playlists');
+  $urlRouterProvider.otherwise('/app/products');
 });

@@ -3,5 +3,17 @@
     <h1>
     	{{vm.productDetail.name}}
  	</h1>
+
+
+ 	   <td-cards>
+        <td-card ng-repeat="card in vm.productDetail.imageUrl" on-destroy="cardDestroyed($index)" on-swipe-left="cardSwipedLeft($index)" on-swipe-right="cardSwipedRight($index)" on-partial-swipe="cardPartialSwipe(amt)" class="card-{{$index}}">
+          <div class="image" ng-controller="CardCtrl">
+            <div class="no-text">NOPE</div>
+            <img ng-src="{{vm.imgUrl + card}}">
+            <div class="yes-text">LIKE</div>
+          </div>
+        </td-card>
+      </td-cards>
+
   </ion-content>
 </ion-view>

@@ -3,23 +3,35 @@
 
 .controller('productDetailCtrl', productDetailCtrl);
 
-productDetailCtrl.$inject = ['productService','$stateParams'];
+productDetailCtrl.$inject = ['productService','$stateParams','appService'];
 
 
- function productDetailCtrl(productService,$stateParams) {
+ function productDetailCtrl(productService,$stateParams,appService) {
 
 	var vm = this;
 
   vm.init = function () {
 
 	vm.productId = $stateParams.productId;
-		 // alert(config.PROG_ID);
+  vm.imgUrl = appService.getUrlImg();
 
-	// alert(vm.productId);
 
      productService.getProductDetailsPublished(vm.productId).then(function (response) {
         vm.productDetail = response.data.success;
+        alert(vm.productDetail.name);
       });
     
   }
 	}
+
+angular.module('starter')
+   .controller('CardCtrl', function($scope, TDCardDelegate) {
+  $scope.cardSwipedLeft = function(index) {
+    console.log('LEFT SWIPE');
+    $scope.addCard();
+  };
+  $scope.cardSwipedRight = function(index) {
+    console.log('RIGHT SWIPE');
+    $scope.addCard();
+  };
+});

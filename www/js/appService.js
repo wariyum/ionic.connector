@@ -17,7 +17,8 @@
     function appService(appConstants) {
         return {
             getUrl: getUrl,
-            getUrlImg:getUrlImg
+            getUrlImg:getUrlImg,
+            getProgId:getProgId
         };
 
         function getUrl() {
@@ -50,6 +51,9 @@
             }   
         }
 
+        function getProgId() {
+            return appConstants.prog_id;
+        }
     }
 
 })();

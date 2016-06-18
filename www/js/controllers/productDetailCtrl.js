@@ -13,7 +13,7 @@ productDetailCtrl.$inject = ['productService','$stateParams','appService'];
   vm.init = function () {
 
 	vm.productId = $stateParams.productId;
-  vm.imgUrl = appService.getUrlImg();
+  vm.imgUrl = appService.getUrlImg() + appService.getProgId() + '/';
 
 
      productService.getProductDetailsPublished(vm.productId).then(function (response) {

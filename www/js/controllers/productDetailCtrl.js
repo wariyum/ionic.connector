@@ -18,7 +18,6 @@ productDetailCtrl.$inject = ['productService','$stateParams','appService'];
 
      productService.getProductDetailsPublished(vm.productId).then(function (response) {
         vm.productDetail = response.data.success;
-        alert(vm.productDetail.name);
       });
     
   }

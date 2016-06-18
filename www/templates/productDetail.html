@@ -5,15 +5,13 @@
  	</h1>
 
 
- 	   <td-cards>
-        <td-card ng-repeat="card in vm.productDetail.imageUrl" on-destroy="cardDestroyed($index)" on-swipe-left="cardSwipedLeft($index)" on-swipe-right="cardSwipedRight($index)" on-partial-swipe="cardPartialSwipe(amt)" class="card-{{$index}}">
-          <div class="image" ng-controller="CardCtrl">
-            <div class="no-text">NOPE</div>
-            <img ng-src="{{vm.imgUrl + card}}">
-            <div class="yes-text">LIKE</div>
-          </div>
-        </td-card>
-      </td-cards>
+<ion-slide-box on-slide-changed="slideChanged(index)">
+          <ion-slide ng-repeat="itm in vm.productDetail.imageUrl">
+            <div id="logo">
+              <img src="{{vm.imgUrl + itm}}" >
+            </div>
+          </ion-slide>
+        </ion-slide-box>
 
   </ion-content>
 </ion-view>

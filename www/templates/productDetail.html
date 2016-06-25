@@ -1,36 +1,45 @@
 <ion-view view-title="Playlist" ng-init="vm.init()">
     <ion-content>
-        <h1>
+       <!--  <h1>
       {{vm.productDetail.name}}
-  </h1>
-        <ion-slide-box on-slide-changed="slideChanged(index)">
+  </h1> -->
+        <!-- <ion-slide-box on-slide-changed="slideChanged(index)">
             <ion-slide ng-repeat="itm in vm.productDetail.imageUrl">
                 <div id="logo">
                     <img src="{{vm.imgUrl + itm}}">
                 </div>
             </ion-slide>
-        </ion-slide-box>
-        <!-- <div class="bar bar-footer bar-balanced">
-          <a class="button icon-left ion-chevron-left button-clear button-dark">Previous</a>
-          <a class="button icon-right ion-chevron-right button-clear button-dark">Next</a>
-        </div> -->
-        <div class="tabs tabs-icon-top">
-  <a class="tab-item">
-    <i class="icon ion-chevron-left"></i>
-    Previous
-  </a>
-  <a class="tab-item">
-    <i class="icon ion-thumbsup"></i>
-    Like
-  </a>
-  <a class="tab-item">
-    <i class="icon ion-bag"></i>
-    Buy
-  </a>
-  <a class="tab-item">
-    <i class="icon ion-chevron-right"></i>
-    Next
-  </a>
+        </ion-slide-box> -->
+<div class="list card">
+
+  <div class="item">
+    <h1>{{vm.productDetail.name}}</h1>
+  </div>
+
+  <div class="item item-body" ng-repeat="itm in vm.productDetail.imageUrl">
+    <img class="full-image" src="{{vm.imgUrl + itm}}">
+     <p>
+      This is a "Facebook" styled Card. The header is created from a Thumbnail List item,
+      the content is from a card-body consisting of an image and paragraph text. The footer
+      consists of tabs, icons aligned left, within the card-footer.
+    </p>
+  </div><br><br>
+<div class="bar bar-footer">
+            <a class="tab-item">
+                <i class="icon ion-chevron-left"></i> Previous
+            </a>
+            <a class="tab-item">
+                <i class="icon ion-thumbsup"></i> Like
+            </a>
+            <a class="tab-item">
+                <i class="icon ion-bag"></i> Buy
+            </a>
+            <a class="tab-item">
+                <i class="icon ion-chevron-right"></i> Next
+            </a>
+        </div>
 </div>
+        
     </ion-content>
+    
 </ion-view>

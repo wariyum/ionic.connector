@@ -1,9 +1,17 @@
 <ion-view view-title="Products" ng-init="vm.init()">
   <ion-content>
-    <ion-list>
+  <div class="list">
+
+    <a class="item item-avatar" ng-repeat="itm in vm.products" href="#/app/productDetails/{{itm.id}}">
+      <img src="http://admin.wariyum.com/images/1/image-91-1-GOkul-260316-105923-416.4.jpg">
+      <h2>{{itm.name}}</h2>
+      <p>Pure wood(Description)</p>
+    </a>
+</div>
+    <!-- <ion-list>
       <ion-item ng-repeat="itm in vm.products" href="#/app/productDetails/{{itm.id}}">
         {{itm.name}}
       </ion-item>
-    </ion-list>
+    </ion-list> -->
   </ion-content>
-</ion-view>
+</ion-view>z

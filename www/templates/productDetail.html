@@ -1,17 +1,36 @@
 <ion-view view-title="Playlist" ng-init="vm.init()">
-  <ion-content>
-    <h1>
-    	{{vm.productDetail.name}}
- 	</h1>
-
-
-<ion-slide-box on-slide-changed="slideChanged(index)">
-          <ion-slide ng-repeat="itm in vm.productDetail.imageUrl">
-            <div id="logo">
-              <img src="{{vm.imgUrl + itm}}" >
-            </div>
-          </ion-slide>
+    <ion-content>
+        <h1>
+      {{vm.productDetail.name}}
+  </h1>
+        <ion-slide-box on-slide-changed="slideChanged(index)">
+            <ion-slide ng-repeat="itm in vm.productDetail.imageUrl">
+                <div id="logo">
+                    <img src="{{vm.imgUrl + itm}}">
+                </div>
+            </ion-slide>
         </ion-slide-box>
-
-  </ion-content>
+        <!-- <div class="bar bar-footer bar-balanced">
+          <a class="button icon-left ion-chevron-left button-clear button-dark">Previous</a>
+          <a class="button icon-right ion-chevron-right button-clear button-dark">Next</a>
+        </div> -->
+        <div class="tabs tabs-icon-top">
+  <a class="tab-item">
+    <i class="icon ion-chevron-left"></i>
+    Previous
+  </a>
+  <a class="tab-item">
+    <i class="icon ion-thumbsup"></i>
+    Like
+  </a>
+  <a class="tab-item">
+    <i class="icon ion-bag"></i>
+    Buy
+  </a>
+  <a class="tab-item">
+    <i class="icon ion-chevron-right"></i>
+    Next
+  </a>
+</div>
+    </ion-content>
 </ion-view>

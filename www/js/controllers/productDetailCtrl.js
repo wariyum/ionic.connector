@@ -3,10 +3,10 @@
 
 .controller('productDetailCtrl', productDetailCtrl);
 
-productDetailCtrl.$inject = ['productService','$stateParams','appService'];
+productDetailCtrl.$inject = ['productService','$stateParams','appService','appState'];
 
 
- function productDetailCtrl(productService,$stateParams,appService) {
+ function productDetailCtrl(productService,$stateParams,appService,appState) {
 
 	var vm = this;
 
@@ -20,6 +20,10 @@ productDetailCtrl.$inject = ['productService','$stateParams','appService'];
         vm.productDetail = response.data.success;
       });
     
+  }
+
+  vm.previous = function() {
+    appState.getShownProductId();
   }
 	}
 

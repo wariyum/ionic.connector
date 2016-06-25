@@ -3,12 +3,13 @@
 
 .controller('productsCtrl', productsCtrl);
 
-productsCtrl.$inject = ['productService'];
+productsCtrl.$inject = ['productService','appService'];
 
 
- function productsCtrl(productService) {
+ function productsCtrl(productService,appService) {
 
 	var vm = this;
+	vm.imageUrl = appService.getUrlImg();
 
   vm.init = function () {
 

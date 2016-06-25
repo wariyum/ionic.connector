@@ -3,7 +3,8 @@
   <div class="list">
 
     <a class="item item-avatar" ng-repeat="itm in vm.products" href="#/app/productDetails/{{itm.id}}">
-      <img src="http://admin.wariyum.com/images/1/image-91-1-GOkul-260316-105923-416.4.jpg">
+    <img src="{{vm.imageUrl + itm.imageUrl[0]}}"/>
+     
       <h2>{{itm.name}}</h2>
       <p>Pure wood(Description)</p>
     </a>

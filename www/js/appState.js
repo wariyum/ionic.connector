@@ -12,17 +12,29 @@
     angular.module('starter')
         .service('appState', appState);
 
-    appState.$inject = [];
+    appState.$inject = ['lodash'];
 
     var shownProductId = 0;
+    var loggedUser;
+    var lists = {};
 
-    function appState() {
+    function appState(lodash) {
         return {
-            getShownProductId: getShownProductId
+            getShownProductId: getShownProductId,
+            setShownProductId: setShownProductId,
+            isLoggedIn: isLoggedIn
         };
 
         function getShownProductId() {
            alert(shownProductId++);
+        }
+
+        function setShownProductId(value) {
+           shownProductId = value;
+        }
+
+        function isLoggedIn(){
+            return loggedUser;
         }
     }
 

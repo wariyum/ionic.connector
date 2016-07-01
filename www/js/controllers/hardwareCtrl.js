@@ -12,7 +12,7 @@
         //these are your your lat long values  
         var lat  = position.coords.latitude;
         var long = position.coords.longitude;
-        alert('latitude: '+lat + ' longitude: ' + long);
+        // alert('latitude: '+lat + ' longitude: ' + long);
                   
         }, function(err) {
         // error      

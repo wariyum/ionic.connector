@@ -22,7 +22,8 @@
         return {
             getShownProductId: getShownProductId,
             setShownProductId: setShownProductId,
-            getNextProductId: getNextProductId,
+            getNextProduct: getNextProduct,
+            getPreviousProduct: getPreviousProduct,
             setListProducts: setListProducts,
             isLoggedIn: isLoggedIn
         };
@@ -35,7 +36,7 @@
            shownProductId = value;
         }
 
-        function getNextProductId(currentProdId) {
+        function getPreviousProduct(currentProdId) {
             var idxProduct = lodash.findIndex(listProducts, {'id':parseInt(currentProdId)});
             if(idxProduct > 0)
             {
@@ -46,6 +47,20 @@
             }
             else{
                 ctrlUtilityService.showAlert('At the beginning of Product Series');
+            }
+        }
+
+        function getNextProduct(currentProdId) {
+            var idxProduct = lodash.findIndex(listProducts, {'id':parseInt(currentProdId)});
+            if(idxProduct < listProducts.length - 1)
+            {
+                //get the productId of the product
+                var product = listProducts[++idxProduct];
+                //display product
+                $state.go('app.single',{'productId':product.id});
+            }
+            else{
+                ctrlUtilityService.showAlert('At the end of Product Series');
             }
         }
 

@@ -23,6 +23,10 @@ function productDetailCtrl(productService, $stateParams, appService, appState,$i
     }
 
     vm.previous = function() {
-        appState.getNextProductId(vm.productId);
+        appState.getPreviousProduct(vm.productId);
+    }
+
+    vm.next = function() {
+        appState.getNextProduct(vm.productId);
     }
 }

@@ -3,10 +3,10 @@
 
 .controller('productsCtrl', productsCtrl);
 
-productsCtrl.$inject = ['productService','appService'];
+productsCtrl.$inject = ['productService','appService','appState'];
 
 
- function productsCtrl(productService,appService) {
+ function productsCtrl(productService,appService,appState) {
 
 	var vm = this;
 	vm.imageUrl = appService.getUrlImg();
@@ -15,6 +15,7 @@ productsCtrl.$inject = ['productService','appService'];
 
      productService.getProductsPublished().then(function (response) {
         vm.products = response.data.success;
+        appState.setListProducts(vm.products);
       });
     
   }

@@ -12,29 +12,46 @@
     angular.module('starter')
         .service('appState', appState);
 
-    appState.$inject = ['lodash'];
+    appState.$inject = ['lodash','$state'];
 
     var shownProductId = 0;
     var loggedUser;
-    var lists = {};
+    var listProducts;
 
-    function appState(lodash) {
+    function appState(lodash,$state) {
         return {
             getShownProductId: getShownProductId,
             setShownProductId: setShownProductId,
+            getNextProductId: getNextProductId,
+            setListProducts: setListProducts,
             isLoggedIn: isLoggedIn
         };
 
         function getShownProductId() {
-            if(shownProductId > 0)
-            {
-                shownProductId++;
-                //display product details
-            }
+            return shownProductId;
         }
 
         function setShownProductId(value) {
            shownProductId = value;
+        }
+
+        function getNextProductId(currentProdId) {
+            var idxProduct = lodash.findIndex(listProducts, {'id':parseInt(currentProdId)});
+            if(idxProduct > 0)
+            {
+                //get the productId of the product
+                var product = listProducts[--idxProduct];
+                $state.go('app.single',{'productId':product.id});
+                //display product
+            }
+            else{
+                //todo: make a toast alett would be better
+                alert('At the beginning of Product Series');
+            }
+        }
+
+        function setListProducts(products) {
+            listProducts = products;
         }
 
         function isLoggedIn(){

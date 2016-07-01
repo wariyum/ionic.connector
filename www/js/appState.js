@@ -41,11 +41,10 @@
             {
                 //get the productId of the product
                 var product = listProducts[--idxProduct];
-                $state.go('app.single',{'productId':product.id});
                 //display product
+                $state.go('app.single',{'productId':product.id});
             }
             else{
-                //todo: make a toast alett would be better
                 ctrlUtilityService.showAlert('At the beginning of Product Series');
             }
         }

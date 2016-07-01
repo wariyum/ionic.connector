@@ -17,7 +17,7 @@ function productDetailCtrl(productService, $stateParams, appService, appState,$i
 
         productService.getProductDetailsPublished(vm.productId).then(function(response) {
             vm.productDetail = response.data.success;
-            vm.productDetail.imageUrl.shift();
+            // vm.productDetail.imageUrl.shift();
             console.log('response', vm.productDetail.imageUrl);
               $ionicSlideBoxDelegate.update();
         });

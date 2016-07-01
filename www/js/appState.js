@@ -12,13 +12,13 @@
     angular.module('starter')
         .service('appState', appState);
 
-    appState.$inject = ['lodash','$state'];
+    appState.$inject = ['lodash','$state','ctrlUtilityService'];
 
     var shownProductId = 0;
     var loggedUser;
     var listProducts;
 
-    function appState(lodash,$state) {
+    function appState(lodash,$state,ctrlUtilityService) {
         return {
             getShownProductId: getShownProductId,
             setShownProductId: setShownProductId,
@@ -46,7 +46,7 @@
             }
             else{
                 //todo: make a toast alett would be better
-                alert('At the beginning of Product Series');
+                ctrlUtilityService.showAlert('At the beginning of Product Series');
             }
         }
 

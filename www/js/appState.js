@@ -26,7 +26,11 @@
         };
 
         function getShownProductId() {
-           alert(shownProductId++);
+            if(shownProductId > 0)
+            {
+                shownProductId++;
+                //display product details
+            }
         }
 
         function setShownProductId(value) {

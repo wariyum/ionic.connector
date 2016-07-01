@@ -3,16 +3,11 @@
   <div class="list">
 
     <a class="item item-avatar" ng-repeat="itm in vm.products" href="#/app/productDetails/{{itm.id}}">
-    <img src="{{vm.imageUrl + itm.imageUrl[0]}}"/>
+    <img cache-src="{{vm.imageUrl + itm.imageUrl[0]}}"/>
      
       <h2>{{itm.name}}</h2>
       <p>Pure wood(Description)</p>
     </a>
 </div>
-    <!-- <ion-list>
-      <ion-item ng-repeat="itm in vm.products" href="#/app/productDetails/{{itm.id}}">
-        {{itm.name}}
-      </ion-item>
-    </ion-list> -->
   </ion-content>
-</ion-view>z
+</ion-view>

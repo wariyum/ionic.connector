@@ -4,7 +4,7 @@
 // 'starter' is the name of this angular module example (also set in a <body> attribute in index.html)
 // the 2nd parameter is an array of 'requires'
 // 'starter.controllers' is found in controllers.js
-angular.module('starter', ['ionic', 'starter.controllers','wrConnector','ngCordova','ngLodash'])
+angular.module('starter', ['ionic', 'starter.controllers','wrConnector','ngCordova','ngLodash','ionic-cache-src'])
 
 .run(function($ionicPlatform) {
   $ionicPlatform.ready(function() {
@@ -41,8 +41,17 @@ angular.module('starter', ['ionic', 'starter.controllers','wrConnector','ngCordo
     }
   })
 
-  .state('app.browse', {
-      url: '/browse',
+  .state('app.aboutUs', {
+      url: '/aboutUs',
+      views: {
+        'menuContent': {
+          templateUrl: 'templates/aboutUs.html',
+          controller:'aboutUsCtrl as vm'
+        }
+      }
+    })
+  .state('app.test', {
+      url: '/test',
       views: {
         'menuContent': {
           templateUrl: 'templates/hardware.html',

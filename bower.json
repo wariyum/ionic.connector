@@ -7,6 +7,7 @@
   },
   "dependencies": {
     "ng.connector.services": "https://github.com/wariyum/ng.connector.service.git#v0.5",
-    "ng-lodash": "^0.5.0"
+    "ng-lodash": "^0.5.0",
+    "ionic-cache-src": "^0.7.3"
   }
 }

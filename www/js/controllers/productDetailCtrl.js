@@ -17,9 +17,7 @@ function productDetailCtrl(productService, $stateParams, appService, appState,$i
 
         productService.getProductDetailsPublished(vm.productId).then(function(response) {
             vm.productDetail = response.data.success;
-            // vm.productDetail.imageUrl.shift();
-            console.log('response', vm.productDetail.imageUrl);
-              $ionicSlideBoxDelegate.update();
+            $ionicSlideBoxDelegate.update();
         });
 
     }
@@ -28,15 +26,3 @@ function productDetailCtrl(productService, $stateParams, appService, appState,$i
         appState.getShownProductId();
     }
 }
-
-angular.module('starter')
-    .controller('CardCtrl', function($scope, TDCardDelegate) {
-        $scope.cardSwipedLeft = function(index) {
-            console.log('LEFT SWIPE');
-            $scope.addCard();
-        };
-        $scope.cardSwipedRight = function(index) {
-            console.log('RIGHT SWIPE');
-            $scope.addCard();
-        };
-    });

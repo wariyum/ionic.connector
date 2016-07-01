@@ -5,7 +5,7 @@
                 <h1>{{vm.productDetail.name}}</h1>
             </div>
             <ion-slide-box on-slide-changed="slideChanged(index)">
-                <ion-slide ng-repeat="itm in vm.productDetail.imageUrl">
+                <ion-slide ng-repeat="itm in vm.productDetail.imageUrl track by $index">
                   
                     <div id="logo">
                         <img style="width:80%" cache-src="{{vm.imgUrl + itm}}">

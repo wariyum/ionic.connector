@@ -86,6 +86,15 @@ angular.module('starter', ['ionic', 'starter.controllers','wrConnector','ngCordo
         }
       }
     })
+    .state('app.userRegister', {
+      url: '/userRegister',
+      views: {
+        'menuContent': {
+          templateUrl: 'templates/userRegister.html',
+          controller: 'userRegisterCtrl as vm'
+        }
+      }
+    })
 
   .state('app.single', {
     url: '/productDetails/:productId',

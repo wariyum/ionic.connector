@@ -18,6 +18,7 @@
     var loggedUser;
     var listProducts;
     var checkedOutProductIds = [];
+    var lastUrl;
 
     function appState(lodash,$state,ctrlUtilityService) {
         return {
@@ -26,6 +27,8 @@
             getNextProduct: getNextProduct,
             getPreviousProduct: getPreviousProduct,
             setListProducts: setListProducts,
+            registerUser: registerUser,
+            login: login,
             checkout: checkout,
             isLoggedIn: isLoggedIn
         };
@@ -74,10 +77,26 @@
             //check logged in status
             if(loggedUser === undefined)
             {
+                alert('lastUrl');
+                //set lastUrl
+                lastUrl = 'app.checkout'
+
             //if not logged in take user to login page
                 $state.go('app.login');
             }
 
+        }
+
+        function registerUser(register) {
+            //TODO: register user
+            //set logged-In user
+             loggedUser = register;
+             //redirect to checkout page
+             $state.go(lastUrl);
+        }
+
+        function login(user) {
+           
         }
 
         function isLoggedIn(){

@@ -3,12 +3,12 @@
 
 .controller('loginCtrl', loginCtrl);
 
-loginCtrl.$inject = [];
+loginCtrl.$inject = ['$state'];
 
-function loginCtrl() {
+function loginCtrl($state) {
 	var vm = this;
 
 	vm.registration = function() {
-		alert('TODO registration form');
+		$state.go('app.userRegister');
 	}
 }

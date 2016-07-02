@@ -29,4 +29,8 @@ function productDetailCtrl(productService, $stateParams, appService, appState,$i
     vm.next = function() {
         appState.getNextProduct(vm.productId);
     }
+
+    vm.checkout = function() {
+      appState.checkout(vm.productId);
+    }
 }

@@ -17,6 +17,7 @@
     var shownProductId = 0;
     var loggedUser;
     var listProducts;
+    var checkedOutProductIds = [];
 
     function appState(lodash,$state,ctrlUtilityService) {
         return {
@@ -25,6 +26,7 @@
             getNextProduct: getNextProduct,
             getPreviousProduct: getPreviousProduct,
             setListProducts: setListProducts,
+            checkout: checkout,
             isLoggedIn: isLoggedIn
         };
 
@@ -66,6 +68,16 @@
 
         function setListProducts(products) {
             listProducts = products;
+        }
+
+        function checkout(productId) {
+            //check logged in status
+            if(loggedUser === undefined)
+            {
+            //if not logged in take user to login page
+                $state.go('app.login');
+            }
+
         }
 
         function isLoggedIn(){

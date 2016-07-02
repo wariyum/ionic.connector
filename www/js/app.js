@@ -68,6 +68,24 @@ angular.module('starter', ['ionic', 'starter.controllers','wrConnector','ngCordo
         }
       }
     })
+    .state('app.login', {
+      url: '/login',
+      views: {
+        'menuContent': {
+          templateUrl: 'templates/login.html',
+          controller: 'loginCtrl as vm'
+        }
+      }
+    })
+    .state('app.checkout', {
+      url: '/checkout',
+      views: {
+        'menuContent': {
+          templateUrl: 'templates/checkout.html',
+          controller: 'checkoutCtrl as vm'
+        }
+      }
+    })
 
   .state('app.single', {
     url: '/productDetails/:productId',

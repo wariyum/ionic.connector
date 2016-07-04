@@ -31,6 +31,6 @@ function productDetailCtrl(productService, $stateParams, appService, appState,$i
     }
 
     vm.checkout = function() {
-      appState.checkout(vm.productId);
+      appState.checkout(vm.productDetail);
     }
 }

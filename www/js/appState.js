@@ -15,9 +15,10 @@
     appState.$inject = ['lodash','$state','ctrlUtilityService'];
 
     var shownProductId = 0;
-    var loggedUser;
+    var loggedUser = {};
     var listProducts;
-    var checkedOutProductIds = [];
+    var checkedOutProducts = [];
+    var likedProductIds = [];
     var lastUrl;
 
     function appState(lodash,$state,ctrlUtilityService) {
@@ -30,8 +31,13 @@
             registerUser: registerUser,
             login: login,
             checkout: checkout,
+            getCheckedOutProducts:getCheckedOutProducts,
             isLoggedIn: isLoggedIn
         };
+
+        function getCheckedOutProducts() {
+            return checkedOutProducts;
+        }
 
         function getShownProductId() {
             return shownProductId;
@@ -73,17 +79,24 @@
             listProducts = products;
         }
 
-        function checkout(productId) {
+        function checkout(product) {
+
+            var tmpObj = {};
+            tmpObj.id = product.id;
+            tmpObj.product = product;
+            tmpObj.qty = 1;
+            checkedOutProducts.push(tmpObj);
             //check logged in status
             if(loggedUser === undefined)
             {
-                alert('lastUrl');
                 //set lastUrl
                 lastUrl = 'app.checkout'
 
-            //if not logged in take user to login page
+                //if not logged in take user to login page
                 $state.go('app.login');
             }
+            else
+                $state.go('app.checkout');
 
         }
 

@@ -4,14 +4,28 @@
             <a class="item item-avatar" ng-repeat="itm in vm.productsCheckedOut track by $index">
                 <img cache-src="{{vm.imgUrl + itm.product.imageUrl[0]}}" />
                 <h2>{{itm.product.name}}</h2>
-                <p>Pure wood(Description)</p>
+                <div class="row">
+                    <div class="col">
+                    </div>
+                </div>
+                <div class="row">
+                    <p>Pure wood(Description)</p>
+                </div>
                 <div class="row row-center">
-                    <div class="col col-center">
-                        <button class="button button-stable" ng-click="vm.incrementQty(itm.id)">+</button>
-                        <span class="label" style="vertical-align: middle;">
-       	{{itm.qty}}
-       </span>
-                        <button class="button button-stable" ng-click="vm.decrementQty(itm.id)">-</button>
+                    <div class="col">
+                        <button class="button button-icon icon ion-plus-round" ng-click="vm.incrementQty(itm.id)"></button>
+                    </div>
+                    <div class="col">
+                        <span class="label" >{{itm.qty}}</span>
+       				</div>
+       				<div class="col">
+                        <button class="button button-icon icon ion-minus" ng-click="vm.decrementQty(itm.id)"></button>
+                    </div>
+                    <div class="col">
+                    	<button class="button button-icon icon ion-eye" ng-click="vm.showProduct(itm.id)"></button>
+                    </div>
+                    <div class="col">
+                    	<button class="button button-icon icon ion-trash-a" ng-click="vm.removeProduct(itm.id)"></button>
                     </div>
                 </div>
             </a>

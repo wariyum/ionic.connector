@@ -32,8 +32,21 @@
             login: login,
             checkout: checkout,
             getCheckedOutProducts:getCheckedOutProducts,
-            isLoggedIn: isLoggedIn
+            isLoggedIn: isLoggedIn,
+            addSubProductQty: addSubProductQty,
+            getProductFromCheckout: getProductFromCheckout
         };
+
+        function getProductFromCheckout(productId) {
+             return lodash.filter(checkedOutProducts, { 'id': productId });
+       
+        }
+
+        function addSubProductQty(productId,qty) {
+            // get checkedOutProduct
+            var prodSelected = this.getProductFromCheckout(productId)[0];
+            prodSelected.qty = prodSelected.qty + qty;
+        }
 
         function getCheckedOutProducts() {
             return checkedOutProducts;

@@ -11,9 +11,12 @@ function checkoutCtrl(appState,appService) {
 
 	vm.productsCheckedOut = appState.getCheckedOutProducts();
 
-	vm.incrementQty = function(value){
-		
-		alert(value);
+	vm.incrementQty = function(productId){
+		appState.addSubProductQty(productId,1);
+	};
+
+	vm.decrementQty = function(productId){
+		appState.addSubProductQty(productId,-1);
 	};
 
 	vm.checkout = function() {

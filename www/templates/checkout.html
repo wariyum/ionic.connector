@@ -1,32 +1,31 @@
 <ion-view view-title="Checkout" ng-init="vm.init()">
-  <ion-content>
-  <div class="list">
-
-    <a class="item item-avatar" ng-repeat="itm in vm.productsCheckedOut track by $index" >
-    <img cache-src="{{vm.imageUrl + itm.product.imageUrl[0]}}"/>
-   
-     
-      <h2>{{itm.product.name}}</h2>
-      <p>Pure wood(Description)</p>
-      
-
-       <div class="row row-center">
-      <div class="col col-center">
-         <button class="button button-stable" ng-click="vm.incrementQty(itm.id)">+</button>
-       <span class="label" style="vertical-align: middle;">
+    <ion-content>
+        <div class="list">
+            <a class="item item-avatar" ng-repeat="itm in vm.productsCheckedOut track by $index">
+                <img cache-src="{{vm.imgUrl + itm.product.imageUrl[0]}}" />
+                <h2>{{itm.product.name}}</h2>
+                <p>Pure wood(Description)</p>
+                <div class="row row-center">
+                    <div class="col col-center">
+                        <button class="button button-stable" ng-click="vm.incrementQty(itm.id)">+</button>
+                        <span class="label" style="vertical-align: middle;">
        	{{itm.qty}}
        </span>
-       <button class="button button-stable" ng-click="vm.decrementQty(itm.id)">-</button>
-      </div>
+                        <button class="button button-stable" ng-click="vm.decrementQty(itm.id)">-</button>
+                    </div>
+                </div>
+            </a>
+        </div>
+    </ion-content>
+    <!-- footer starts here -->
+    <div class="bar bar-subfooter bar-balanced auto-height">
+        <div class="row">
+            <h5>Total Billed Amount: AED 2,000 (for 3 items)</h5>
+        </div>
     </div>
-       </a>
-
-   
-</div>
-  </ion-content>
-  <div class="bar bar-footer">
-  <div class="title">
-       <button class="button button-stable" ng-click="vm.checkout()">Proceed with Checkout</button>
-  </div>
-</div>
+    <div class="bar bar-footer row">
+        <div class="col col-center">
+            <button class="button button-stable" ng-click="vm.checkout()">Proceed with Checkout</button>
+        </div>
+    </div>
 </ion-view>

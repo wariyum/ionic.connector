@@ -125,7 +125,6 @@
             {
                 //set lastUrl
                 lastUrl = 'app.checkout'
-
                 //if not logged in take user to login page
                 $state.go('app.login');
             }

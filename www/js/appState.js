@@ -34,9 +34,19 @@
             getCheckedOutProducts:getCheckedOutProducts,
             isLoggedIn: isLoggedIn,
             addSubProductQty: addSubProductQty,
-            getProductFromCheckout: getProductFromCheckout
+            getProductFromCheckout: getProductFromCheckout,
+            getProductIndexFromCheckout: getProductIndexFromCheckout,
+            removeProductFromCheckout: removeProductFromCheckout
         };
 
+        function getProductIndexFromCheckout(productId) {
+            return lodash.findIndex(listProducts, {'id':parseInt(productId)});
+        }
+
+        function removeProductFromCheckout(productId) {
+            var idxProduct = getProductIndexFromCheckout(productId);
+            checkedOutProducts.splice(idxProduct,1);
+        }
         function getProductFromCheckout(productId) {
              return lodash.filter(checkedOutProducts, { 'id': productId });
        
@@ -61,7 +71,7 @@
         }
 
         function getPreviousProduct(currentProdId) {
-            var idxProduct = lodash.findIndex(listProducts, {'id':parseInt(currentProdId)});
+            var idxProduct = getProductIndexFromCheckout(currentProdId);
             if(idxProduct > 0)
             {
                 //get the productId of the product
@@ -75,7 +85,7 @@
         }
 
         function getNextProduct(currentProdId) {
-            var idxProduct = lodash.findIndex(listProducts, {'id':parseInt(currentProdId)});
+            var idxProduct = getProductIndexFromCheckout(currentProdId);
             if(idxProduct < listProducts.length - 1)
             {
                 //get the productId of the product
@@ -94,11 +104,22 @@
 
         function checkout(product) {
 
+            //check product exist in the checkout array
+            //-get index of product
+            var idxProduct = this.getProductIndexFromCheckout(product.id);
+            var replaceIndex = 1;
+            //manage -1 scenario
+            if(idxProduct < 0)
+            {
+                idxProduct = 0;
+                replaceIndex = 0;
+            }
+
             var tmpObj = {};
             tmpObj.id = product.id;
             tmpObj.product = product;
             tmpObj.qty = 1;
-            checkedOutProducts.push(tmpObj);
+            checkedOutProducts.splice(idxProduct,replaceIndex,tmpObj);
             //check logged in status
             if(loggedUser === undefined)
             {

@@ -1,11 +1,17 @@
+<style type="text/css">
+	#map {
+  width: 100%;
+  height: 100%;
+}
+.scroll {
+  height: 100%;
+}
+</style>
+<script src="//maps.googleapis.com/maps/api/js?key=AIzaSyB9O1JPDX2jOsI9L05QL_D1_zYSkzh3mYI=true"></script>
 <ion-view view-title="About US">
   <ion-content>
    <img class="full-image" src="https://image.freepik.com/free-vector/logo-business-name_355-559.jpg"/>
-   <div class="card">
-  <div class="item item-text-wrap">
-  for map
-  </div>
-  </div>
+   
   <div class="card">
   <div class="item item-text-wrap">
   <div class="list">
@@ -22,6 +28,12 @@
       <i class="icon ion-ios-email"></i>
     </button>
   </div>
+  <div class="item item-button-right">
+  View on Map  <!--https://www.google.co.in/maps/@24.8985987,55.361881,10z-->
+  <button class="button button-positive">
+      <i class="icon ion-map"></i>
+    </button>
+  </div>
 
 </div>
   </div>
@@ -36,3 +48,64 @@ Our products are designed with an eye on the UAE usage conditions. We keep in mi
 </div>
   </ion-content>
 </ion-view>
+<script type="text/javascript">
+	angular.module('ionic.example', ['ionic'])
+
+    .controller('MapCtrl', function($scope, $ionicLoading, $compile) {
+      function initialize() {
+        var myLatlng = new google.maps.LatLng(43.07493,-89.381388);
+        
+        var mapOptions = {
+          center: myLatlng,
+          zoom: 16,
+          mapTypeId: google.maps.MapTypeId.ROADMAP
+        };
+        var map = new google.maps.Map(document.getElementById("map"),
+            mapOptions);
+        
+        //Marker + infowindow + angularjs compiled ng-click
+        var contentString = "<div><a ng-click='clickTest()'>Click me!</a></div>";
+        var compiled = $compile(contentString)($scope);
+
+        var infowindow = new google.maps.InfoWindow({
+          content: compiled[0]
+        });
+
+        var marker = new google.maps.Marker({
+          position: myLatlng,
+          map: map,
+          title: 'Uluru (Ayers Rock)'
+        });
+
+        google.maps.event.addListener(marker, 'click', function() {
+          infowindow.open(map,marker);
+        });
+
+        $scope.map = map;
+      }
+      google.maps.event.addDomListener(window, 'load', initialize);
+      
+      $scope.centerOnMe = function() {
+        if(!$scope.map) {
+          return;
+        }
+
+        $scope.loading = $ionicLoading.show({
+          content: 'Getting current location...',
+          showBackdrop: false
+        });
+
+        navigator.geolocation.getCurrentPosition(function(pos) {
+          $scope.map.setCenter(new google.maps.LatLng(pos.coords.latitude, pos.coords.longitude));
+          $scope.loading.hide();
+        }, function(error) {
+          alert('Unable to get location: ' + error.message);
+        });
+      };
+      
+      $scope.clickTest = function() {
+        alert('Example of infowindow with ng-click')
+      };
+      
+    });
+</script>

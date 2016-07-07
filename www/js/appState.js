@@ -36,8 +36,13 @@
             addSubProductQty: addSubProductQty,
             getProductFromCheckout: getProductFromCheckout,
             getProductIndexFromCheckout: getProductIndexFromCheckout,
+            getProductIndexFromProduct : getProductIndexFromProduct,
             removeProductFromCheckout: removeProductFromCheckout
         };
+
+        function getProductIndexFromProduct(productId) {
+            return lodash.findIndex(listProducts, {'id':parseInt(productId)});
+        }
 
         function getProductIndexFromCheckout(productId) {
             return lodash.findIndex(checkedOutProducts, {'id':parseInt(productId)});
@@ -71,7 +76,7 @@
         }
 
         function getPreviousProduct(currentProdId) {
-            var idxProduct = getProductIndexFromCheckout(currentProdId);
+            var idxProduct = getProductIndexFromProduct(currentProdId);
             if(idxProduct > 0)
             {
                 //get the productId of the product
@@ -85,7 +90,7 @@
         }
 
         function getNextProduct(currentProdId) {
-            var idxProduct = getProductIndexFromCheckout(currentProdId);
+            var idxProduct = getProductIndexFromProduct(currentProdId);
             if(idxProduct < listProducts.length - 1)
             {
                 //get the productId of the product
@@ -124,9 +129,9 @@
             {
                 //for exisitng product move that to first
                 //-first remove it
-                var b = checkedOutProducts[idxProduct];
+                var tmpCheckOutProduct = checkedOutProducts[idxProduct];
                 checkedOutProducts[idxProduct] = checkedOutProducts[0];
-                checkedOutProducts[0] = b;
+                checkedOutProducts[0] = tmpCheckOutProduct;
             }
 
          

@@ -108,7 +108,6 @@
             //-get index of product
             var idxProduct = this.getProductIndexFromCheckout(product.id);
             var replaceIndex = 1;
-            debugger;
             //manage -1 scenario
             if(idxProduct < 0)
             {

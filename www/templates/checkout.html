@@ -2,7 +2,7 @@
     <ion-content>
         <div class="list">
             <a class="item item-avatar" ng-repeat="itm in vm.productsCheckedOut track by $index">
-                <img cache-src="{{vm.imgUrl + itm.product.imageUrl[0]}}" />
+                <img src="{{vm.imgUrl + itm.product.imageUrl[0]}}" />
                 <h2>{{itm.product.name}}</h2>
                 <div class="row">
                     <div class="col">

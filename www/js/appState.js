@@ -40,7 +40,7 @@
         };
 
         function getProductIndexFromCheckout(productId) {
-            return lodash.findIndex(listProducts, {'id':parseInt(productId)});
+            return lodash.findIndex(checkedOutProducts, {'id':parseInt(productId)});
         }
 
         function removeProductFromCheckout(productId) {
@@ -108,18 +108,29 @@
             //-get index of product
             var idxProduct = this.getProductIndexFromCheckout(product.id);
             var replaceIndex = 1;
+            debugger;
             //manage -1 scenario
             if(idxProduct < 0)
             {
                 idxProduct = 0;
                 replaceIndex = 0;
+                var tmpObj = {};
+                tmpObj.id = product.id;
+                tmpObj.product = product;
+                tmpObj.qty = 1;
+                checkedOutProducts.splice(idxProduct,replaceIndex,tmpObj);
             }
 
-            var tmpObj = {};
-            tmpObj.id = product.id;
-            tmpObj.product = product;
-            tmpObj.qty = 1;
-            checkedOutProducts.splice(idxProduct,replaceIndex,tmpObj);
+            else if(idxProduct > 0)
+            {
+                //for exisitng product move that to first
+                //-first remove it
+                var b = checkedOutProducts[idxProduct];
+                checkedOutProducts[idxProduct] = checkedOutProducts[0];
+                checkedOutProducts[0] = b;
+            }
+
+         
             //check logged in status
             if(loggedUser === undefined)
             {

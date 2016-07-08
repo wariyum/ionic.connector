@@ -95,6 +95,15 @@ angular.module('starter', ['ionic', 'starter.controllers','wrConnector','ngCordo
         }
       }
     })
+    .state('app.shippingInfo', {
+      url: '/shippingInfo',
+      views: {
+        'menuContent': {
+          templateUrl: 'templates/shippingInfo.html',
+          controller: 'shippingInfoCtrl as vm'
+        }
+      }
+    })
 
   .state('app.single', {
     url: '/productDetails/:productId',

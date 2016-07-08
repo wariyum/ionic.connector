@@ -31,6 +31,6 @@ function checkoutCtrl(appState,appService,$state) {
 	};
 
 	vm.checkout = function() {
-		
+		$state.go('app.shippingInfo');
 	};
 }

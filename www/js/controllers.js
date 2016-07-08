@@ -1,5 +1,18 @@
-angular.module('starter.controllers', [])
+angular.module('starter')
 
-.controller('AppCtrl', function($scope, $ionicModal, $timeout) {
+.controller('appCtrl', appCtrl);
 
-});
+function appCtrl() {
+appCtrl.$inject = ['productService'];
+
+
+function appCtrl(productService) {
+  var vm = this;
+alert('hia');
+  vm.init = init;
+
+  function init() {
+    alert('init');
+  }
+}
+}

@@ -20,6 +20,7 @@
     var checkedOutProducts = [];
     var likedProductIds = [];
     var lastUrl;
+    var likedProducts = [];
 
     function appState(lodash,$state,ctrlUtilityService) {
         return {
@@ -37,8 +38,23 @@
             getProductFromCheckout: getProductFromCheckout,
             getProductIndexFromCheckout: getProductIndexFromCheckout,
             getProductIndexFromProduct : getProductIndexFromProduct,
-            removeProductFromCheckout: removeProductFromCheckout
+            removeProductFromCheckout: removeProductFromCheckout,
+            addLikedProduct: addLikedProduct,
+            getIndexOfLikedProduct: getIndexOfLikedProduct
         };
+
+        function getIndexOfLikedProduct(productId) {
+            // return lodash.findIndex(likedProducts,productId);
+            return likedProducts.findIndex(function(o){return o == productId})
+        }
+
+        function addLikedProduct(productId) {
+            var idxLikedProd = getIndexOfLikedProduct(productId);
+            if(idxLikedProd === -1)
+            {
+                likedProducts.push(productId);
+            }
+        }
 
         function getProductIndexFromProduct(productId) {
             return lodash.findIndex(listProducts, {'id':parseInt(productId)});

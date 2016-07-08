@@ -12,6 +12,7 @@ function productDetailCtrl(productService, $stateParams, appService, appState,$i
     vm.init = function() {
 
         vm.productId = $stateParams.productId;
+        vm.liked = false;
         vm.imgUrl = appService.getUrlImg() + appService.getProgId() + '/';
 
 
@@ -19,6 +20,13 @@ function productDetailCtrl(productService, $stateParams, appService, appState,$i
             vm.productDetail = response.data.success;
             $ionicSlideBoxDelegate.update();
         });
+
+
+        var tmp = appState.getIndexOfLikedProduct(vm.productId);
+        if(tmp > 0)
+        {
+            vm.liked = true;
+        }
 
     }
 
@@ -32,5 +40,10 @@ function productDetailCtrl(productService, $stateParams, appService, appState,$i
 
     vm.checkout = function() {
       appState.checkout(vm.productDetail);
+    }
+
+    vm.addToLike = function(argument) {
+        appState.addLikedProduct(vm.productId);
+        vm.liked = true;
     }
 }

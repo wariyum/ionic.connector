@@ -3,14 +3,14 @@
 
 .controller('userRegisterCtrl', userRegisterCtrl);
 
-userRegisterCtrl.$inject = ['appState'];
+userRegisterCtrl.$inject = ['appState','ctrlUtilityService'];
 
-function userRegisterCtrl(appState) {
+function userRegisterCtrl(appState,ctrlUtilityService) {
 	var vm = this;
 	vm.userReg = {};
 
 	vm.registerUser = function() {
 		appState.registerUser(vm.userReg);
-		
+		ctrlUtilityService.showAlert('User Registration Successful');
 	}
 }

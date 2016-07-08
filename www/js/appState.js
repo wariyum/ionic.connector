@@ -153,7 +153,10 @@
             //set logged-In user
              loggedUser = register;
              //redirect to checkout page
-             $state.go(lastUrl);
+             if(this.lastUrl != undefined)
+             {
+                $state.go(lastUrl);
+            }
         }
 
         function login(user) {

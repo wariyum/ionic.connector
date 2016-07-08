@@ -152,6 +152,7 @@
             //TODO: register user
             //set logged-In user
              loggedUser = register;
+             
              //redirect to checkout page
              if(this.lastUrl != undefined)
              {

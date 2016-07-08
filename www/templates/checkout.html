@@ -34,13 +34,28 @@
     <!-- footer starts here -->
     <div class="bar bar-subfooter bar-balanced auto-height">
         <div class="row">
-            <h5>Total Billed Amount: AED 2,000 (for 3 items)</h5>
+            <p style="color:#000">Total Billed Amount: AED 2,000 (for 3 items)</p>
         </div>
     </div>
-     <div class="bar bar-footer row">
-    
-        <div class="col col-center">
+   <!--  <div class="bar bar-footer bar-balanced">
+  <button class="button button-clear">Left</button>
+    <button class="button button-full button-stable" ng-click="vm.checkout()">Proceed with Checkout</button>
+  <button class="button button-clear">Right</button>
+</div> -->
+
+<div class="bar bar-footer bar-positive footer-button">
+        <button style="margin:0" class="button button-full button-positive" ng-click="vm.checkout()">
+  Proceed with Checkout
+</button>
+    </div>
+   <!--  <div class="bar bar-footer bar-balanced">
+  <div class="title">Footer</div>
+  <div class="col col-center">
             <button class="button button-full button-stable" ng-click="vm.checkout()">Proceed with Checkout</button>
         </div>
-    </div>
+</div> -->
+     <!-- <div class="bar bar-footer row">
+    
+        
+    </div> -->
 </ion-view>

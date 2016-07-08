@@ -1,5 +1,116 @@
-<h1>Shipping info</h1>
 
+<ion-view view-title="Shipping info" >
+<ion-content>
+<div class="list">
+<div class="item item-divider">
+    Shipping info
+  </div>
+  <label class="item item-input item-select">
+    <div class="input-label">
+      Mode of Payment
+    </div>
+    <select>
+      <option selected>Cash On Delivary - COD</option>
+      <option>Credit Card</option>
+      <option>Paypal</option>
+    </select>
+  </label>
+  <ion-checkbox ng-model="filter.red">Shipping & Billing address same</ion-checkbox>
+ 
+
+  <!--  <div class="item item-input-inset">
+      <div class="input-label">
+      <select id="tag1">
+      <option>Mr</option>
+      <option selected>Mrs</option>
+      </select>
+      </div><input type="text">
+    
+  </div> 
+     -->
+  <!-- <ion-list>
+    <div class="item-input-inset">
+    <label class="item item-input item-select">
+    <div class="input-label">
+      Title
+    </div>
+    <select>
+      <option selected>Mr</option>
+      <option>Mrs</option>
+    </select>
+  </label>
+      <div>
+        <label class="item item-input">
+          <input placeholder="Identificación" name="identificacion" type="text">
+        </label>
+      </div>
+      
+    </div>
+  </ion-list> -->
+
+
+<div class="item item-divider">
+    Shipping Address
+  </div>
+  <div class="card">
+  <div class="item item-divider">
+    Title
+  <div class="item item-text-wrap">
+  <div class="button-bar">
+            <a class="button" ng-class="{'button-positive': isActive('breakfast')}" ng-click="setActive('breakfast')">Mr</a>
+            <a class="button" ng-class="{'button-positive': isActive('lunch')}" ng-click="setActive('lunch')">Mrs</a>
+        </div>
+    <!-- <label><input type="radio" name="meaningless" value="1"  />
+    &nbsp;<span >Mr</span></label>
+    <label><input type="radio" name="meaningless" value="1"  />
+    &nbsp;<span >Mrs</span></label> -->
+  </div>
+</div>
+ 
+    <label class="item item-input">
+    <input type="text" placeholder="First Name">
+  </label>
+  <label class="item item-input">
+    <input type="text" placeholder="Last Name">
+  </label>
+  <label class="item item-input">
+  <input type="number" placeholder="Mobile Number">
+</label>
+<label class="item item-input">
+  <input type="number" placeholder="Landline">
+</label>
+
+<label class="item item-input">
+    <input type="text" placeholder="Street Address 1">
+  </label>
+<label class="item item-input">
+    <input type="text" placeholder="Street Address 2">
+  </label>
+<label class="item item-input">
+    <input type="text" placeholder="City">
+  </label>
+<label class="item item-input">
+    <input type="text" placeholder="State">
+  </label>
+<label class="item item-input">
+    <input type="text" placeholder="Country">
+  </label>
+<label class="item item-input">
+  <input type="number" placeholder="Post Box">
+  </label>
+
+<div class="item item-divider">
+    Billing Address
+  </div>
+
+</div>
+
+
+
+
+
+
+<!-- <h1>Shipping info</h1>
 <h2>Mode of Payment </h2>
 <ul>
 <li>Cash On Delivary - COD</li>
@@ -24,4 +135,7 @@
 <h2>City</h2>
 <h2>State</h2>
 <h2>Country</h2>
-<h2>Post Box</h2>
+<h2>Post Box</h2> -->
+
+</ion-content>
+</ion-view>

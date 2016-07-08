@@ -25,10 +25,11 @@ body {
   margin: 30px 0px;
 }
 
-[nav-bar-transition="ios"] [nav-bar="active"] .bar,
+
+/*[nav-bar-transition="ios"] [nav-bar="active"] .bar,
 [nav-bar-transition="ios"] [nav-bar="entering"] .bar {
     background: rgba(40, 195, 152, 0.82);
-}
+}*/
 
 #logo {
     margin: 30px 0px;

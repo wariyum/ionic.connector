@@ -53,23 +53,51 @@
     Shipping Address
   </div>
   <div class="card">
-  <div class="item item-divider">
+  <!-- <div class="item item-divider">
     Title
   <div class="item item-text-wrap">
   <div class="button-bar">
             <a class="button" ng-class="{'button-positive': isActive('breakfast')}" ng-click="setActive('breakfast')">Mr</a>
             <a class="button" ng-class="{'button-positive': isActive('lunch')}" ng-click="setActive('lunch')">Mrs</a>
         </div>
-    <!-- <label><input type="radio" name="meaningless" value="1"  />
-    &nbsp;<span >Mr</span></label>
-    <label><input type="radio" name="meaningless" value="1"  />
-    &nbsp;<span >Mrs</span></label> -->
   </div>
-</div>
- 
+</div> -->
+ <label class="item item-input item-select">
+    <div class="input-label">
+    Title
+    </div>
+    <select>
+      <option selected>Mr</option>
+      <option>Mrs</option>
+    </select>
+  </label>
+
+
     <label class="item item-input">
     <input type="text" placeholder="First Name">
   </label>
+<!--ANOTHER TYPE-->
+
+<div class="row">
+  <div class="col">
+  <label class="item item-input item-select">
+    <div class="input-label">
+    Title
+    </div>
+    <select>
+      <option selected>Mr</option>
+      <option>Mrs</option>
+    </select>
+  </label>
+  </div>
+  <div class="col">
+   <label class="item item-input">
+    <input type="text" placeholder="First Name">
+  </label>
+  </div>
+</div>
+
+<!--END-->
   <label class="item item-input">
     <input type="text" placeholder="Last Name">
   </label>

@@ -2,17 +2,16 @@ angular.module('starter')
 
 .controller('appCtrl', appCtrl);
 
-function appCtrl() {
-appCtrl.$inject = ['productService'];
+appCtrl.$inject = ['categoryService','appService'];
 
-
-function appCtrl(productService) {
+function appCtrl(categoryService,appService) {
   var vm = this;
-alert('hia');
   vm.init = init;
 
   function init() {
-    alert('init');
+
+    categoryService.getCategories(appService.getProgId()).then(function(response) {
+            vm.categories = response.data.success;
+        });
   }
-}
 }

@@ -28,8 +28,7 @@ angular.module('starter', ['ionic','wrConnector','ngCordova','ngLodash','ionic-c
     .state('app', {
     url: '/app',
     abstract: true,
-    templateUrl: 'templates/menu.html',
-    controller: 'appCtrl as vm'
+    templateUrl: 'templates/menu.html'
   })
 
   .state('app.search', {
@@ -60,7 +59,7 @@ angular.module('starter', ['ionic','wrConnector','ngCordova','ngLodash','ionic-c
       }
     })
     .state('app.products', {
-      url: '/products',
+      url: '/products/:categoryId',
       views: {
         'menuContent': {
           templateUrl: 'templates/productLists.html',

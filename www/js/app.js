@@ -35,7 +35,8 @@ angular.module('starter', ['ionic','wrConnector','ngCordova','ngLodash','ionic-c
     url: '/search',
     views: {
       'menuContent': {
-        templateUrl: 'templates/search.html'
+        templateUrl: 'templates/search.html',
+        controller:'searchCtrl as vm'
       }
     }
   })

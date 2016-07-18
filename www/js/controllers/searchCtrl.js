@@ -2,13 +2,17 @@
 
 .controller('searchCtrl', searchCtrl);
 
-searchCtrl.$inject =[];
+searchCtrl.$inject =['searchService'];
 
-function searchCtrl() {
+function searchCtrl(searchService) {
 	var vm = this;
 	vm.search = search;
 
 	function search() {
-		alert(vm.searchText);
+		//call search service
+		searchService.searchProducts(vm.searchText).then(function (response){
+			vm.products = response.data.success;
+			alert(vm.products);
+		});
 	}
 }

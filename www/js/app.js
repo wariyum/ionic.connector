@@ -104,6 +104,15 @@ angular.module('starter', ['ionic','wrConnector','ngCordova','ngLodash','ionic-c
         }
       }
     })
+    .state('app.demo', {
+      url: '/demo',
+      views: {
+        'menuContent': {
+          templateUrl: 'templates/demo.html',
+          controller: 'demoCtrl as vm'
+        }
+      }
+    })
 
   .state('app.single', {
     url: '/productDetails/:productId',

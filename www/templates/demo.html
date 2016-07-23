@@ -1,8 +1,7 @@
-<ion-view view-title="Demo">
+<!--<ion-view view-title="Demo">
   <ion-content>
   <div class="list card">
   	<div class="item ">
-    <!-- <img src="avatar.jpg"> -->
     <h2>Choose Your Business-Demo</h2>
   </div>
   	<div class="item item-text-wrap">
@@ -19,4 +18,59 @@
 </div>
 </div>
 </ion-content>
+</ion-view>-->
+<ion-view view-title="Demo" class="list pane">
+
+<ion-slide-box on-slide-changed="slideHasChanged($index)">
+  <ion-slide>
+    <div class="box blue"><img src="img/1.jpg" width="100%"></div>
+  </ion-slide>
+  <ion-slide>
+    <div class="box yellow"><img src="img/2.jpg" width="100%"></div>
+  </ion-slide>
+  <ion-slide>
+    <div class="box pink"><img src="img/3.jpg" width="100%"></div>
+  </ion-slide>
+</ion-slide-box>
+<!-- <img src="http://tutorialsplane.com/wp-content/uploads/2016/02/1511516_1035103706511033_695479665952545706_n.jpg" width="100%"> -->
+    <ion-content class="demopage">
+  
+</ion-content>
+<button class="button button-full button-royal" style="margin-top: 0;">
+  Choose Your Business-Demo
+</button>
+<div class="list card">
+    <!-- <div class="item ">
+    <h2>Choose Your Business-Demo</h2>
+  </div> -->
+
+    <div class="item item-text-wrap">
+
+<button class="button button-full button-positive">
+  Furniture
+</button>
+<button class="button button-full button-positive">
+  Super market
+</button>
+<button class="button button-full button-positive">
+  Jewellery
+</button>
+</div>
+</div>
 </ion-view>
+ 
+<style type="text/css">
+/*.pane{
+background:url('http://tutorialsplane.com/wp-content/uploads/2016/02/1511516_1035103706511033_695479665952545706_n.jpg') no-repeat center center fixed; 
+        -webkit-background-size: 30%;
+        -moz-background-size: 30%;
+        background-size: 30%;
+}*/
+.demopage{
+  margin-top: 30%;
+}
+.slider {
+  height: 30%;
+}
+
+</style>

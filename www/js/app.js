@@ -124,5 +124,5 @@ angular.module('starter', ['ionic','wrConnector','ngCordova','ngLodash','ionic-c
     }
   });
   // if none of the above states are matched, use this as the fallback
-  $urlRouterProvider.otherwise('/app/products/0');
+  $urlRouterProvider.otherwise('/app/demo');
 });

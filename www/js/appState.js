@@ -40,8 +40,16 @@
             getProductIndexFromProduct : getProductIndexFromProduct,
             removeProductFromCheckout: removeProductFromCheckout,
             addLikedProduct: addLikedProduct,
-            getIndexOfLikedProduct: getIndexOfLikedProduct
+            getIndexOfLikedProduct: getIndexOfLikedProduct,
+            getCheckedOutProductSummary: getCheckedOutProductSummary
         };
+
+        function getCheckedOutProductSummary() {
+            var summary = {}
+            summary.price = lodash.sumBy(checkedOutProducts, function(o) { return (o.product.unitPrice * o.qty); });
+            summary.count = checkedOutProducts.length;
+            return summary;
+        }
 
         function getIndexOfLikedProduct(productId) {
             // return lodash.findIndex(likedProducts,productId);

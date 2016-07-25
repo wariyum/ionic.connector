@@ -18,8 +18,13 @@
         return {
             getUrl: getUrl,
             getUrlImg:getUrlImg,
-            getProgId:getProgId
+            getProgId:getProgId,
+            setProgId:setProgId
         };
+
+        function setProgId(progId) {
+            appConstants.prog_id = progId;
+        }
 
         function getUrl() {
             if(appConstants.mode === 'dev')

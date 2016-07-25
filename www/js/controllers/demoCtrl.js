@@ -3,9 +3,9 @@
 
 .controller('demoCtrl', demoCtrl);
 
-demoCtrl.$inject = [];
+demoCtrl.$inject = ['$state','appConstants','appService'];
 
-function demoCtrl() {
+function demoCtrl($state,appConstants,appService) {
 
 	var vm = this;
 	vm.showFurniture = showFurniture;
@@ -13,14 +13,21 @@ function demoCtrl() {
 	vm.showJewellery = showJewellery;
 
 	function showFurniture() {
-		alert('furniture displayed');
+		setProgramAndShowHomePage(appConstants.prog_id_furniture);
 	}
 
 	function showSuperMarket() {
-		alert('showSuperMarket displayed');
+		setProgramAndShowHomePage(appConstants.prog_id_supermarket);
 	}
 
 	function showJewellery() {
-		alert('show-jewellery displayed');
+		setProgramAndShowHomePage(appConstants.prog_id_jewellery);
+	}
+
+	function setProgramAndShowHomePage(progId) {
+		//set prog_id
+		appService.setProgId(progId);
+		//go to Home page
+		$state.go('app.products');
 	}
 }

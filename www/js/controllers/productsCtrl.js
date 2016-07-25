@@ -9,7 +9,7 @@ productsCtrl.$inject = ['productService','appService','appState','$stateParams']
  function productsCtrl(productService,appService,appState,$stateParams) {
 
 	var vm = this;
-	vm.imageUrl = appService.getUrlImg();
+	vm.imageUrl = appService.getUrlImg() + appService.getProgId() + '/';
 
 	vm.categoryId = $stateParams.categoryId;
 

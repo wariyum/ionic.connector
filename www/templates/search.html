@@ -7,5 +7,16 @@
     ng-model-options='{ debounce: 1000 }'>
   </label>
 </div>
+
+<!-- product list start from here -->
+<div class="list">
+
+    <a class="item item-avatar" ng-repeat="itm in vm.products track by $index" href="#/app/productDetails/{{itm.id}}">
+    <img cache-src="{{vm.imageUrl + itm.imageUrl[0]}}"/>
+      <h2>{{itm.name}}</h2>
+      <p>{{itm.description}}</p>
+    </a>
+</div>
+
   </ion-content>
 </ion-view>

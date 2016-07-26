@@ -19,9 +19,11 @@
 </div>
 </ion-content>
 </ion-view>-->
-<ion-view view-title="Demo" class="list pane">
-
-<ion-slide-box on-slide-changed="slideHasChanged($index)">
+<ion-view view-title="Choose Your Business-Demo">
+  
+<!-- <ion-view view-title="Demo" class="list pane" ng-init="vm.init()"> -->
+<ion-content>
+<!--<ion-slide-box on-slide-changed="slideHasChanged($index)">
   <ion-slide>
     <div class="box blue"><img src="img/1.jpg" width="100%"></div>
   </ion-slide>
@@ -32,18 +34,20 @@
     <div class="box pink"><img src="img/3.jpg" width="100%"></div>
   </ion-slide>
 </ion-slide-box>
-<!-- <img src="http://tutorialsplane.com/wp-content/uploads/2016/02/1511516_1035103706511033_695479665952545706_n.jpg" width="100%"> -->
-    <ion-content class="demopage">
+<button class="button button-full button-royal" style="height:33%;margin-top: 0;">
+  Choose Your Business-Demo
+</button><button class="button button-full button-royal" style="height:33%;margin-top: 0;">
+  Choose Your Business-Demo
+</button><button class="button button-full button-royal" style="height:33%;margin-top: 0;">
+  Choose Your Business-Demo
+</button>
+     <ion-content class="demopage">
   
-</ion-content>
-<button class="button button-full button-royal" style="margin-top: 0;">
+</ion-content> -->
+<!-- <button class="button button-full button-royal" style="margin-top: 0;">
   Choose Your Business-Demo
 </button>
 <div class="list card">
-    <!-- <div class="item ">
-    <h2>Choose Your Business-Demo</h2>
-  </div> -->
-
     <div class="item item-text-wrap">
 
 <button class="button button-full button-positive">
@@ -56,7 +60,26 @@
   Jewellery
 </button>
 </div>
+</div> -->
+<div class="box">
+<img src="img/1.jpg" style="width:100%;">
+<button class="button button-clear button-positive centerbtn" style="color:#fff">
+  Super Market
+</button>
 </div>
+<div class="box">
+<img src="img/2.jpg" style="width:100%;">
+<button class="button button-clear button-positive centerbtn" style="color:#fff">
+  Electronics
+</button>
+</div>
+<div class="box">
+<img src="img/3.jpg" style="width:100%;">
+<button class="button button-clear button-positive centerbtn" style="color:#fff">
+  Jewellery
+</button>
+</div>
+</ion-content>
 </ion-view>
  
 <style type="text/css">
@@ -71,6 +94,16 @@ background:url('http://tutorialsplane.com/wp-content/uploads/2016/02/1511516_103
 }
 .slider {
   height: 30%;
+}
+.centerbtn{
+  position: absolute;
+    width: 100%;
+    top: 50%;
+    z-index: 999;
+    margin-top: -20px;
+}
+.box{
+  position: relative;
 }
 
 </style>

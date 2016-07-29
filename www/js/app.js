@@ -110,7 +110,7 @@ angular.module('starter', ['ionic','wrConnector','ngCordova','ngLodash','ionic-c
         'menuContent': {
           templateUrl: 'templates/demo.html',
           controller: 'demoCtrl as vm'
-        }
+          }
       }
     })
 

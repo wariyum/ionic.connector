@@ -24,6 +24,41 @@ body {
 #logo {
   margin: 30px 0px;
 }
+.centerbtn{
+  position: absolute;
+    width: 100%;
+    top: 50%;
+    z-index: 999;
+    margin-top: -20px;
+    text-align: center;
+    font-weight: bolder;
+    text-decoration: none;
+}
+.box{
+  position: relative;
+}
+
+
+.div1{
+   width:100%;
+   height:auto;
+   overflow:auto;
+   float:left;
+   }
+.div1 div{
+   width:100%;
+   height:auto;
+   overflow:auto;
+   float:left;
+
+   }
+.div1 div img{
+   width:100%;
+   height:auto;
+   
+   display:block;
+   /*float:left;*/
+   }
 
 
 /*[nav-bar-transition="ios"] [nav-bar="active"] .bar,

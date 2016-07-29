@@ -1,7 +1,7 @@
 'use strict';
    angular
         .module('starter').constant('appConstants', {
-        mode:'prd',
+        mode:'stg',
         prog_id: 1,
         url_dev:'/app/data-json/',
         url_prd:'http://admin.wariyum.com/service/',

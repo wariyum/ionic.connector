@@ -37,6 +37,9 @@ body {
 .box{
   position: relative;
 }
+.item-button-right, a.item.item-button-right, button.item.item-button-right {
+  padding-right:0px !important
+}
 
 
 .div1{

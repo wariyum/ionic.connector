@@ -5,8 +5,16 @@
     <a class="item item-avatar" ng-repeat="itm in vm.products track by $index" href="#/app/productDetails/{{itm.id}}">
     <img cache-src="{{vm.imageUrl + itm.imageUrl[0]}}"/>
       <h2>{{itm.name}}</h2>
-      <p>{{itm.description}}</p>
+      <p style="margin-right: 25%;">{{itm.description}}</p>
+      <div class="buttons item-button-right">
+              <button class="button button-balanced icon"> $ 4.5 </button>
+              
+            </div>
     </a>
+
+
+
+
 </div>
   </ion-content>
 </ion-view>

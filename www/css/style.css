@@ -40,6 +40,13 @@ body {
 .item-button-right, a.item.item-button-right, button.item.item-button-right {
   padding-right:0px !important
 }
+.pricing{
+  color:#f00 !important;
+  font-weight: bolder;
+}
+.pad{
+  margin-top: 30px;
+}
 
 
 .div1{

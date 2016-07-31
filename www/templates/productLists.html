@@ -3,17 +3,20 @@
   <div class="list" ng-show="!vm.isProductListEmpty">
 
     <a class="item item-avatar" ng-repeat="itm in vm.products track by $index" href="#/app/productDetails/{{itm.id}}">
+
     <img cache-src="{{vm.imageUrl + itm.imageUrl[0]}}"/>
       <h2>{{itm.name}}</h2>
+        <img height="40px" style="float:right;position:top;" src="img/special-offer.jpg">
       <p style="margin-right: 25%;">{{itm.description}}</p>
       <!-- <p class="pricing"> 34 AED</p> -->
-       <div class="buttons item-button-right">
-              <button class="button  icon"> $ 4.5 </button> 
-              <button class="button button-assertive  pad icon"> offer </button>             
-            </div> 
-            <!-- <div class="buttons item-button-right pad">
-                            
-            </div>  -->
+       <!-- <div class="buttons item-button-right"> -->
+              <button class="button  icon"> AED 4.5 </button> 
+             <!--  <button class="button button-assertive  pad icon"> offer </button>  -->     
+
+
+            <!-- </div>  -->
+        
+
     </a>
 
 

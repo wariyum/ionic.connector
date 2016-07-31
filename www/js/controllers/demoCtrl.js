@@ -28,6 +28,6 @@ function demoCtrl($state,appConstants,appService) {
 		//set prog_id
 		appService.setProgId(progId);
 		//go to Home page
-		$state.go('app.products');
+		$state.go('app.products',{'categoryId':'0'});
 	}
 }

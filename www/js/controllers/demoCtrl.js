@@ -3,9 +3,9 @@
 
 .controller('demoCtrl', demoCtrl);
 
-demoCtrl.$inject = ['$state','appConstants','appService'];
+demoCtrl.$inject = ['$state','appConstants','appService','$location','$scope','$window'];
 
-function demoCtrl($state,appConstants,appService) {
+function demoCtrl($state,appConstants,appService,$location,$scope,$window) {
 
 	var vm = this;
 	vm.showFurniture = showFurniture;
@@ -28,6 +28,6 @@ function demoCtrl($state,appConstants,appService) {
 		//set prog_id
 		appService.setProgId(progId);
 		//go to Home page
-		$state.go('app.products',{'categoryId':'0'});
+		$state.go('app.products',{'categoryId':0});
 	}
 }

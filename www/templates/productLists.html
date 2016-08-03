@@ -7,8 +7,8 @@
     <img cache-src="{{vm.imageUrl + itm.imageUrl[0]}}"/>
       <h2>{{itm.name}}</h2>
         <img height="40px"  ng-show="itm.showOffer" style="float:right;position:top;" src="img/special-offer.jpg">
-      <p style="margin-right: 25%;">{{itm.description}}</p>
-              <button class="button  icon"> AED {{itm.unitPrice}} </button> 
+        <p style="margin-right: 25%;">{{itm.description}}</p>
+        <button ng-show="itm.unitPrice" class="button  icon"> AED {{itm.unitPrice}} </button> 
     </a>
 </div>
   </ion-content>

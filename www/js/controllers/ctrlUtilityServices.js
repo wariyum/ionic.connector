@@ -12,15 +12,17 @@
     angular.module('starter')
         .service('ctrlUtilityService', ctrlUtilityService);
 
-    ctrlUtilityService.$inject =[];
+    ctrlUtilityService.$inject =['ionicToast'];
 
-    function ctrlUtilityService() {
+    function ctrlUtilityService(ionicToast) {
     	return{
     		showAlert:showAlert
     	};
 
     function showAlert(infoMessage) {
-    	alert(infoMessage);
+    	// alert(infoMessage);
+
+        ionicToast.show(infoMessage, 'top', false, 2500);
     }
     }
 

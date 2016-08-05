@@ -1,7 +1,7 @@
 'use strict';
    angular
         .module('starter').constant('appConstants', {
-        mode:'stg',
+        mode:'prd',
         prog_id: 1,
         url_dev:'/app/data-json/',
         url_prd:'http://admin.wariyum.com/service/',
@@ -11,6 +11,6 @@
         url_stg_img:'http://t-admin.wariyum.com/images/',
         //sample programs
         prog_id_furniture:1,
-        prog_id_supermarket:2,
+        prog_id_supermarket:37,
         prog_id_jewellery:3
     });

@@ -102,4 +102,12 @@ body {
 
 
 /*end of ion-slide-box*/
-a
+
+/*validation styles*/
+input.ng-invalid {
+  border-bottom: 1px solid #f00; 
+}
+input.ng-valid {
+     border-bottom: 1px solid lightgreen; 
+}
+/*end of validation styles*/

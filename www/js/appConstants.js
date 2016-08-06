@@ -2,7 +2,7 @@
    angular
         .module('starter').constant('appConstants', {
         mode:'prd',
-        prog_id: 1,
+        prog_id: 37,
         url_dev:'/app/data-json/',
         url_prd:'http://admin.wariyum.com/service/',
         url_stg:'http://t-admin.wariyum.com/service/',

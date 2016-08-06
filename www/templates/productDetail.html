@@ -4,7 +4,7 @@
             <div class="item">
                 <h1>{{vm.productDetail.name}}</h1>
             </div>
-            <ion-slide-box on-slide-changed="slideChanged(index)">
+             <ion-slide-box on-slide-changed="slideChanged(index)">
                 <ion-slide ng-repeat="itm in vm.productDetail.imageUrl track by $index">
                   
                     <div id="logo">
@@ -12,6 +12,13 @@
                     </div>
                 </ion-slide>
             </ion-slide-box>
+           
+           <div style="height:50px;color:red;font-weight: bold;">
+            <span>AED {{vm.productDetail.unitPrice}}
+             </span>
+              <img height="40px" ng-show="vm.productDetail.showOffer"  style="float:right;position:top;" src="img/special-offer.jpg">
+              </div>
+
            <div class="item item-text-wrap" ng-bind-html="vm.productDetail.description"></div>
             <!-- <br> -->
         </div>

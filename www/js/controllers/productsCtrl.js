@@ -12,10 +12,15 @@ productsCtrl.$inject = ['productService','appService','appState','$stateParams']
 	vm.imageUrl = appService.getUrlImg() + appService.getProgId() + '/';
 
 	vm.categoryId = $stateParams.categoryId;
+	vm.programId = $stateParams.programId;
 
 	vm.isProductListEmpty = false;
 
   vm.init = function () {
+
+  	if(vm.programId > 0){
+  		appService.setProgId(vm.programId);
+  	}
 
   	if(vm.categoryId <= 0){
 	     productService.getProductsPublished().then(function (response) {

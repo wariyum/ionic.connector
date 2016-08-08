@@ -10,7 +10,7 @@
         url_prd_img:'http://admin.wariyum.com/images/',
         url_stg_img:'http://t-admin.wariyum.com/images/',
         //sample programs
-        prog_id_furniture:1,
+        prog_id_furniture:39,
         prog_id_supermarket:37,
-        prog_id_jewellery:3
+        prog_id_jewellery:38
     });

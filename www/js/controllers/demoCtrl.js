@@ -3,9 +3,9 @@
 
 .controller('demoCtrl', demoCtrl);
 
-demoCtrl.$inject = ['$state','appConstants','appService','$location','$scope','$window'];
+demoCtrl.$inject = ['$state','appConstants','appService','$location','$scope','$window','categoryService','$rootScope'];
 
-function demoCtrl($state,appConstants,appService,$location,$scope,$window) {
+function demoCtrl($state,appConstants,appService,$location,$scope,$window,categoryService,$rootScope) {
 
 	var vm = this;
 	vm.showFurniture = showFurniture;
@@ -28,6 +28,12 @@ function demoCtrl($state,appConstants,appService,$location,$scope,$window) {
 		//set prog_id
 		appService.setProgId(progId);
 		//go to Home page
-		$state.go('app.products',{'categoryId':0});
+		// var url = "http://" + $window.location.host + '#/app/products/'+progId+'/0';
+        // $window.location.href = url;
+        $state.go('app.products', {'categoryId':0,'programId':progId}, {reload: true});
+		//set categories
+		categoryService.getCategories(appService.getProgId()).then(function(response) {
+            $rootScope.categories = response.data.success;
+        });
 	}
 }

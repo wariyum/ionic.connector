@@ -21,7 +21,7 @@
        <ion-item menu-close href="#/app/products/0">
           Promotions
         </ion-item>
-        <ion-item menu-close ng-repeat="itm in categories" href='#/app/products/{{itm.id}}'>
+        <ion-item menu-close ng-repeat="itm in categories" href='#/app/products/{{progId}}/{{itm.id}}'>
           {{itm.name}}
         </ion-item>
         <ion-item menu-close href="#/app/login">

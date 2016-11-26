@@ -10,6 +10,8 @@ function appCtrl(categoryService,appService,$rootScope) {
 
   function init() {
 
+  	$rootScope.progId = appService.getProgId();
+
     categoryService.getCategories(appService.getProgId()).then(function(response) {
             $rootScope.categories = response.data.success;
         });

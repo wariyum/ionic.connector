@@ -46,7 +46,6 @@ function checkoutCtrl(appState,appService,$state,$scope) {
 	function updateSummaryCalc() {
 			//calculate total of chekedout products
   	 		vm.checkoutSummary = appState.getCheckedOutProductSummary();
-  	 		console.log(vm.checkoutSummary);
 
 	}
 }

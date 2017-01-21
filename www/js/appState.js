@@ -78,7 +78,6 @@
         }
         function getProductFromCheckout(productId) {
              return lodash.filter(checkedOutProducts, { 'id': productId });
-       
         }
 
         function addSubProductQty(productId,qty) {

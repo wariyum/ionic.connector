@@ -82,9 +82,11 @@
         }
 
         function addSubProductQty(productId,qty) {
-            // get checkedOutProduct
             var prodSelected = this.getProductFromCheckout(productId)[0];
-            prodSelected.qty = prodSelected.qty + qty;
+            // get checkedOutProduct
+            if((prodSelected.qty + qty) >= 0){
+                prodSelected.qty = prodSelected.qty + qty;
+            }
         }
 
         function getCheckedOutProducts() {

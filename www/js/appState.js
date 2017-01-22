@@ -12,7 +12,7 @@
     angular.module('starter')
         .service('appState', appState);
 
-    appState.$inject = ['lodash','$state','ctrlUtilityService'];
+    appState.$inject = ['lodash','$state','ctrlUtilityService','$localStorage'];
 
     var shownProductId = 0;
     var loggedUser = {};
@@ -22,7 +22,13 @@
     var lastUrl;
     var likedProducts = [];
 
-    function appState(lodash,$state,ctrlUtilityService) {
+
+
+    function appState(lodash,$state,ctrlUtilityService, $localStorage) {
+
+        $localStorage = $localStorage.$default({
+          credentials: []
+        });
         return {
             getShownProductId: getShownProductId,
             setShownProductId: setShownProductId,
@@ -41,7 +47,11 @@
             removeProductFromCheckout: removeProductFromCheckout,
             addLikedProduct: addLikedProduct,
             getIndexOfLikedProduct: getIndexOfLikedProduct,
-            getCheckedOutProductSummary: getCheckedOutProductSummary
+            getCheckedOutProductSummary: getCheckedOutProductSummary,
+            //LocalStorage
+            getLocalStorageAll: _getLocalStorageAll,
+            addToLocalStorage: _addToLocalStorage,
+            removeFromLocalStorage: _removeFromLocalStorage
         };
 
         function getCheckedOutProductSummary() {
@@ -191,6 +201,18 @@
 
         function isLoggedIn(){
             return loggedUser;
+        }
+
+        
+
+        function _getLocalStorageAll() {
+          return $localStorage.credentials;
+        };
+        function _addToLocalStorage(thing) {
+          $localStorage.credentials.push(thing);
+        }
+        function _removeFromLocalStorage(thing) {
+          $localStorage.credentials.splice($localStorage.credentials.indexOf(thing), 1);
         }
     }
 

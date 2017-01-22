@@ -11,14 +11,12 @@ function userRegisterCtrl(appState,ctrlUtilityService,credentialService) {
 
 	vm.registerUser = function() {
 		appState.registerUser(vm.userReg);
-		ctrlUtilityService.showAlert('User Registration Successful');
 	}
 
 	vm.submitUserRegistration = function() {
 		var data = {};
 		data.emailId = vm.userReg.email;
 		data.password = vm.userReg.password;
-		credentialService.registerUser(data);
-		
+		credentialService.registerUser(data);		
 	}
 }

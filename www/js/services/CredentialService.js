@@ -10,9 +10,9 @@
        angular.module('wrConnector')
         .service('credentialService', credentialService);
 
-        credentialService.$inject = ['$http','appService','appConstants'];
+        credentialService.$inject = ['$http','appService','appConstants','appState','ctrlUtilityService'];
 
-        function credentialService($http,appService,appConstants) {
+        function credentialService($http,appService,appConstants,appState,ctrlUtilityService) {
         return {
            registerUser:registerUser
         };
@@ -29,8 +29,16 @@
             	$http.post(url, data, config)
 			   .then(
 			       function(response){
-			       	 ctrlUtilityService.showAlert('Thank you for registering with Us.');
-			       }, 
+			       	if(response.data.error !== undefined)
+			       	{
+			       		 ctrlUtilityService.showAlert(response.data.error.errorCode);
+			       	}
+			       	else
+			       	{
+				       	appState.addToLocalStorage(response.data);
+				       	ctrlUtilityService.showAlert('Thank you for registering with Us.');
+				       }
+			   		}, 
 			       function(response){
 			       	alert('error');
 			         // failure callback

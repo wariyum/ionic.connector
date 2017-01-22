@@ -29,8 +29,7 @@
             	$http.post(url, data, config)
 			   .then(
 			       function(response){
-			       	alert('success');
-			         // success callback
+			       	 ctrlUtilityService.showAlert('Thank you for registering with Us.');
 			       }, 
 			       function(response){
 			       	alert('error');

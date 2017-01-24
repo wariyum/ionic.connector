@@ -20,8 +20,6 @@
     	};
 
     function showAlert(infoMessage) {
-    	// alert(infoMessage);
-
         ionicToast.show(infoMessage, 'top', false, 2500);
     }
     }

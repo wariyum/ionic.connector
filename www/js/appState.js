@@ -25,10 +25,6 @@
 
 
     function appState(lodash,$state,ctrlUtilityService, $localStorage) {
-
-        $localStorage = $localStorage.$default({
-          credentials: []
-        });
         return {
             getShownProductId: getShownProductId,
             setShownProductId: setShownProductId,
@@ -209,6 +205,11 @@
           return $localStorage.credentials;
         };
         function _addToLocalStorage(thing) {
+            if($localStorage.credentials === undefined){
+                $localStorage = $localStorage.$default({
+                  credentials: []
+                });
+            }
           $localStorage.credentials.push(thing);
         }
         function _removeFromLocalStorage(thing) {

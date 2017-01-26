@@ -3,9 +3,9 @@
 
 .controller('userRegisterCtrl', userRegisterCtrl);
 
-userRegisterCtrl.$inject = ['appState','ctrlUtilityService','credentialService'];
+userRegisterCtrl.$inject = ['$rootScope','appState','ctrlUtilityService','credentialService'];
 
-function userRegisterCtrl(appState,ctrlUtilityService,credentialService) {
+function userRegisterCtrl($rootScope,appState,ctrlUtilityService,credentialService) {
 	var vm = this;
 	vm.userReg = {};
 
@@ -17,6 +17,6 @@ function userRegisterCtrl(appState,ctrlUtilityService,credentialService) {
 		var data = {};
 		data.emailId = vm.userReg.email;
 		data.password = vm.userReg.password;
-		credentialService.registerUser(data);		
+		credentialService.registerUser(data);
 	}
 }

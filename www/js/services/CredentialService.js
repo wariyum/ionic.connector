@@ -10,9 +10,9 @@
        angular.module('wrConnector')
         .service('credentialService', credentialService);
 
-        credentialService.$inject = ['$http','$state','appService','appConstants','appState','ctrlUtilityService'];
+        credentialService.$inject = ['$http','$state','appService','appConstants','appState','ctrlUtilityService','$rootScope'];
 
-        function credentialService($http,$state,appService,appConstants,appState,ctrlUtilityService) {
+        function credentialService($http,$state,appService,appConstants,appState,ctrlUtilityService,$rootScope) {
         return {
            registerUser:registerUser
         };
@@ -37,7 +37,9 @@
 			       	{
 				       	appState.addToLocalStorage(response.data);
 				       	ctrlUtilityService.showAlert('Thank you for registering with Us.');
-				       	//redirect to Check-out page
+				       	$rootScope.credentials = appState.getLocalStorageAll();
+                        $rootScope.$broadcast('rootScope:credentials', $rootScope.credentials); 
+                        //redirect to Check-out page
 				       	$state.go('app.checkout');
 				       }
 			   		}, 

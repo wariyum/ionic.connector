@@ -3,14 +3,19 @@
 
 .controller('loginCtrl', loginCtrl);
 
-loginCtrl.$inject = ['$state','appState','$scope'];
+loginCtrl.$inject = ['$state','appState','$scope','$rootScope'];
 
-function loginCtrl($state,appState,$scope) {
+function loginCtrl($state,appState,$scope,$rootScope) {
 	var vm = this;
 
-	vm.credentials = appState.getLocalStorageAll();
+	vm.credentials = $rootScope.credentials;
 
 	vm.loggedIn = _isLoggedIn();
+
+	 $rootScope.$on('rootScope:credentials', function (event, data) {
+	 	vm.credentials = data;
+	 	vm.loggedIn = _isLoggedIn();
+	  });
 	
 
 	vm.doLogin = function() {
@@ -24,6 +29,7 @@ function loginCtrl($state,appState,$scope) {
 	vm.logout = function function_name(argument) {
 		var credentials = appState.getLocalStorageAll();
 		appState.removeFromLocalStorage(credentials);
+		vm.credentials = undefined;
 		vm.loggedIn = _isLoggedIn();
 	}
 

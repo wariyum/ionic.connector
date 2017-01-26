@@ -213,7 +213,8 @@
           $localStorage.credentials.push(thing);
         }
         function _removeFromLocalStorage(thing) {
-          $localStorage.credentials.splice($localStorage.credentials.indexOf(thing), 1);
+            $localStorage.credentials = undefined;
+          // $localStorage.credentials.splice($localStorage.credentials.indexOf(thing), 1);
         }
     }
 

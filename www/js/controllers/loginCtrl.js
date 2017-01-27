@@ -10,11 +10,11 @@ function loginCtrl($state,appState,$scope,$rootScope,credentialService) {
 
 	vm.credentials = $rootScope.credentials;
 
-	vm.loggedIn = _isLoggedIn();
+	vm.loggedIn = credentialService.isUserLoggedIn();;
 
 	 $rootScope.$on('rootScope:credentials', function (event, data) {
 	 	vm.credentials = data;
-	 	vm.loggedIn = _isLoggedIn();
+	 	vm.loggedIn = credentialService.isUserLoggedIn();
 	  });
 	
 
@@ -33,10 +33,8 @@ function loginCtrl($state,appState,$scope,$rootScope,credentialService) {
 		var credentials = appState.getLocalStorageAll();
 		appState.removeFromLocalStorage(credentials);
 		vm.credentials = undefined;
-		vm.loggedIn = _isLoggedIn();
+		vm.loggedIn = credentialService.isUserLoggedIn();
 	}
 
-	function _isLoggedIn() {
-		return !(vm.credentials === undefined || vm.credentials.length === 0);
-	}
+	
 }

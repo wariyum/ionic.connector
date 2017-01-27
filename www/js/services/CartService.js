@@ -26,11 +26,11 @@
         	};
 
         	function addToCart(data) {
-        		// body...
+        		
         	}
 
-        	function appendCartItem(){
-
+        	function appendCartItem(data){
+        		alert(data);
         	}
 
         	function removeCartItem() {

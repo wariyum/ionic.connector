@@ -2,10 +2,10 @@ angular.module('starter')
 
 .controller('productDetailCtrl', productDetailCtrl);
 
-productDetailCtrl.$inject = ['productService', '$stateParams', 'appService', 'appState','$ionicSlideBoxDelegate'];
+productDetailCtrl.$inject = ['productService', '$stateParams', 'appService', 'appState','$ionicSlideBoxDelegate','cartService'];
 
 
-function productDetailCtrl(productService, $stateParams, appService, appState,$ionicSlideBoxDelegate  ) {
+function productDetailCtrl(productService, $stateParams, appService, appState,$ionicSlideBoxDelegate, cartService) {
 
     var vm = this;
 
@@ -39,7 +39,14 @@ function productDetailCtrl(productService, $stateParams, appService, appState,$i
     }
 
     vm.checkout = function() {
-      appState.checkout(vm.productDetail);
+        //call service
+        var cartItm = {};
+        cartItm.product = {};
+        cartItm.product.id = vm.productDetail.id;
+        cartItm.quantity = 1;
+        cartService.appendCartItem(cartItm);
+
+        appState.checkout(vm.productDetail);
     }
 
     vm.addToLike = function(argument) {

@@ -3,9 +3,9 @@
 
 .controller('checkoutCtrl', checkoutCtrl);
 
-checkoutCtrl.$inject = ['appState','appService','$state','$scope','credentialService','ctrlUtilityService'];
+checkoutCtrl.$inject = ['appState','appService','$state','$scope','credentialService','ctrlUtilityService','cartService'];
 
-function checkoutCtrl(appState,appService,$state,$scope,credentialService,ctrlUtilityService) {
+function checkoutCtrl(appState,appService,$state,$scope,credentialService,ctrlUtilityService,cartService) {
 	var vm = this;
 	vm.imgUrl = appService.getUrlImg() + appService.getProgId() + '/';
 
@@ -30,6 +30,14 @@ function checkoutCtrl(appState,appService,$state,$scope,credentialService,ctrlUt
 	}
 
 	vm.incrementQty = function(productId){
+		//service call
+		var cartItem = {};
+		cartItem.product = {};
+		cartItem.product.id = productId;
+		cartItem.quantity = 1;
+		cartService.appendCartItem(cartItem);
+
+		//UI update
 		appState.addSubProductQty(productId,1);
 		updateSummaryCalc();
 	};

@@ -3,9 +3,9 @@
 
 .controller('checkoutCtrl', checkoutCtrl);
 
-checkoutCtrl.$inject = ['appState','appService','$state','$scope'];
+checkoutCtrl.$inject = ['appState','appService','$state','$scope','credentialService','ctrlUtilityService'];
 
-function checkoutCtrl(appState,appService,$state,$scope) {
+function checkoutCtrl(appState,appService,$state,$scope,credentialService,ctrlUtilityService) {
 	var vm = this;
 	vm.imgUrl = appService.getUrlImg() + appService.getProgId() + '/';
 
@@ -40,7 +40,16 @@ function checkoutCtrl(appState,appService,$state,$scope) {
 	};
 
 	vm.checkout = function() {
-		$state.go('app.shippingInfo');
+		//Scenario - User not logged In - Let them Login & Proceed
+		if(!credentialService.isUserLoggedIn())
+		{
+			ctrlUtilityService.showAlert('Please login before Checkout');
+			$state.go('app.login');
+		}
+		else{
+			//only if user logged in
+			$state.go('app.shippingInfo');
+		}
 	};
 
 	function updateSummaryCalc() {

@@ -15,7 +15,8 @@
         function credentialService($http,$state,appService,appConstants,appState,ctrlUtilityService,$rootScope) {
         return {
            registerUser:registerUser,
-           loginUser:loginUser
+           loginUser:loginUser,
+           isUserLoggedIn: isUserLoggedIn
         };
 
         function registerUser(data) {
@@ -53,7 +54,6 @@
         }
 
         function loginUser(data){
-            debugger;
             if(appConstants.mode === 'dev')
                 {
                     console.log('loginUser --- not defined for Dev mode');
@@ -78,6 +78,11 @@
                             }
                         );
                 }
+        }
+
+        function isUserLoggedIn(){
+            $rootScope.credentials = appState.getLocalStorageAll();
+            return !($rootScope.credentials === undefined || $rootScope.credentials === 0);
         }
     }
 

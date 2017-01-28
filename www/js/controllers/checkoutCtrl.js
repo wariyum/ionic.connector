@@ -34,12 +34,6 @@ function checkoutCtrl(appState,appService,$state,$scope,credentialService,ctrlUt
 	}
 
 	vm.incrementQty = function(productId){
-		//service call
-		var cartItem = {};
-		cartItem.product = {};
-		cartItem.product.id = productId;
-		cartItem.quantity = 1;
-		cartService.appendCartItem(cartItem);
 
 		//UI update
 		appState.addSubProductQty(productId,1);

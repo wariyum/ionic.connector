@@ -47,14 +47,14 @@
 			
 				   .then(
 				       function(response){
-				       	if(response.data.error !== undefined)
-				       	{
-				       		 ctrlUtilityService.showAlert(response.data.error.errorCode);
-				       	}
-				       	else
-				       	{
-					       	ctrlUtilityService.showAlert('Added to cart');
-					       }
+					       	if(response.data.error !== undefined)
+					       	{
+					       		 ctrlUtilityService.showAlert(response.data.error.errorCode);
+					       	}
+					       	else
+					       	{
+						       	ctrlUtilityService.showAlert('Added to cart');
+						    }
 				   		}, 
 				       function(response){
 				       	alert('error');

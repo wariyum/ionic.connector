@@ -22,6 +22,19 @@ angular.module('starter', ['ionic','wrConnector','ngCordova','ngLodash','ionic-c
   });
 })
 
+
+//***** http Header
+.config(['$httpProvider', function($httpProvider) {
+
+  $httpProvider.defaults.headers.common = {};
+  $httpProvider.defaults.headers.post = {};
+  $httpProvider.defaults.headers.put = {};
+  $httpProvider.defaults.headers.patch = {};
+
+  $httpProvider.defaults.headers.common['Authorization'] = 'Bearer f0e7edd4-dfb8-40b0-b678-104e3982698c'; 
+  $httpProvider.defaults.headers.common['Content-Type'] = 'application/json'; 
+}])
+
 .config(function($stateProvider, $urlRouterProvider) {
   $stateProvider
 
@@ -149,3 +162,4 @@ $rootScope.$on('$stateNotFound',function(event, unfoundState, fromState, fromPar
   // console.log(unfoundState, fromState, fromParams);
 });
 }]);
+

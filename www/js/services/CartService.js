@@ -17,6 +17,7 @@
         function cartService($http,$state,appService,appConstants,appState,ctrlUtilityService,$rootScope) {
 
         	return {
+                getCartItems: getCartItems,
         		addToCart: addToCart,
         		appendCartItem: appendCartItem,
         		removeCartItem: removeCartItem,
@@ -25,9 +26,14 @@
         		confirmOrder: confirmOrder
         	};
 
+            function getCartItems(){
+                alert('getCartItems');
+            }
+
         	function addToCart(data) {
         		
         	}
+
 
         	function appendCartItem(data){
 
@@ -47,7 +53,7 @@
 			
 				   .then(
 				       function(response){
-					       	if(response.data.error !== undefined)
+					       	if(response.data.error)
 					       	{
 					       		 ctrlUtilityService.showAlert(response.data.error.errorCode);
 					       	}

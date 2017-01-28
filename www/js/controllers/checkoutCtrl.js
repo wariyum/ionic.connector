@@ -20,6 +20,10 @@ function checkoutCtrl(appState,appService,$state,$scope,credentialService,ctrlUt
   	 	  }
 	});
 
+	vm.init = function() {
+		cartService.getCartItems();
+	}
+
 	function showProduct(productId) {
 		 $state.go('app.single',{'productId':productId});
 	}

@@ -72,6 +72,15 @@ angular.module('starter', ['ionic','wrConnector','ngCordova','ngLodash','ionic-c
         }
       }
     })
+  .state('app.purchaseHistory', {
+      url: '/purchaseHistory',
+      views: {
+        'menuContent': {
+          templateUrl: 'templates/purchaseHistory.html',
+          controller:'purchaseHistoryCtrl as vm'
+        }
+      }
+    })
     .state('app.products', {
       url: '/products/:programId/:categoryId',
       views: {

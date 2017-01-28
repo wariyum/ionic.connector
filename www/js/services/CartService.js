@@ -30,7 +30,39 @@
         	}
 
         	function appendCartItem(data){
-        		alert(data);
+
+	        	if(appConstants.mode === 'dev')
+	                {
+	                	console.log('appendCartItem --- not defined for Dev mode');
+	                }
+	            else{
+	            	var url = 'http://t-admin.wariyum.com/service/connector/1/cart/addCartItem';
+	          
+	          		// $http.defaults.headers.common['Authorization'] = 'Bearer f0e7edd4-dfb8-40b0-b678-104e3982698c';
+	            	var config = {};
+	            	config.headers = {};
+
+      				config.headers.Authorization = 'Bearer f0e7edd4-dfb8-40b0-b678-104e3982698c';
+	            	$http.post(url, data,config )
+			
+				   .then(
+				       function(response){
+				       	if(response.data.error !== undefined)
+				       	{
+				       		 ctrlUtilityService.showAlert(response.data.error.errorCode);
+				       	}
+				       	else
+				       	{
+					       	ctrlUtilityService.showAlert('Added to cart');
+					       }
+				   		}, 
+				       function(response){
+				       	alert('error');
+				         // failure callback
+				       }
+				    );
+	            }
+
         	}
 
         	function removeCartItem() {

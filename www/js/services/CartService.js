@@ -27,7 +27,35 @@
         	};
 
             function getCartItems(){
-                alert('getCartItems');
+                var data = {};
+                if(appConstants.mode === 'dev')
+                    {
+                        console.log('appendCartItem --- not defined for Dev mode');
+                    }
+                else{
+                        var url = 'http://t-admin.wariyum.com/service/connector/1/cart/getCart';
+
+                        var config = {};
+                        
+                        $http.get(url, data,config )
+                       .then(
+                           function(response){
+                                if(response.data.error)
+                                {
+                                     ctrlUtilityService.showAlert(response.data.error.errorCode);
+                                }
+                                else
+                                {
+                                    //load to Cart items
+                                    appState.loadCheckedOutProducts(response.data.success);
+                                }
+                            }, 
+                           function(response){
+                            alert('error');
+                             // failure callback
+                           }
+                        );
+                    }
             }
 
         	function addToCart(data) {
@@ -44,13 +72,9 @@
 	            else{
 	            	var url = 'http://t-admin.wariyum.com/service/connector/1/cart/addCartItem';
 	          
-	          		// $http.defaults.headers.common['Authorization'] = 'Bearer f0e7edd4-dfb8-40b0-b678-104e3982698c';
 	            	var config = {};
-	            	config.headers = {};
 
-      				config.headers.Authorization = 'Bearer f0e7edd4-dfb8-40b0-b678-104e3982698c';
 	            	$http.post(url, data,config )
-			
 				   .then(
 				       function(response){
 					       	if(response.data.error)
@@ -59,6 +83,13 @@
 					       	}
 					       	else
 					       	{
+                                //service call
+                                var cartItem = {};
+                                cartItem.product = {};
+                                cartItem.product.id = productId;
+                                cartItem.quantity = 1;
+                                cartService.appendCartItem(cartItem);
+                                
 						       	ctrlUtilityService.showAlert('Added to cart');
 						    }
 				   		}, 

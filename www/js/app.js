@@ -31,7 +31,7 @@ angular.module('starter', ['ionic','wrConnector','ngCordova','ngLodash','ionic-c
   $httpProvider.defaults.headers.put = {};
   $httpProvider.defaults.headers.patch = {};
 
-  $httpProvider.defaults.headers.common['Authorization'] = 'Bearer f0e7edd4-dfb8-40b0-b678-104e3982698c'; 
+  $httpProvider.defaults.headers.common['Authorization'] = 'Bearer 5b90f3f1-79e7-42ee-a1c2-1be77e03ee1e'; 
   $httpProvider.defaults.headers.common['Content-Type'] = 'application/json'; 
 }])
 

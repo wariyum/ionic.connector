@@ -47,7 +47,9 @@
             //LocalStorage
             getLocalStorageAll: _getLocalStorageAll,
             addToLocalStorage: _addToLocalStorage,
-            removeFromLocalStorage: _removeFromLocalStorage
+            removeFromLocalStorage: _removeFromLocalStorage,
+            loadCheckedOutProducts: loadCheckedOutProducts
+
         };
 
         function getCheckedOutProductSummary() {
@@ -88,6 +90,7 @@
 
         function addSubProductQty(productId,qty) {
             var prodSelected = this.getProductFromCheckout(productId)[0];
+
             // get checkedOutProduct
             if((prodSelected.qty + qty) >= 0){
                 prodSelected.qty = prodSelected.qty + qty;
@@ -136,6 +139,23 @@
 
         function setListProducts(products) {
             listProducts = products;
+        }
+
+        function loadCheckedOutProducts(data) {
+            
+            // _.forEach(data.content, function(itmContent) {
+            //     debugger;
+                _.forEach(data.items,function (itm) {
+                     var tmp = {}; 
+                     tmp.product = {};
+                     tmp.product = itm.product;
+                     tmp.id = itm.product.id;
+                     tmp.qty = itm.quantity; 
+                        checkedOutProducts.push(tmp);
+                });
+                // });
+
+           
         }
 
         function checkout(product) {

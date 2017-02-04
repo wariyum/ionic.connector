@@ -12,7 +12,7 @@
     angular.module('starter')
         .service('appState', appState);
 
-    appState.$inject = ['lodash','$state','ctrlUtilityService','$localStorage'];
+    appState.$inject = ['lodash','$state','ctrlUtilityService','$localStorage','$rootScope'];
 
     var shownProductId = 0;
     var loggedUser = {};
@@ -24,7 +24,7 @@
 
 
 
-    function appState(lodash,$state,ctrlUtilityService, $localStorage) {
+    function appState(lodash,$state,ctrlUtilityService, $localStorage,$rootScope) {
         return {
             getShownProductId: getShownProductId,
             setShownProductId: setShownProductId,
@@ -222,6 +222,7 @@
         
 
         function _getLocalStorageAll() {
+            $rootScope.token =  $localStorage.credentials[0][0].access_token;
           return $localStorage.credentials;
         };
         function _addToLocalStorage(thing) {

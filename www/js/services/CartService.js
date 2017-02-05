@@ -85,10 +85,12 @@
 					       	{
                                 //service call
                                 var cartItem = {};
-                                cartItem.product = {};
-                                cartItem.product.id = productId;
+                                // cartItem.product = {};
+                                cartItem.product = response.data.success.product;
                                 cartItem.quantity = 1;
-                                cartService.appendCartItem(cartItem);
+                                appState.checkout(cartItem);
+
+                                // cartService.appendCartItem(cartItem);
                                 
 						       	ctrlUtilityService.showAlert('Added to cart');
 						    }

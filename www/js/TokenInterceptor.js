@@ -16,7 +16,6 @@ angular.module('starter')
                 return $q.reject(rejection);
             },
 
-            /* Set Authentication.isAuthenticated to true if 200 received */
             response: function(response) {
                 // if (response !== null && response.status === 200 && $window.localStorage.token && !Authentication.isAuthenticated) {
                 //     Authentication.isAuthenticated = true;
@@ -33,38 +32,20 @@ angular.module('starter')
                     if(!inFlightAuthRequest) {
                         inFlightAuthRequest = {};
                         var refreshToken = $localStorage.credentials[0][0].refresh_token;
-                        debugger;
-                        inflightAuthRequest = $injector.get("$http").post('http://t-admin.wariyum.com/service/renewAccessToken', {refreshtoken: refreshToken});
-                        debugger;
+                        inflightAuthRequest = $injector.get("$http").post('http://t-admin.wariyum.com/service/renewAccessToken', {refreshToken: refreshToken});
                     
                     }
                     inflightAuthRequest.then(function(r) {
                         debugger;
-                        inflightAuthRequest = null;
-                        if (r.data.data.accesstoken && r.data.data.refreshtoken && r.data.data.expiresin) {
-                            authService.setAccessToken(r.data.data.accesstoken);
-                            authService.setRefreshToken(r.data.data.refreshtoken);
-                            authService.setExpiresIn(r.data.data.expiresin);
-                            $injector.get("$http")(response.config).then(function(resp) {
-                                deferred.resolve(resp);
-                            },function(resp) {
-                                deferred.reject();
-                            });
-                        } else {
-                            deferred.reject();
-                        }
+                        $localStorage.credentials[0][0] = r.data[0];
                     }, function(response) {
-                        inflightAuthRequest = null;
-                        deferred.reject();
-                        authService.clear();
-                        $injector.get("$state").go('guest.login');
-                        return;
+                       
                     });
                     return deferred.promise;
                     break;
                 default:
-                    authService.clear();
-                    $injector.get("$state").go('guest.login');
+                    // authService.clear();
+                    // $injector.get("$state").go('guest.login');
                     break;
             }
             return response || $q.when(response);

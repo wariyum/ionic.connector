@@ -182,6 +182,7 @@
                 //-first remove it
                 var tmpCheckOutProduct = checkedOutProducts[idxProduct];
                 checkedOutProducts[idxProduct] = checkedOutProducts[0];
+                tmpCheckOutProduct.qty = tmpCheckOutProduct.qty + 1;
                 checkedOutProducts[0] = tmpCheckOutProduct;
             }
 

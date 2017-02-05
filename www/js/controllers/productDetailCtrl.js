@@ -45,7 +45,6 @@ function productDetailCtrl(productService, $stateParams, appService, appState,$i
         cartItm.product.id = vm.productDetail.id;
         cartItm.quantity = 1;
         cartService.appendCartItem(cartItm);
-
         appState.checkout(vm.productDetail);
     }
 

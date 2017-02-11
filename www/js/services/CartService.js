@@ -33,7 +33,7 @@
                         console.log('appendCartItem --- not defined for Dev mode');
                     }
                 else{
-                        var url = 'http://t-admin.wariyum.com/service/connector/1/cart/getCart';
+                        var url = 'http://t-admin.wariyum.com/service/connector/37/cart/getCart';
 
                         var config = {};
                         

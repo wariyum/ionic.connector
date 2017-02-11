@@ -142,18 +142,16 @@
         }
 
         function loadCheckedOutProducts(data) {
-            
-            // _.forEach(data.content, function(itmContent) {
-            //     debugger;
-                _.forEach(data.items,function (itm) {
-                     var tmp = {}; 
-                     tmp.product = {};
-                     tmp.product = itm.product;
-                     tmp.id = itm.product.id;
-                     tmp.qty = itm.quantity; 
-                        checkedOutProducts.push(tmp);
-                });
-                // });
+        if(data !=undefined){ 
+            _.forEach(data.items,function (itm) {
+                 var tmp = {}; 
+                 tmp.product = {};
+                 tmp.product = itm.product;
+                 tmp.id = itm.product.id;
+                 tmp.qty = itm.quantity; 
+                    checkedOutProducts.push(tmp);
+            });
+        }
 
            
         }
@@ -223,8 +221,10 @@
         
 
         function _getLocalStorageAll() {
-            $rootScope.token =  $localStorage.credentials[0][0].access_token;
-          return $localStorage.credentials;
+            if($localStorage.credentials != undefined){
+                $rootScope.token =  $localStorage.credentials[0][0].access_token;
+              return $localStorage.credentials;
+            }
         };
         function _addToLocalStorage(thing) {
             if($localStorage.credentials === undefined){

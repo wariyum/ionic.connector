@@ -7,7 +7,9 @@ angular.module('starter')
         return {
             request: function(config) {
                 config.headers = config.headers || {};
-                 config.headers.Authorization = 'Bearer ' +  $localStorage.credentials[0][0].access_token;;
+                if($localStorage.credentials!=undefined){
+                    config.headers.Authorization = 'Bearer ' +  $localStorage.credentials[0][0].access_token;;
+                }
                 return config;
             },
 

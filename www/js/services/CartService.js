@@ -33,7 +33,7 @@
                         console.log('appendCartItem --- not defined for Dev mode');
                     }
                 else{
-                        var url = 'http://t-admin.wariyum.com/service/connector/37/cart/getCart';
+                        var url = appService.getUrl()+'connector/'+ appConstants.prog_id +'/cart/getCart';
 
                         var config = {};
                         
@@ -70,7 +70,7 @@
 	                	console.log('appendCartItem --- not defined for Dev mode');
 	                }
 	            else{
-	            	var url = 'http://t-admin.wariyum.com/service/connector/1/cart/addCartItem';
+	            	var url = appService.getUrl() + 'connector/'+ appConstants.prog_id +'/cart/addCartItem';
 	          
 	            	var config = {};
 
@@ -101,8 +101,8 @@
 
         	}
 
-        	function removeCartItem() {
-        		// body...
+        	function removeCartItem(orderId) {
+        		alert('removeCartItem');
         	}
 
         	function fillBillingInfo() {

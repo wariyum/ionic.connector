@@ -64,7 +64,6 @@
 
 
         	function appendCartItem(data){
-
 	        	if(appConstants.mode === 'dev')
 	                {
 	                	console.log('appendCartItem --- not defined for Dev mode');

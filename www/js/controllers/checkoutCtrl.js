@@ -36,12 +36,27 @@ function checkoutCtrl(appState,appService,$state,$scope,credentialService,ctrlUt
 
 	vm.incrementQty = function(productId){
 
+		var data = {};
+		data.product = {};
+		data.product.id = productId;
+		data.quantity = 1;
+
+		cartService.appendCartItem(data);
 		//UI update
 		appState.addSubProductQty(productId,1);
 		updateSummaryCalc();
+
 	};
 
 	vm.decrementQty = function(productId){
+
+		var data = {};
+		data.product = {};
+		data.product.id = productId;
+		data.quantity = -1;
+
+		cartService.appendCartItem(data);
+
 		appState.addSubProductQty(productId,-1);
 		updateSummaryCalc();
 	};

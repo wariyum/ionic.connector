@@ -102,7 +102,33 @@
         	}
 
         	function removeCartItem(orderId) {
-        		alert(orderId);
+        		if(appConstants.mode === 'dev')
+                    {
+                        console.log('appendCartItem --- not defined for Dev mode');
+                    }
+                else{
+                    var url = appService.getUrl() + 'connector/'+ appConstants.prog_id +'/cart/removeCartItem/'+orderId;
+              
+                    var config = {};
+
+                    $http.delete(url,config )
+                   .then(
+                       function(response){
+                            if(response.data.error)
+                            {
+                                 ctrlUtilityService.showAlert(response.data.error.errorCode);
+                            }
+                            else
+                            {
+                                ctrlUtilityService.showAlert('Deleted Product');
+                            }
+                        }, 
+                       function(response){
+                        alert('error');
+                         // failure callback
+                       }
+                    );
+                }
         	}
 
         	function fillBillingInfo() {

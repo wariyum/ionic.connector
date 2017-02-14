@@ -102,7 +102,7 @@
         	}
 
         	function removeCartItem(orderId) {
-        		alert('removeCartItem');
+        		alert(orderId);
         	}
 
         	function fillBillingInfo() {

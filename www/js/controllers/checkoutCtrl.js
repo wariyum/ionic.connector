@@ -30,7 +30,7 @@ function checkoutCtrl(appState,appService,$state,$scope,credentialService,ctrlUt
 
 	function removeProduct(orderId) {
 		cartService.removeCartItem();
-		appState.removeProductFromCheckout(productId);
+		appState.removeProductFromCheckout(orderId);
 		updateSummaryCalc();
 	}
 

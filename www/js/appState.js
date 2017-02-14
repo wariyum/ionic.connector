@@ -148,8 +148,9 @@
                  tmp.product = {};
                  tmp.product = itm.product;
                  tmp.id = itm.product.id;
+                 tmp.orderId = itm.id;
                  tmp.qty = itm.quantity; 
-                    checkedOutProducts.push(tmp);
+                checkedOutProducts.push(tmp);
             });
         }
 

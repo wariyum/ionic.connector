@@ -36,6 +36,8 @@ angular.module('starter', ['ionic','wrConnector','ngCordova','ngLodash','ionic-c
 }])
 
 .config(function($stateProvider, $urlRouterProvider) {
+
+
   $stateProvider
 
     .state('app', {

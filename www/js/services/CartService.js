@@ -23,7 +23,7 @@
         		removeCartItem: removeCartItem,
         		fillBillingInfo: fillBillingInfo,
         		fillShippingInfo: fillShippingInfo,
-        		confirmOrder: confirmOrder
+        		sendOrderToProcess: sendOrderToProcess
         	};
 
             function getCartItems(){
@@ -138,8 +138,39 @@
         		// body...
         	}
 
-        	function confirmOrder() {
-        		// body...
+        	function sendOrderToProcess() {
+        		// t-admin.wariyum.com/service/connector/37/order/cartToOrder
+
+                //todo: check any items are there in cart
+
+                if(appConstants.mode === 'dev')
+                    {
+                        console.log('sendOrderToProcess --- not defined for Dev mode');
+                    }
+                else{
+                    var url = appService.getUrl() + 'connector/'+ appConstants.prog_id +'/order/cartToOrder';
+              
+                    var config = {};
+
+                    $http.post(url, data,config )
+                   .then(
+                       function(response){
+                            if(response.data.error)
+                            {
+                                 ctrlUtilityService.showAlert(response.data.error.errorCode);
+                            }
+                            else
+                            {
+                                ctrlUtilityService.showAlert('Thank you, Your Order is placed Successfully');
+                            }
+                        }, 
+                       function(response){
+                        alert('error');
+                         // failure callback
+                       }
+                    );
+                }
+
         	}
 
         }

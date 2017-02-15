@@ -6,4 +6,8 @@ shippingInfoCtrl.$inject = [];
 
 function shippingInfoCtrl() {
 	var vm = this;
+
+	vm.sendOrderToProcess = function() {
+		alert('sendOrderToProcess');
+	}
 }

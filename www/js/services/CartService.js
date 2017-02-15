@@ -142,7 +142,7 @@
         		// t-admin.wariyum.com/service/connector/37/order/cartToOrder
 
                 //todo: check any items are there in cart
-
+                var data = {};
                 if(appConstants.mode === 'dev')
                     {
                         console.log('sendOrderToProcess --- not defined for Dev mode');

@@ -2,12 +2,12 @@ angular.module('starter')
 
 .controller('shippingInfoCtrl', shippingInfoCtrl);
 
-shippingInfoCtrl.$inject = [];
+shippingInfoCtrl.$inject = ['cartService'];
 
-function shippingInfoCtrl() {
+function shippingInfoCtrl(cartService) {
 	var vm = this;
 
 	vm.sendOrderToProcess = function() {
-		alert('sendOrderToProcess');
+		cartService.sendOrderToProcess();
 	}
 }

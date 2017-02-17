@@ -2,10 +2,9 @@
     <ion-content>
         <ion-list>
             <ion-item ng-repeat="itm in vm.orderList">
-                Date: {{itm.createdDateTime}} 
+                Status: {{itm.status}}!
 				<br/>
-                <!-- Status: {{itm.status}}! -->
-                {{vm.test}}
+                {{itm.tmpMoment}}
             </ion-item>
         </ion-list>
         </div>

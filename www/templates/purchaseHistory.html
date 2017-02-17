@@ -1,1 +1,10 @@
-<div>purchaseHistory</div>
+<ion-view view-title="Purchase History" ng-init="vm.init()">
+    <ion-content>
+        <ion-list>
+            <ion-item ng-repeat="itm in vm.orderList">
+                Hello, {{itm.status}}!
+            </ion-item>
+        </ion-list>
+        </div>
+    </ion-content>
+</ion-view>

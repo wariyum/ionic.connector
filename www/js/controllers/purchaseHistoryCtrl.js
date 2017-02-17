@@ -2,8 +2,14 @@
 
 .controller('purchaseHistoryCtrl', purchaseHistoryCtrl);
 
-purchaseHistoryCtrl.$inject = [];
+purchaseHistoryCtrl.$inject = ['cartService'];
 
-function purchaseHistoryCtrl() {
+function purchaseHistoryCtrl(cartService) {
 	var vm = this;
+
+	vm.init = function () {
+	 cartService.getOrderHistory().then(function (response){
+	 	vm.orderList = response.data.success.content;
+	 });
+	}
 }

@@ -23,7 +23,8 @@
         		removeCartItem: removeCartItem,
         		fillBillingInfo: fillBillingInfo,
         		fillShippingInfo: fillShippingInfo,
-        		sendOrderToProcess: sendOrderToProcess
+        		sendOrderToProcess: sendOrderToProcess,
+                getOrderHistory:getOrderHistory
         	};
 
             function getCartItems(){
@@ -172,6 +173,22 @@
                 }
 
         	}
+
+        function getOrderHistory() {
+            //t-admin.wariyum.com/service/connector/37/order/getOrderList
+            var data = {};
+                if(appConstants.mode === 'dev')
+                    {
+                        console.log('getOrderHistory --- not defined for Dev mode');
+                    }
+                else{
+                    var url = appService.getUrl() + 'connector/'+ appConstants.prog_id +'/order/getOrderList';
+              
+                    var config = {};
+
+                    return $http.get(url, data,config );
+                }
+        }
 
         }
 

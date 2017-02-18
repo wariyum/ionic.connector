@@ -68,7 +68,7 @@ angular.module('starter', ['ionic','wrConnector','ngCordova','ngLodash','ionic-c
       }
     })
   .state('app.orderDetails', {
-      url: '/orderDetails',
+      url: '/orderDetails/:programId/:orderId',
       views: {
         'menuContent': {
           templateUrl: 'templates/orderDetail.html',

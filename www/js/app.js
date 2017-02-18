@@ -25,13 +25,6 @@ angular.module('starter', ['ionic','wrConnector','ngCordova','ngLodash','ionic-c
 
 //***** http Header
 .config(['$httpProvider', function($httpProvider) {
-  // $httpProvider.defaults.headers.common = {};
-  // $httpProvider.defaults.headers.post = {};
-  // $httpProvider.defaults.headers.put = {};
-  // $httpProvider.defaults.headers.patch = {};
-
-  // $httpProvider.defaults.headers.common['Authorization'] = 'Bearer 5b90f3f1-79e7-42ee-a1c2-1be77e03ee1e'; 
-  // $httpProvider.defaults.headers.common['Content-Type'] = 'application/json'; 
    $httpProvider.interceptors.push('TokenInterceptor');
 }])
 
@@ -71,6 +64,15 @@ angular.module('starter', ['ionic','wrConnector','ngCordova','ngLodash','ionic-c
         'menuContent': {
           templateUrl: 'templates/hardware.html',
           controller:'hardwareCtrl as vm'
+        }
+      }
+    })
+  .state('app.orderDetails', {
+      url: '/orderDetails',
+      views: {
+        'menuContent': {
+          templateUrl: 'templates/orderDetail.html',
+          controller:'orderDetailsCtrl as vm'
         }
       }
     })

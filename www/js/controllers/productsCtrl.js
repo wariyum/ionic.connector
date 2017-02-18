@@ -18,6 +18,7 @@ productsCtrl.$inject = ['productService','appService','appState','$stateParams',
 
 	vm.products = [];
 	vm.page = 0;
+	vm.totalPages = null;
 
   vm.init = function () {
 
@@ -43,8 +44,16 @@ productsCtrl.$inject = ['productService','appService','appState','$stateParams',
  	// }
     
   	}
+
+  	vm.moreDataCanBeLoaded = function(){
+  		return !(vm.totalPages == vm.page);
+  		// return vm.page === 
+  	}
+
   	vm.loadMore = function(){
+  		if(vm.categoryId <= 0){
   		  productService.getProductsPublished(vm.page).then(function (response) {
+  			vm.totalPages = response.data.success.totalPages;
   		  	vm.page = vm.page + 1;
 	        _.forEach(response.data.success.content, function(itm) {
 			  vm.products.push(itm);
@@ -52,6 +61,10 @@ productsCtrl.$inject = ['productService','appService','appState','$stateParams',
 	        
  			$scope.$broadcast('scroll.infiniteScrollComplete');
 	      });
+  		}
+  		else{
+  			//implement for category
+  		}
   		
   	}
 }

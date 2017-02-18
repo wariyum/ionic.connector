@@ -11,6 +11,5 @@ function orderDetailsCtrl($stateParams) {
 	vm.init = function() {
 		vm.programId = $stateParams.programId;
 		vm.orderId = $stateParams.orderId;
-		alert(vm.orderId);
 	}
 }

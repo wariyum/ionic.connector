@@ -2,9 +2,9 @@
 
 .controller('purchaseHistoryCtrl', purchaseHistoryCtrl);
 
-purchaseHistoryCtrl.$inject = ['cartService','moment','lodash'];
+purchaseHistoryCtrl.$inject = ['cartService','moment','lodash','$state'];
 
-function purchaseHistoryCtrl(cartService,moment,_) {
+function purchaseHistoryCtrl(cartService,moment,_,$state) {
 	var vm = this;
 	vm.test = moment("20111031", "YYYYMMDD").fromNow();
 	vm.init = function () {
@@ -16,5 +16,9 @@ function purchaseHistoryCtrl(cartService,moment,_) {
 	 	vm.orderList = response.data.success.content;
 
 	 });
+	}
+
+	vm.showOrderDetails = function() {
+		 $state.go('app.orderDetails',{programId:37,orderId:1});
 	}
 }

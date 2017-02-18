@@ -160,7 +160,7 @@
             if (appConstants.mode === 'dev') {
                 console.log('getOrderHistory --- not defined for Dev mode');
             } else {
-                var url = appService.getUrl() + 'connector/' + appConstants.prog_id + '/order/getOrderList';
+                var url = appService.getUrl() + 'connector/' + appConstants.prog_id + '/order/getOrderList?sort=createdDateTime,desc';
 
                 var config = {};
 

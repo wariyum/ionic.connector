@@ -137,6 +137,7 @@
             }
         }
 
+//todo: Nazeel remove it
         function setListProducts(products) {
             listProducts = products;
         }

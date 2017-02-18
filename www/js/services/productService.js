@@ -28,11 +28,11 @@
                 return $http.get(appService.getUrl()+'connector/'+ appConstants.prog_id +'/categories/'+ categoryId+'/products');     
         }
 
-        function getProductsPublished() {
+        function getProductsPublished(page) {
             if(appConstants.mode === 'dev')
                 return $http.get(appService.getUrl()+'published-products.json');
             else
-                return $http.get(appService.getUrl() +'connector/'+ appConstants.prog_id + '/published/page');
+                return $http.get(appService.getUrl() +'connector/'+ appConstants.prog_id + '/published/page?page='+page);
         }
 
         function getProductDetailsPublished(productId) {

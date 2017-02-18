@@ -1,5 +1,22 @@
 <ion-view view-title="Products" ng-init="vm.init()">
   <ion-content>
+  <ion-list>
+    <ion-item ng-repeat="itm in vm.products" item="itm">
+      <h2>{{itm.name}}</h2>
+    </ion-item>
+  </ion-list>
+
+   <ion-infinite-scroll
+    on-infinite="vm.loadMore()"
+    distance="1%">
+    </ion-infinite-scroll>
+  </ion-content>
+  </ion-content>
+</ion-view>
+
+
+<!-- <ion-view view-title="Products" ng-init="vm.init()">
+  <ion-content>
   <div class="list" ng-show="!vm.isProductListEmpty">
 
     <a class="item item-avatar" ng-repeat="itm in vm.products.content track by $index" href="#/app/productDetails/{{itm.id}}">
@@ -13,3 +30,4 @@
 </div>
   </ion-content>
 </ion-view>
+ -->

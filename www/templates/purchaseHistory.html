@@ -2,7 +2,7 @@
     <ion-content>
         <ion-list>
             <ion-item ng-repeat="itm in vm.orderList">
-                <button class="button button-positive" ng-click="vm.showOrderDetails()">
+                <button class="button button-positive" ng-click="vm.showOrderDetails({{itm.id}})">
                     Status: {{itm.status}} >
                 </button>
                 <br/> {{itm.tmpMoment}}

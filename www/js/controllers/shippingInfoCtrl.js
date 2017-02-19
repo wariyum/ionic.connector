@@ -2,12 +2,27 @@ angular.module('starter')
 
 .controller('shippingInfoCtrl', shippingInfoCtrl);
 
-shippingInfoCtrl.$inject = ['cartService'];
+shippingInfoCtrl.$inject = ['cartService', '$ionicPopup', '$scope'];
 
-function shippingInfoCtrl(cartService) {
-	var vm = this;
+function shippingInfoCtrl(cartService, $ionicPopup, $scope) {
+    var vm = this;
 
-	vm.sendOrderToProcess = function() {
-		cartService.sendOrderToProcess();
-	}
+    vm.sendOrderToProcess = function() {
+       
+    }
+
+    vm.showConfirm = function() {
+        var confirmPopup = $ionicPopup.confirm({
+            title: 'Order placement confirmation',
+            template: 'Shall we place your Order?'
+        });
+
+        confirmPopup.then(function(res) {
+            if (res) {
+            	 cartService.sendOrderToProcess();
+            } else {
+                //console.log('You are not sure');
+            }
+        });
+    };
 }

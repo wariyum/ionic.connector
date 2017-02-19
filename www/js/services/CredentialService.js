@@ -25,8 +25,8 @@
                 	console.log('registerUser --- not defined for Dev mode');
                 }
             else{
-            	var url = 'http://t-admin.wariyum.com/service/connector/1/createCustomer';
-          
+
+                var url = appService.getUrl()+'connector/'+ appConstants.prog_id +'/createCustomer'; 
             	var config = '';
             	$http.post(url, data, config)
 			   .then(
@@ -59,7 +59,7 @@
                     console.log('loginUser --- not defined for Dev mode');
                 }
             else{
-                    var url = 'http://t-admin.wariyum.com/service/connector/1/loginCustomer';
+                    var url = appService.getUrl()+'connector/'+ appConstants.prog_id +'/loginCustomer'; 
                     var config = '';
                     $http.post(url,data,config)
                     .then(

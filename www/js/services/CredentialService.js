@@ -64,6 +64,7 @@
                     $http.post(url,data,config)
                     .then(
                         function(response){
+                            debugger;
                                 if(response.data.error !== undefined){
                                    ctrlUtilityService.showAlert(response.data.error.errorCode); 
                                 }
@@ -77,7 +78,10 @@
                                         $state.go('app.checkout');
                                 }
                             }
-                        );
+                        ,function (response) {
+                            return response;
+                            
+                        });
                 }
         }
 

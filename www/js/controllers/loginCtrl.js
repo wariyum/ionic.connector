@@ -22,7 +22,7 @@ function loginCtrl($state,appState,$scope,$rootScope,credentialService) {
 		var data = {};
 		data.emailId = vm.loginData.username;
 		data.password = vm.loginData.password;
-		credentialService.loginUser(data);
+		credentialService.loginUser(data,$scope);
 	}
 
 	vm.registration = function() {

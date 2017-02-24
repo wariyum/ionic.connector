@@ -47,5 +47,23 @@
             </a>
            
         </div>
+
+<!-- Ordered Items starts here -->
+	<ion-list>
+	    <!-- <ion-item ng-repeat="itm in vm.orderDetails.items" item="itm"> -->
+	    	
+	    	<div class="card" ng-repeat="itm in vm.orderDetails.items" item="itm">
+  <div class="item item-text-wrap">
+  <p>
+  {{itm.product.name}}
+  </p>
+  {{itm.quantity}}
+    <button></button>
+  </div>
+</div>
+	    <!-- </ion-item> -->
+    </ion-list>
+<!-- Ordered Items ends here -->
+
     </ion-content>
 </ion-view>

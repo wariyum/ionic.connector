@@ -169,12 +169,12 @@
         }
 
         function getOrderDetail(orderId) {
-            //t-admin.wariyum.com/service/connector/1/order/getOrderItem/18
+            //t-admin.wariyum.com/service/connector/1/order/getOrder/8
             var data = {};
             if (appConstants.mode === 'dev') {
                 console.log('getOrderDetail --- not defined for Dev mode');
             } else {
-                var url = appService.getUrl() + 'connector/' + appConstants.prog_id + '/order/getOrderItem/'+orderId;
+                var url = appService.getUrl() + 'connector/' + appConstants.prog_id + '/order/getOrder/'+orderId;
 
                 var config = {};
 

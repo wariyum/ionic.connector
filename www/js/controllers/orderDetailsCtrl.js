@@ -25,7 +25,7 @@ function orderDetailsCtrl($stateParams,$rootScope,cartService) {
              //     value.tmpMoment = moment(value.createdDateTime).fromNow();
              // });
              vm.orderDetails = response.data.success;
-             debugger;
+             vm.status = vm.orderDetails.status;
          });
 	 }
 

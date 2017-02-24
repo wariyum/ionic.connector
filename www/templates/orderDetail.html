@@ -1,6 +1,41 @@
-<ion-view view-title="Order Detials" ng-init="vm.init()" >
+<ion-view view-title="Order Detials" ng-init="vm.init()">
     <ion-content>
-    
+        <div class="list card" ng-show="vm.status === 'PROGRESS'">
+            <a href="#" class="item item-icon-left">
+                <i class="icon ion-paper-airplane"></i> Order Just Placed
+            </a>
+            <a href="#" class="item item-icon-left">
+                <i class="icon ion-clock"></i> 
+                A minute ago
+            </a>
+            <a href="#" class="item item-icon-left">
+                <i class="icon ion-edit"></i> Edit My Order
+            </a>
+            <a href="#" class="item item-icon-left">
+                <i class="icon ion-android-cancel"></i> Cancel My Order
+            </a>
+            <a href="#" class="item item-icon-left">
+                <i class="icon ion-android-hand"></i>
+                Waiting for Long - Not Happy
+            </a>
+            <a href="#" class="item item-icon-left">
+                <i class="icon ion-ios-telephone"></i>
+                Call Us
+            </a>
+        </div> 
+        <div class="list card" ng-show="vm.status === 'DELIVERED'">
+            <a href="#" class="item item-icon-left">
+                <i class="icon ion-paper-airplane"></i> 
+                Delivered
+            </a>
+            <a href="#" class="item item-icon-left">
+                <i class="icon ion-clock"></i> 
+                A minute ago
+            </a>
+            <a href="#" class="item item-icon-left">
+                <i class="icon ion-edit"></i> Feedback
+            </a>
+           
+        </div>
     </ion-content>
-
- </ion-view>
+</ion-view>

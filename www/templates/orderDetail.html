@@ -5,10 +5,9 @@
                 <i class="icon ion-paper-airplane"></i> Order Just Placed
             </a>
             <a href="#" class="item item-icon-left">
-                <i class="icon ion-clock"></i> 
-                A minute ago
+                <i class="icon ion-clock"></i> A minute ago
             </a>
-          <!--   <a href="#" class="item item-icon-left">
+            <!--   <a href="#" class="item item-icon-left">
                 <i class="icon ion-edit"></i>
 			<button class="button button-outline button-dark">
 			  Edit Order
@@ -17,53 +16,49 @@
             <a href="#" class="item item-icon-left">
                 <i class="icon ion-android-cancel assertive"></i>
                 <button class="button button-outline button-assertive">
-			  Cancel Order
-			</button>
+                    Cancel Order
+                </button>
             </a>
             <a href="#" class="item item-icon-left">
                 <i class="icon ion-android-hand royal"></i>
-                 <button class="button button-outline button-royal">
-                Waiting for Long - Not Happy
+                <button class="button button-outline button-royal">
+                    Waiting for Long - Not Happy
                 </button>
             </a>
             <a href="#" class="item item-icon-left">
                 <i class="icon ion-ios-telephone balanced"></i>
                 <button class="button button-outline button-balanced">
-                Call Us
+                    Call Us
                 </button>
             </a>
-        </div> 
+        </div>
         <div class="list card" ng-show="vm.status === 'DELIVERED'">
             <a href="#" class="item item-icon-left">
-                <i class="icon ion-paper-airplane"></i> 
-                Delivered
+                <i class="icon ion-paper-airplane"></i> Delivered
             </a>
             <a href="#" class="item item-icon-left">
-                <i class="icon ion-clock"></i> 
-                A minute ago
+                <i class="icon ion-clock"></i> A minute ago
             </a>
             <a href="#" class="item item-icon-left">
                 <i class="icon ion-edit"></i> Feedback
             </a>
-           
         </div>
-
-<!-- Ordered Items starts here -->
-	<ion-list>
-	    <!-- <ion-item ng-repeat="itm in vm.orderDetails.items" item="itm"> -->
-	    	
-	    	<div class="card" ng-repeat="itm in vm.orderDetails.items" item="itm">
-  <div class="item item-text-wrap">
-  <p>
-  {{itm.product.name}}
-  </p>
-  {{itm.quantity}}
-    <button></button>
-  </div>
-</div>
-	    <!-- </ion-item> -->
-    </ion-list>
-<!-- Ordered Items ends here -->
-
+        <!-- Ordered Items starts here -->
+        <ion-list>
+            <!-- <ion-item ng-repeat="itm in vm.orderDetails.items" item="itm"> -->
+            <div class="card" ng-repeat="itm in vm.orderDetails.items" item="itm">
+                <div class="item item-text-wrap">
+                    <p>
+                        {{itm.product.name}}
+                    </p>
+                    {{itm.quantity}}
+                    <button class="button button-positive">
+                        ADD
+                    </button>
+                </div>
+            </div>
+            <!-- </ion-item> -->
+        </ion-list>
+        <!-- Ordered Items ends here -->
     </ion-content>
 </ion-view>

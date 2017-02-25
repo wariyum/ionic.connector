@@ -1,35 +1,36 @@
 <ion-view view-title="Login" ng-init="vm.init()">
-  <ion-header-bar>
-    <h1 class="title">Login</h1>
-    <div class="buttons">
-      <button class="button button-clear" ng-click="closeLogin()">Close</button>
-    </div>
-  </ion-header-bar>
-  <ion-content>
-    <form ng-submit="vm.doLogin()" ng-show="!vm.loggedIn">
-      <div class="list">
-        <label class="item item-input">
-          <span class="input-label">Username</span>
-          <input type="text" ng-model="vm.loginData.username" ng-minlength="5" ng-maxlength="20" required type="email">
+    <ion-header-bar>
+        <h1 class="title">Login</h1>
+        <div class="buttons">
+            <button class="button button-clear" ng-click="closeLogin()">Close</button>
+        </div>
+    </ion-header-bar>
+    <ion-content>
+        <form ng-submit="vm.doLogin()" ng-show="!vm.loggedIn">
+            <div class="list">
+                <label class="item item-input">
+                    <span class="input-label">Email</span>
+                    <input type="text" ng-model="vm.loginData.username" ng-minlength="5" ng-maxlength="20" required type="email">
+                </label>
+                <label class="item item-input">
+                    <span class="input-label">Password</span>
+                    <input type="password" ng-model="vm.loginData.password" required>
+                </label>
+                <label class="item">
+                    <button class="button button-block button-positive">Log in</button>
+
+            </div>
+        </form>
+
+         <button class="button button-clear button-positive" ng-click="vm.forgetPassword()">
+                        Forget Password?
+                    </button>
+
+        <label class="item" ng-show="!vm.loggedIn">
+            <button class="button button-block button-balanced" ng-click="vm.registration()">New User Register Here!</button>
         </label>
-        <label class="item item-input">
-          <span class="input-label">Password</span>
-          <input type="password" ng-model="vm.loginData.password" required>
+        <label class="item" ng-show="vm.loggedIn">
+            <button class="button button-block button-balanced" ng-click="vm.logout()">Log Out!</button>
         </label>
-        <label class="item">
-          <button class="button button-block button-positive">Log in</button>
-      </div>
-    </form>
-
-    <label class="item" ng-show="!vm.loggedIn">
-          <button class="button button-block button-balanced" ng-click="vm.registration()" 
-           >New User Register Here!</button>
-    </label>
-
-    <label class="item" ng-show="vm.loggedIn">
-          <button class="button button-block button-balanced" ng-click="vm.logout()" 
-           >Log Out!</button>
-    </label>
-
-  </ion-content>
+    </ion-content>
 </ion-view>

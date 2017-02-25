@@ -16,7 +16,8 @@
         return {
            registerUser:registerUser,
            loginUser:loginUser,
-           isUserLoggedIn: isUserLoggedIn
+           isUserLoggedIn: isUserLoggedIn,
+           forgetPassword: forgetPassword
         };
 
         function registerUser(data) {
@@ -61,28 +62,44 @@
             else{
                     var url = appService.getUrl()+'connector/'+ appConstants.prog_id +'/loginCustomer'; 
                     var config = '';
-                    $http.post(url,data,config)
-                    .then(
-                        function(response){
-                            debugger;
-                                if(response.data.error !== undefined){
-                                   ctrlUtilityService.showAlert(response.data.error.errorCode); 
-                                }
-                                else{
-                                        appState.addToLocalStorage(response.data);
-                                        ctrlUtilityService.showAlert('Welcome back!');
-                                        $rootScope.credentials = appState.getLocalStorageAll();
-                                        
-                                        $rootScope.$broadcast('rootScope:credentials', $rootScope.credentials); 
-                                        //redirect to Check-out page
-                                        $state.go('app.checkout');
-                                }
-                            }
-                        ,function (response) {
-                            return response;
-                            
-                        });
+                    return $http.post(url,data,config);
+                 
                 }
+        }
+
+        function forgetPassword(data) {
+            if(appConstants.mode === 'dev')
+                {
+                    console.log('forgetPassword --- not defined for Dev mode');
+                }
+            else{
+                //t-admin.wariyum.com/service/connector/1/forgetPassword
+                var url = appService.getUrl()+'connector/'+ appConstants.prog_id +'/forgetPassword'; 
+                var config = '';
+                $http.post(url, data, config)
+               .then(
+                   function(response){
+                    if(response.data.error)
+                    {
+                         ctrlUtilityService.showAlert(response.data.error.errorCode);
+                    }
+                    else
+                    {
+                        alert('Password reset successfull');
+                        // appState.addToLocalStorage(response.data);
+                        // ctrlUtilityService.showAlert('Thank you for registering with Us.');
+                        // $rootScope.credentials = appState.getLocalStorageAll();
+                        // $rootScope.$broadcast('rootScope:credentials', $rootScope.credentials); 
+                        // //redirect to Check-out page
+                        // $state.go('app.checkout');
+                       }
+                    }, 
+                   function(response){
+                    alert('error');
+                     // failure callback
+                   }
+                );
+            }
         }
 
         function isUserLoggedIn(){

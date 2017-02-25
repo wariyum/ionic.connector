@@ -3,9 +3,9 @@
 
 .controller('orderDetailsCtrl', orderDetailsCtrl);
 
-orderDetailsCtrl.$inject = ['$stateParams','$rootScope','cartService'];
+orderDetailsCtrl.$inject = ['$stateParams','$rootScope','cartService','$scope','$ionicPopup'];
 
-function orderDetailsCtrl($stateParams,$rootScope,cartService) {
+function orderDetailsCtrl($stateParams,$rootScope,cartService,$scope,$ionicPopup) {
 	var vm = this;
 
 	vm.init = function() {
@@ -27,6 +27,26 @@ function orderDetailsCtrl($stateParams,$rootScope,cartService) {
              vm.orderDetails = response.data.success;
              vm.status = vm.orderDetails.status;
          });
+	 }
+
+	 // A confirm dialog
+ $scope.showCancelConfirm = function() {
+   var confirmPopup = $ionicPopup.confirm({
+     title: 'Cancel your Order',
+     template: 'Are you sure you want to Cancel order?'
+   });
+
+   confirmPopup.then(function(res) {
+     if(res) {
+       cartService.cancelOrder(vm.orderId);
+     } else {
+       
+     }
+   });
+ };
+
+	 vm.cancelOrder = function() {
+	 	$scope.showCancelConfirm();
 	 }
 
 

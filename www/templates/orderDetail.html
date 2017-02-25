@@ -1,6 +1,6 @@
 <ion-view view-title="Order Detials" ng-init="vm.init()">
     <ion-content>
-        <div class="list card" ng-show="vm.status === 'PROGRESS'">
+        <div class="list card" ng-show="vm.status === 'ORDER_PLACED'">
             <a href="#" class="item item-icon-left">
                 <i class="icon ion-paper-airplane"></i> Order Just Placed
             </a>
@@ -13,9 +13,9 @@
 			  Edit Order
 			</button>
             </a> -->
-            <a href="#" class="item item-icon-left">
+            <a class="item item-icon-left">
                 <i class="icon ion-android-cancel assertive"></i>
-                <button class="button button-outline button-assertive">
+                <button class="button button-outline button-assertive" ng-click="vm.cancelOrder()">
                     Cancel Order
                 </button>
             </a>

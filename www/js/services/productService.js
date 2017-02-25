@@ -25,7 +25,7 @@
               if(appConstants.mode === 'dev')
                 return $http.get(appService.getUrl()+'products-by-categoryId.json');       
             else
-                return $http.get(appService.getUrl()+'connector/'+ appConstants.prog_id +'/categories/'+ categoryId+'/products');     
+                return $http.get(appService.getUrl()+'connector/'+ appConstants.prog_id +'/categories/'+ categoryId+'/products/page');     
         }
 
         function getProductsPublished(page) {

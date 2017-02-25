@@ -1,11 +1,13 @@
 <ion-view view-title="Order Detials" ng-init="vm.init()">
     <ion-content>
-        <div class="list card" ng-show="vm.status === 'ORDER_PLACED'">
+        <div class="list card">
             <a href="#" class="item item-icon-left">
-                <i class="icon ion-paper-airplane"></i> Order Just Placed
+                <i class="icon ion-paper-airplane"></i>
+                 {{vm.status}}
             </a>
             <a href="#" class="item item-icon-left">
-                <i class="icon ion-clock"></i> A minute ago
+                <i class="icon ion-clock"></i>
+                 {{vm.dateTime}}
             </a>
             <!--   <a href="#" class="item item-icon-left">
                 <i class="icon ion-edit"></i>
@@ -13,13 +15,13 @@
 			  Edit Order
 			</button>
             </a> -->
-            <a class="item item-icon-left">
+            <a class="item item-icon-left" ng-show="vm.status === 'ORDER_PLACED'">
                 <i class="icon ion-android-cancel assertive"></i>
                 <button class="button button-outline button-assertive" ng-click="vm.cancelOrder()">
                     Cancel Order
                 </button>
             </a>
-            <a href="#" class="item item-icon-left">
+            <a href="#" class="item item-icon-left" ng-show="vm.status === 'PROCESSING'">
                 <i class="icon ion-android-hand royal"></i>
                 <button class="button button-outline button-royal">
                     Waiting for Long - Not Happy
@@ -31,18 +33,11 @@
                     Call Us
                 </button>
             </a>
-        </div>
-        <div class="list card" ng-show="vm.status === 'DELIVERED'">
-            <a href="#" class="item item-icon-left">
-                <i class="icon ion-paper-airplane"></i> Delivered
-            </a>
-            <a href="#" class="item item-icon-left">
-                <i class="icon ion-clock"></i> A minute ago
-            </a>
-            <a href="#" class="item item-icon-left">
+             <a href="#" class="item item-icon-left">
                 <i class="icon ion-edit"></i> Feedback
             </a>
         </div>
+       
         <!-- Ordered Items starts here -->
         <ion-list>
             <!-- <ion-item ng-repeat="itm in vm.orderDetails.items" item="itm"> -->

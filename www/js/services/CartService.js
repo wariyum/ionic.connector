@@ -26,7 +26,8 @@
             sendOrderToProcess: sendOrderToProcess,
             getOrderHistory: getOrderHistory,
             getOrderDetail: getOrderDetail,
-            cancelOrder: cancelOrder
+            cancelOrder: cancelOrder,
+            saveShippingAddr: saveShippingAddr
         };
 
         function getCartItems() {
@@ -191,6 +192,18 @@
             } else {
                 var url = appService.getUrl() + 'connector/' + appConstants.prog_id + '/order/cancelOrder/' + orderId;
                 debugger;
+                var config = {};
+
+                return $http.post(url, data, config);
+            }
+        }
+
+        function saveShippingAddr(orderId,shippAddr) {
+            // t-admin.wariyum.com/service/connector/1/order/addShippingAddress/14
+               if (appConstants.mode === 'dev') {
+                console.log('saveShippingAddr --- not defined for Dev mode');
+            } else {
+                var url = appService.getUrl() + 'connector/' + appConstants.prog_id + '/order/addShippingAddress/' + orderId;
                 var config = {};
 
                 return $http.post(url, data, config);

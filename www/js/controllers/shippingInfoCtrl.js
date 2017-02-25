@@ -12,6 +12,8 @@ function shippingInfoCtrl(cartService, $ionicPopup, $scope) {
     }
 
     vm.showConfirm = function() {
+
+        // cartService.saveShippingAddr();
         var confirmPopup = $ionicPopup.confirm({
             title: 'Order placement confirmation',
             template: 'Shall we place your Order?'

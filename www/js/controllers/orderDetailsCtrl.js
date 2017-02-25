@@ -2,9 +2,9 @@ angular.module('starter')
 
 .controller('orderDetailsCtrl', orderDetailsCtrl);
 
-orderDetailsCtrl.$inject = ['$stateParams', '$rootScope', 'cartService', '$scope', '$ionicPopup'];
+orderDetailsCtrl.$inject = ['$stateParams', '$rootScope', 'cartService', '$scope', '$ionicPopup','$state','moment'];
 
-function orderDetailsCtrl($stateParams, $rootScope, cartService, $scope, $ionicPopup) {
+function orderDetailsCtrl($stateParams, $rootScope, cartService, $scope, $ionicPopup,$state,moment) {
     var vm = this;
 
     vm.init = function() {
@@ -25,6 +25,7 @@ function orderDetailsCtrl($stateParams, $rootScope, cartService, $scope, $ionicP
             // });
             vm.orderDetails = response.data.success;
             vm.status = vm.orderDetails.status;
+            vm.dateTime = moment(vm.orderDetails.createdDateTime).fromNow();
         });
     }
 
@@ -38,6 +39,8 @@ function orderDetailsCtrl($stateParams, $rootScope, cartService, $scope, $ionicP
         confirmPopup.then(function(res) {
             if (res) {
                 cartService.cancelOrder(vm.orderId);
+                $state.go('app.purchaseHistory');
+
             } else {
 
             }

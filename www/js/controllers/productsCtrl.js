@@ -31,24 +31,30 @@ function productsCtrl(productService, appService, appState, $stateParams, $scope
         // return vm.page === 
     }
 
+    function loadToList(response) {
+    	debugger;
+        if (!response.data) {
+        	vm.noDataBanner = true;
+        } else {
+            vm.totalPages = response.data.success.totalPages;
+            vm.page = vm.page + 1;
+            _.forEach(response.data.success.content, function(itm) {
+                vm.products.push(itm);
+            });
+
+            $scope.$broadcast('scroll.infiniteScrollComplete');
+        }
+    }
+
     vm.loadMore = function() {
+    	vm.noDataBanner = false;
         if (vm.categoryId <= 0) {
             productService.getProductsPublished(vm.page).then(function(response) {
-                vm.totalPages = response.data.success.totalPages;
-                vm.page = vm.page + 1;
-                _.forEach(response.data.success.content, function(itm) {
-                    vm.products.push(itm);
-                });
-
-                $scope.$broadcast('scroll.infiniteScrollComplete');
+                loadToList(response);
             });
         } else {
-            productService.getProductsByCategoryId(vm.categoryId).then(function(response) {
-                vm.products = response.data.success;
-                appState.setListProducts(vm.products);
-                if (vm.products.length <= 0) {
-                    vm.isProductListEmpty = true;
-                }
+            productService.getProductsByCategoryId(vm.categoryId, vm.page).then(function(response) {
+                loadToList(response);
             });
         }
 

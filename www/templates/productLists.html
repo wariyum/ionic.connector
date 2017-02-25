@@ -1,6 +1,7 @@
 <ion-view view-title="Products" ng-init="vm.init()">
   <ion-content>
-  <ion-list>
+
+  <ion-list ng-show="vm.noDataBanner === false">
     <ion-item ng-repeat="itm in vm.products" item="itm" href="#/app/productDetails/{{itm.id}}">
     <img cache-src="{{vm.imageUrl + itm.imageUrl[0]}}"/>
       <h2>{{itm.name}}</h2>

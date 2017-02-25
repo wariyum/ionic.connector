@@ -145,7 +145,10 @@
                             if (response.data.error) {
                                 ctrlUtilityService.showAlert(response.data.error.errorCode);
                             } else {
+                                $rootScope.$broadcast('rootScope:orderPlaced',{});
+
                                 ctrlUtilityService.showAlert('Thank you, Your Order is placed Successfully');
+
                             }
                         },
                         function(response) {

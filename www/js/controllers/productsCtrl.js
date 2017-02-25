@@ -32,8 +32,7 @@ function productsCtrl(productService, appService, appState, $stateParams, $scope
     }
 
     function loadToList(response) {
-    	debugger;
-        if (!response.data) {
+        if (!response.data || response.data.error) {
         	vm.noDataBanner = true;
         } else {
             vm.totalPages = response.data.success.totalPages;

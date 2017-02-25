@@ -15,6 +15,10 @@
          });
      }
 
+     $rootScope.$on('rootScope:orderPlaced',function(event,data) {
+         vm.init();
+     });
+
      vm.showOrderDetails = function(orderId) {
         $rootScope.$broadcast('rootScope:orderDetails', { programId: appService.getProgId() , orderId: orderId }); 
         $state.go('app.orderDetails', { programId: appService.getProgId(), orderId: orderId });

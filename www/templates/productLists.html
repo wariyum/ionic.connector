@@ -11,6 +11,12 @@
     </ion-item>
   </ion-list>
 
+  <div class="card" ng-show="vm.noDataBanner">
+  <div class="item item-text-wrap">
+    No data found
+  </div>
+</div>
+
    <ion-infinite-scroll
     on-infinite="vm.loadMore()"
     distance="1%"

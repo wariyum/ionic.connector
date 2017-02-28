@@ -114,8 +114,9 @@ input.ng-valid {
 
 .product-list-item-left
 {
-      border: chocolate;
-    border-left-style: double;
+      border: #eff5f5;
+    border-left-style:inset;
+    border-width: 1px;
     padding-left: 20px;
 }
 

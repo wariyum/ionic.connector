@@ -1,42 +1,35 @@
 <ion-view view-title="Products" ng-init="vm.init()">
-  <ion-content>
-
-  <ion-list ng-show="vm.noDataBanner === false">
-
-    <div class="card product-list" ng-repeat="itm in vm.productCols">
-    <div class="row">
-      <div class="col">
-         <img class="product-list-item-img"  cache-src="{{vm.imageUrl + itm[0].imageUrl[0]}}" height="40px" />
-      <h4>{{itm[0].name}}</h4>
-        <img height="40px" ng-show="itm[0].showOffer" style="float:right;position:top;" src="img/special-offer.jpg">
-        <p style="margin-right: 25%;">{{itm[0].description}}</p>
-        <button ng-show="itm.unitPrice" class="button  icon"> AED {{itm[0].unitPrice}} </button> 
-        <a href="#/app/productDetails/{{itm[0].id}}" class="button  button-positive"> Details</a> 
-      </div>
-
-      <div class="col product-list-item-left">
-         <img class="product-list-item-img"  cache-src="{{vm.imageUrl + itm[1].imageUrl[0]}}" height="40px" />
-      <h4>{{itm[1].name}}</h4>
-        <img height="40px"  ng-show="itm[1].showOffer" style="float:right;position:top;" src="img/special-offer.jpg">
-        <p style="margin-right: 25%;">{{itm[1].description}}</p>
-        <button ng-show="itm.unitPrice" class="button  icon"> AED {{itm[1].unitPrice}} </button> 
-        <a href="#/app/productDetails/{{itm[1].id}}" class="button  button-positive"> Details</a> 
-
-      </div>
-    </div>
-</div>
-  </ion-list>
-
-  <div class="card" ng-show="vm.noDataBanner">
-  <div class="item item-text-wrap">
-    No data found
-  </div>
-</div>
-
-   <ion-infinite-scroll
-    on-infinite="vm.loadMore()"
-    distance="1%"
-    ng-if="vm.moreDataCanBeLoaded()">
-    </ion-infinite-scroll>
-  </ion-content>
+    <ion-content>
+        <ion-list ng-show="vm.noDataBanner === false">
+            <div class="card product-list" ng-repeat="itm in vm.productCols">
+                <div class="row">
+                    <div class="col">
+                        <img class="product-list-item-img" cache-src="{{vm.imageUrl + itm[0].imageUrl[0]}}" height="40px" />
+                        <p><b>{{itm[0].name}}</b></p>
+                        <img height="40px" ng-show="itm[0].showOffer" style="float:right;position:top;" src="img/special-offer.jpg">
+                        <p style="margin-right: 25%;">{{itm[0].description}}</p>
+                        <button ng-show="itm.unitPrice" class="button  icon"> AED {{itm[0].unitPrice}} </button>
+                        <a href="#/app/productDetails/{{itm[0].id}}" class="button button-small  button-positive">Show Details</a>
+                      
+                    
+                    </div>
+                    <div class="col product-list-item-left">
+                        <img class="product-list-item-img" cache-src="{{vm.imageUrl + itm[1].imageUrl[0]}}" height="40px" />
+                        <p><b>{{itm[1].name}}</b></p>
+                        <img height="40px" ng-show="itm[1].showOffer" style="float:right;position:top;" src="img/special-offer.jpg">
+                        <p style="margin-right: 25%;">{{itm[1].description}}</p>
+                        <button ng-show="itm.unitPrice" class="button  icon"> AED {{itm[1].unitPrice}} </button>
+                        <a href="#/app/productDetails/{{itm[1].id}}" class="button  button-small button-positive">Show Details</a>
+                    </div>
+                </div>
+            </div>
+        </ion-list>
+        <div class="card" ng-show="vm.noDataBanner">
+            <div class="item item-text-wrap">
+                No data found
+            </div>
+        </div>
+        <ion-infinite-scroll on-infinite="vm.loadMore()" distance="1%" ng-if="vm.moreDataCanBeLoaded()">
+        </ion-infinite-scroll>
+    </ion-content>
 </ion-view>

@@ -41,9 +41,25 @@ function productsCtrl(productService, appService, appState, $stateParams, $scope
                 vm.products.push(itm);
             });
 
+            //splitting to columnr view
+
+            vm.productCols = [];
+            var lenProds = vm.products.length;
+
+
+           for (var i = 0; i < lenProds; i = i + 2) {
+                var tmpProdItm = [];
+                vm.productCols.push(tmpProdItm);
+                    tmpProdItm.push(vm.products[i]);
+                    tmpProdItm.push(vm.products[i + 1]);
+           }
             $scope.$broadcast('scroll.infiniteScrollComplete');
         }
     }
+
+    // vm.isEven =function(n) {
+    //        return !Math.abs(n % 2) == 1;
+    // }
 
     vm.loadMore = function() {
     	vm.noDataBanner = false;

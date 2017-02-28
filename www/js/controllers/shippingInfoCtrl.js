@@ -24,7 +24,6 @@ function shippingInfoCtrl(cartService, $ionicPopup, $scope,$rootScope,$state) {
             	 cartService.sendOrderToProcess();
                  //broadcast event refresh Purchase Hisotry
 
-            $rootScope.$broadcast('rootScope:orderPlaced',{});
             $state.go('app.purchaseHistory');
                  //redirect to purchase history
             } else {

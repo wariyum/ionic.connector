@@ -10,6 +10,10 @@ angular.module('starter')
                 if($localStorage.credentials!=undefined && $localStorage.credentials[0][0].access_token){
                     config.headers.Authorization = 'Bearer ' +  $localStorage.credentials[0][0].access_token;;
                 }
+                else{
+                    //clear that token itself
+                    $localStorage.credentials = null;
+                }
                 return config;
             },
 

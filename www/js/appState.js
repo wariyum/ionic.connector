@@ -221,7 +221,7 @@
         }
 
         function _getLocalStorageAll() {
-            if($localStorage.credentials != undefined){
+            if($localStorage.credentials != undefined && $localStorage.credentials.length > 0){
                 $rootScope.token =  $localStorage.credentials[0][0].access_token;
               return $localStorage.credentials;
             }

@@ -7,12 +7,12 @@ angular.module('starter')
         return {
             request: function(config) {
                 config.headers = config.headers || {};
-                if($localStorage.credentials!=undefined && $localStorage.credentials[0][0].access_token){
+                if($localStorage.credentials!=undefined  && $localStorage.credentials[0] && $localStorage.credentials[0][0].access_token){
                     config.headers.Authorization = 'Bearer ' +  $localStorage.credentials[0][0].access_token;;
                 }
                 else{
                     //clear that token itself
-                    $localStorage.credentials = null;
+                    $localStorage.credentials = [];
                 }
                 return config;
             },

@@ -18,25 +18,32 @@
     </ion-header-bar>
     <ion-content ng-controller="appCtrl as vm" ng-init="vm.init()">
       <ion-list>
-       <ion-item menu-close href="#/app/products/{{progId}}/0">
+       <ion-item class="item-icon-left" menu-close href="#/app/products/{{progId}}/0">
+        <i class="icon ion-bag"></i>
           Promotions
         </ion-item>
-        <ion-item menu-close href="#/app/login">
+        <ion-item class="item-icon-left" menu-close href="#/app/login">
+         <i class="icon ion-ios-person"></i>
           My Account
         </ion-item>
-         <ion-item menu-close href="#/app/checkout">
-          Cart Items
+         <ion-item class="item-icon-left" menu-close href="#/app/checkout">
+        <i class="icon ion-android-cart"></i>
+          Cart
         </ion-item> 
-        <ion-item menu-close href="#/app/purchaseHistory">
+        <ion-item class="item-icon-left" menu-close href="#/app/purchaseHistory">
+          <i class="icon ion-archive"></i>
           Purchase History
         </ion-item>
-        <ion-item menu-close href="#/app/search">
+        <ion-item class="item-icon-left" menu-close href="#/app/search">
+          <i class="icon ion-search"></i>
           Search
         </ion-item>
-        <ion-item menu-close href="#/app/aboutUs">
+        <ion-item class="item-icon-left" menu-close href="#/app/aboutUs">
+          <i class="icon ion-happy-outline"></i>
           About Us
         </ion-item>
         <ion-item menu-close ng-repeat="itm in categories" href='#/app/products/{{progId}}/{{itm.id}}'>
+        <img src="img/1.jpg" height="20px" />
           {{itm.name}}
         </ion-item>
         <ion-item menu-close href="#/app/demo">

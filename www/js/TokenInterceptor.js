@@ -43,6 +43,8 @@ angular.module('starter')
                     }
                     inflightAuthRequest.then(function(r) {
                         $localStorage.credentials[0][0] = r.data[0];
+                        $injector.get("$state").reload();
+                        // $state.reload();
                     }, function(response) {
                        
                     });

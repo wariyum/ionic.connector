@@ -57,19 +57,20 @@ function productsCtrl(productService, appService, appState, $stateParams, $scope
         }
     }
 
-    // vm.isEven =function(n) {
-    //        return !Math.abs(n % 2) == 1;
-    // }
 
     vm.loadMore = function() {
     	vm.noDataBanner = false;
         if (vm.categoryId <= 0) {
             productService.getProductsPublished(vm.page).then(function(response) {
                 loadToList(response);
+                appState.setListProducts(response.data.success.content);
             });
         } else {
             productService.getProductsByCategoryId(vm.categoryId, vm.page).then(function(response) {
                 loadToList(response);
+                appState.setListProducts(response.data.success.content);
+                
+
             });
         }
 

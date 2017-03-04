@@ -45,7 +45,8 @@ function loginCtrl($state, appState, $scope, $rootScope, credentialService, $ion
 
                     $rootScope.$broadcast('rootScope:credentials', $rootScope.credentials);
                     //redirect to Check-out page
-                    $state.go('app.checkout');
+                    // $state.go('app.checkout');
+                    $state.reload();
                 }
             },
             function(response) {

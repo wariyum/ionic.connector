@@ -69,8 +69,7 @@ function productsCtrl(productService, appService, appState, $stateParams, $scope
             productService.getProductsByCategoryId(vm.categoryId, vm.page).then(function(response) {
                 loadToList(response);
                 appState.setListProducts(response.data.success.content);
-                
-
+            
             });
         }
 

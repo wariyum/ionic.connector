@@ -67,6 +67,15 @@ angular.module('starter', ['ionic','wrConnector','ngCordova','ngLodash','ionic-c
         }
       }
     })
+  .state('app.forgetPassword', {
+      url: '/forgetPassword',
+      views: {
+        'menuContent': {
+          templateUrl: 'templates/forgetPassword.html',
+          controller:'forgetPasswordCtrl as vm'
+        }
+      }
+    })
   .state('app.orderDetails', {
       url: '/orderDetails/:programId/:orderId',
       views: {

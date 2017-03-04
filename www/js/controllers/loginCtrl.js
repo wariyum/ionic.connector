@@ -67,6 +67,7 @@ function loginCtrl($state, appState, $scope, $rootScope, credentialService, $ion
     }
 
     vm.forgetPassword = function() {
+        alert('forgetPassword');
         var data = {};
         if (!vm.loginData.username) {
             alert('Please fill email id ');

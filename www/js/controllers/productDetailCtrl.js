@@ -2,10 +2,10 @@ angular.module('starter')
 
 .controller('productDetailCtrl', productDetailCtrl);
 
-productDetailCtrl.$inject = ['productService', '$stateParams', 'appService', 'appState','$ionicSlideBoxDelegate','cartService'];
+productDetailCtrl.$inject = ['productService', '$stateParams', 'appService', 'appState','$ionicSlideBoxDelegate','cartService','$cordovaSocialSharing'];
 
 
-function productDetailCtrl(productService, $stateParams, appService, appState,$ionicSlideBoxDelegate, cartService) {
+function productDetailCtrl(productService, $stateParams, appService, appState,$ionicSlideBoxDelegate, cartService,$cordovaSocialSharing) {
 
     var vm = this;
 
@@ -46,6 +46,20 @@ function productDetailCtrl(productService, $stateParams, appService, appState,$i
         cartItm.quantity = 1;
         cartService.appendCartItem(cartItm);
         appState.checkout(vm.productDetail);
+    }
+
+    vm.share = function() {
+        var image = null;
+        var link = 'http://wariyum.com';
+        $cordovaSocialSharing
+            .shareViaWhatsApp("Check Out this product from wariyum", image, link)
+            .then(function(result) {
+                alert('success');
+              // Success!
+            }, function(err) {
+                alert('failure');
+              // An error occurred. Show a message to the user
+            });
     }
 
     vm.addToLike = function(argument) {

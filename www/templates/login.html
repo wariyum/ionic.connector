@@ -22,11 +22,10 @@
         </form>
         <label class="item" ng-show="!vm.loggedIn">
             <button class="button button-block button-balanced" ng-click="vm.registration()">New User Register Here!</button>
-         
         </label>
-           <button class="button button-clear button-positive" ng-click="vm.forgetPassword()">
-                Forget Password?
-            </button>
+        <button ng-show="!vm.loggedIn" class="button button-clear button-positive" ng-click="vm.forgetPassword()">
+            Forget Password?
+        </button>
         <label class="item" ng-show="vm.loggedIn">
             <button class="button button-block button-balanced" ng-click="vm.logout()">Log Out!</button>
         </label>

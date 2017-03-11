@@ -6,3 +6,4 @@ platforms/
 www/lib/**
 plugins/
 *.log
+*.apk

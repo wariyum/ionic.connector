@@ -1,11 +1,11 @@
 <?xml version="1.0" encoding="UTF-8" standalone="yes"?>
-<widget id="com.ionicframework.myapp979039" version="0.0.1" xmlns="http://www.w3.org/ns/widgets" xmlns:cdv="http://cordova.apache.org/ns/1.0">
+<widget id="com.wariyum.connector.demov1" version="0.0.1" xmlns="http://www.w3.org/ns/widgets" xmlns:cdv="http://cordova.apache.org/ns/1.0">
   <name>Connector</name>
   <description>&#xD;
-        Wariyum Connector demo for the World&#xD;
+        Wariyum Connector Supermarket app demo &#xD;
     </description>
-  <author email="you@example.com" href="http://wariyum.com/connector/">&#xD;
-      Your Name Here&#xD;
+  <author email="info@wariyum.com" href="http://wariyum.com/connector/">&#xD;
+      Wariyum Technologies&#xD;
     </author>
   <content src="index.html"/>
   <access origin="*"/>

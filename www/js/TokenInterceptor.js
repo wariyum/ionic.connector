@@ -2,7 +2,7 @@
 //refer: http://www.webdeveasy.com/interceptors-in-angularjs-and-useful-examples/ (Not implemented using this. but this doc looks good)
 
 angular.module('starter')
-    .factory('TokenInterceptor', function($q, $window, $location, $rootScope,$injector,$localStorage,appService) {
+    .factory('TokenInterceptor', function($q, $window, $location, $rootScope,$injector,$localStorage,appService,$window) {
         var inFlightAuthRequest = null;
         return {
             request: function(config) {
@@ -43,7 +43,9 @@ angular.module('starter')
                     }
                     inflightAuthRequest.then(function(r) {
                         $localStorage.credentials[0][0] = r.data[0];
-                        $injector.get("$state").reload();
+                        //force reload app
+                        $window.location.reload();
+                        // $injector.get("$state").reload();
                         // $state.reload();
                     }, function(response) {
                        

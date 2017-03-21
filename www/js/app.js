@@ -124,6 +124,15 @@ angular.module('starter', ['ionic', 'wrConnector', 'ngCordova', 'ngLodash', 'ion
                     }
                 }
             })
+            .state('app.promotion', {
+                url: '/promotion/:promoId',
+                views: {
+                    'menuContent': {
+                        templateUrl: 'templates/promotion.html',
+                        controller: 'promotionCtrl as vm'
+                    }
+                }
+            })
             .state('app.products', {
                 url: '/products/:programId/:categoryId',
                 views: {

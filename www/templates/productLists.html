@@ -13,7 +13,7 @@
                       
                     
                     </div>
-                    <div class="col product-list-item-left">
+                    <div class="col product-list-item-left" ng-show="{{itm[1]}}">
                         <img class="product-list-item-img" cache-src="{{vm.imageUrl + itm[1].imageUrl[0]}}" height="40px" />
                         <p><b>{{itm[1].name}}</b></p>
                         <img height="40px" ng-show="itm[1].showOffer" style="float:right;position:top;" src="img/special-offer.jpg">

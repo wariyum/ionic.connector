@@ -134,7 +134,7 @@ angular.module('starter', ['ionic', 'wrConnector', 'ngCordova', 'ngLodash', 'ion
                 }
             })
             .state('app.products', {
-                url: '/products/:programId/:categoryId',
+                url: '/products/:programId/:categoryId/:header',
                 views: {
                     'menuContent': {
                         templateUrl: 'templates/productLists.html',
@@ -210,6 +210,7 @@ angular.module('starter', ['ionic', 'wrConnector', 'ngCordova', 'ngLodash', 'ion
         });
         $rootScope.$on('$stateChangeSuccess', function(event, toState, toParams, fromState, fromParams) {
             // console.log('$stateChangeSuccess to '+toState.name+'- fired once the state transition is complete.');
+
         });
         // $rootScope.$on('$viewContentLoading',function(event, viewConfig){
         //   // runs on individual scopes, so putting it in "run" doesn't work.

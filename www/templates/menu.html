@@ -18,9 +18,9 @@
     </ion-header-bar>
     <ion-content ng-controller="appCtrl as vm" ng-init="vm.init()">
       <ion-list>
-       <ion-item class="item-icon-left" menu-close href="#/app/products/{{progId}}/0">
+       <ion-item class="item-icon-left" menu-close href="#/app/products/{{progId}}/0/Best_Deals">
         <i class="icon ion-bag"></i>
-          Promotions
+          Best Deals
         </ion-item>
         <ion-item class="item-icon-left" menu-close href="#/app/login">
          <i class="icon ion-ios-person"></i>
@@ -42,7 +42,7 @@
           <i class="icon ion-happy-outline"></i>
           About Us
         </ion-item>
-        <ion-item class="item-icon-left"  menu-close ng-repeat="itm in categories" href='#/app/products/{{progId}}/{{itm.id}}'>
+        <ion-item class="item-icon-left"  menu-close ng-repeat="itm in categories" href='#/app/products/{{progId}}/{{itm.id}}/{{itm.name}}'>
          <i class="icon ion-ios-pricetags"></i>
        
           {{itm.name}}

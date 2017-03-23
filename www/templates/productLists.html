@@ -1,4 +1,4 @@
-<ion-view view-title="Products" ng-init="vm.init()">
+<ion-view view-title="{{vm.header}}" ng-init="vm.init()">
     <ion-content>
         <ion-list ng-show="vm.noDataBanner === false">
             <div class="card product-list" ng-repeat="itm in vm.productCols">

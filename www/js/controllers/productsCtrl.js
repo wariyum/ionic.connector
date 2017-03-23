@@ -18,6 +18,7 @@ function productsCtrl(productService, appService, appState, $stateParams, $scope
     vm.products = [];
     vm.page = 0;
     vm.totalPages = null;
+    vm.header = "Products";
 
     vm.init = function() {
         if (vm.programId > 0) {
@@ -58,14 +59,17 @@ function productsCtrl(productService, appService, appState, $stateParams, $scope
     }
 
 
+
     vm.loadMore = function() {
     	vm.noDataBanner = false;
         if (vm.categoryId <= 0) {
+            vm.header = "Best Deals";
             productService.getProductsPublished(vm.page).then(function(response) {
                 loadToList(response);
                 appState.setListProducts(response.data.success.content);
             });
         } else {
+             vm.header = $stateParams.header;
             productService.getProductsByCategoryId(vm.categoryId, vm.page).then(function(response) {
                 loadToList(response);
                 appState.setListProducts(response.data.success.content);

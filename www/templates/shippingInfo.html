@@ -26,32 +26,33 @@
                     </select>
                 </label>
                 <label class="item item-input">
-                    <input type="text" placeholder="First Name">
+                    <input type="text" placeholder="First Name" ng-model="vm.shipping.firstName" required>
                 </label>
                 <!--ANOTHER TYPE-->
                 <!--END-->
                 <label class="item item-input">
-                    <input type="text" placeholder="Last Name">
+                    <input type="text" placeholder="Last Name" ng-model="vm.shipping.lastName">
                 </label>
                 <label class="item item-input">
-                    <input type="number" placeholder="Mobile Number">
+                    <input type="number" placeholder="Mobile Number"
+                    ng-model="vm.shipping.contactNo" required>
+                </label>
+               
+                <label class="item item-input">
+                    <input type="text" placeholder="Street Address 1" ng-model="vm.shipping.address1">
                 </label>
                 <label class="item item-input">
-                    <input type="number" placeholder="Landline">
+                    <input type="text" placeholder="Street Address 2" ng-model="vm.shipping.address2">
                 </label>
                 <label class="item item-input">
-                    <input type="text" placeholder="Street Address 1">
+                    <input type="text" placeholder="City" ng-model="vm.shipping.city">
                 </label>
                 <label class="item item-input">
-                    <input type="text" placeholder="Street Address 2">
+                    <input type="number" placeholder="Post Box" ng-model="vm.shipping.pobox">
                 </label>
-                <label class="item item-input">
-                    <input type="text" placeholder="City">
-                </label>
-                <label class="item item-input">
-                    <input type="number" placeholder="Post Box">
-                </label>
+                 <button class="button button-positive" ng-click="vm.getGeoLocation()">Pin My Geo-location</button>
             </div>
+
         </div>
     </ion-content>
     <div class="bar bar-footer bar-balanced">

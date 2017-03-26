@@ -18,6 +18,7 @@ function checkoutCtrl(appState,appService,$state,$scope,credentialService,ctrlUt
   	 	if ($state.current.name === 'app.checkout'){
   	 		updateSummaryCalc();
   	 	  }
+  	 	vm.productsCheckedOut = appState.getCheckedOutProducts();
 	});
 
 	vm.init = function() {

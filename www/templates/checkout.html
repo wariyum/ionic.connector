@@ -1,5 +1,14 @@
 <ion-view view-title="Cart Items" ng-init="vm.init()">
     <ion-content>
+        <div class="card" ng-show="vm.productsCheckedOut.length === 0">
+            <div class="item item-divider">
+                Hey! your card is Empty.
+            </div>
+            <div class="item item-text-wrap">
+                <img src="img/empty-cart.png" width="100%" />
+            </div>
+        </div>
+   
         <div class="list">
             <a class="item item-avatar" ng-repeat="itm in vm.productsCheckedOut track by $index">
                 <img src="{{vm.imgUrl + itm.product.imageUrl[0]}}" />
@@ -16,16 +25,16 @@
                         <button class="button button-icon icon ion-ios-plus-outline" ng-click="vm.incrementQty(itm.id)"></button>
                     </div>
                     <div class="col">
-                        <span class="label" >{{itm.qty}}</span>
-       				</div>
-       				<div class="col">
+                        <span class="label">{{itm.qty}}</span>
+                    </div>
+                    <div class="col">
                         <button class="button button-icon icon ion-ios-minus-outline" ng-click="vm.decrementQty(itm.id)"></button>
                     </div>
                     <div class="col">
-                    	<button class="button button-icon icon ion-ios-information" ng-click="vm.showProduct(itm.id)"></button>
+                        <button class="button button-icon icon ion-ios-information" ng-click="vm.showProduct(itm.id)"></button>
                     </div>
                     <div class="col">
-                    	<button class="button button-icon icon ion-ios-trash-outline" ng-click="vm.removeProduct(itm.orderId)"></button>
+                        <button class="button button-icon icon ion-ios-trash-outline" ng-click="vm.removeProduct(itm.orderId)"></button>
                     </div>
                 </div>
             </a>
@@ -37,10 +46,9 @@
             <p style="color:#000">Total Billed Amount: AED {{vm.checkoutSummary.price}} (No. of items{{vm.checkoutSummary.count}})</p>
         </div>
     </div>
-
-<div class="bar bar-footer bar-positive footer-button">
+    <div class="bar bar-footer bar-positive footer-button">
         <button style="margin:0" class="button button-full button-positive" ng-click="vm.checkout()">
-  Proceed with Checkout
-</button>
+            Proceed with Checkout
+        </button>
     </div>
 </ion-view>

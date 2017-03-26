@@ -2,23 +2,21 @@ angular.module('starter')
 
 .controller('shippingInfoCtrl', shippingInfoCtrl);
 
-shippingInfoCtrl.$inject = ['cartService', '$ionicPopup', '$scope', '$rootScope', '$state', '$cordovaGeolocation'];
+shippingInfoCtrl.$inject = ['cartService', '$ionicPopup', '$scope', '$rootScope', '$state', '$cordovaGeolocation','appState'];
 
-function shippingInfoCtrl(cartService, $ionicPopup, $scope, $rootScope, $state, $cordovaGeolocation) {
+function shippingInfoCtrl(cartService, $ionicPopup, $scope, $rootScope, $state, $cordovaGeolocation,appState) {
     var vm = this;
 
-    vm.sendOrderToProcess = function() {
-
-    }
+    vm.shipping = {};
 
     vm.getGeoLocation = function() {
         var posOptions = { timeout: 10000, enableHighAccuracy: false };
         $cordovaGeolocation
             .getCurrentPosition(posOptions)
             .then(function(position) {
-                var lat = position.coords.latitude
-                var long = position.coords.longitude
-                alert(lat);
+                vm.shipping.lat = position.coords.latitude
+                vm.shippinglng = position.coords.longitude
+
             }, function(err) {
                 // error
             });
@@ -35,6 +33,7 @@ function shippingInfoCtrl(cartService, $ionicPopup, $scope, $rootScope, $state, 
         confirmPopup.then(function(res) {
             if (res) {
                 cartService.sendOrderToProcess();
+                appState.clearCheckedOutProducts();
                 //broadcast event refresh Purchase Hisotry
 
                 $state.go('app.purchaseHistory');

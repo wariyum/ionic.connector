@@ -48,9 +48,14 @@
             getLocalStorageAll: _getLocalStorageAll,
             addToLocalStorage: _addToLocalStorage,
             removeFromLocalStorage: _removeFromLocalStorage,
-            loadCheckedOutProducts: loadCheckedOutProducts
+            loadCheckedOutProducts: loadCheckedOutProducts,
+            clearCheckedOutProducts: clearCheckedOutProducts
 
         };
+
+        function clearCheckedOutProducts() {
+            checkedOutProducts = [];
+        }
 
         function getCheckedOutProductSummary() {
             var summary = {}

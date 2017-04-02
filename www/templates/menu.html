@@ -1,8 +1,12 @@
-<ion-side-menus enable-menu-with-back-views="true">
+<ion-side-menus enable-menu-with-back-views="true" ng-controller="appCtrl as vm" >
   <ion-side-menu-content>
     <ion-nav-bar class="bar-balanced">
-    <!--   <ion-nav-back-button>
+      <!-- <ion-nav-back-button>
       </ion-nav-back-button> -->
+  <ion-nav-buttons side="right">
+    <!-- <a class="button button-icon icon ion-cart"></a> -->
+    <a class="button button-icon icon ion-search" ng-click="vm.showSearch()"></a>
+  </ion-nav-buttons>
 
       <ion-nav-buttons side="left">
         <button class="button button-icon button-clear ion-navicon" menu-toggle="left">
@@ -16,7 +20,7 @@
     <ion-header-bar class="bar-calm">
       <h1 class="title">Business Name</h1>
     </ion-header-bar>
-    <ion-content ng-controller="appCtrl as vm" ng-init="vm.init()">
+    <ion-content ng-init="vm.init()">
       <ion-list>
        <ion-item class="item-icon-left" menu-close href="#/app/products/{{progId}}/0/Best_Deals">
         <i class="icon ion-bag"></i>

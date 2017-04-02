@@ -2,10 +2,11 @@ angular.module('starter')
 
 .controller('orderDetailsCtrl', orderDetailsCtrl);
 
-orderDetailsCtrl.$inject = ['$stateParams', '$rootScope', 'cartService', '$scope', '$ionicPopup','$state','moment'];
+orderDetailsCtrl.$inject = ['$stateParams', '$rootScope', 'cartService', '$scope', '$ionicPopup','$state','moment','appService'];
 
-function orderDetailsCtrl($stateParams, $rootScope, cartService, $scope, $ionicPopup,$state,moment) {
+function orderDetailsCtrl($stateParams, $rootScope, cartService, $scope, $ionicPopup,$state,moment,appService) {
     var vm = this;
+    vm.imageUrl = appService.getUrlImg() + appService.getProgId() + '/';
 
     vm.init = function() {
         getParamsAndLoadPage();

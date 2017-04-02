@@ -5,7 +5,6 @@
 // the 2nd parameter is an array of 'requires'
 // 'starter.controllers' is found in controllers.js
 angular.module('starter', ['ionic', 'wrConnector', 'ngCordova', 'ngLodash', 'ionic-cache-src', 'ionic-toast', 'ngStorage', 'angularMoment'])
-
 .run(function($ionicPlatform, $cordovaPushV5) {
     $ionicPlatform.ready(function() {
 
@@ -21,6 +20,7 @@ angular.module('starter', ['ionic', 'wrConnector', 'ngCordova', 'ngLodash', 'ion
             windows: {}
         };
 
+        if($cordovaPushV5 != undefined){
         // initialize
         $cordovaPushV5.initialize(options).then(function() {
             // start listening for new notifications
@@ -34,6 +34,7 @@ angular.module('starter', ['ionic', 'wrConnector', 'ngCordova', 'ngLodash', 'ion
                 // save `registrationId` somewhere;
             })
         });
+        }
 
 
         // Hide the accessory bar by default (remove this to show the accessory bar above the keyboard

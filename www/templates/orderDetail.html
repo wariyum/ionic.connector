@@ -40,19 +40,16 @@
        
         <!-- Ordered Items starts here -->
         <ion-list>
-            <!-- <ion-item ng-repeat="itm in vm.orderDetails.items" item="itm"> -->
-            <div class="card" ng-repeat="itm in vm.orderDetails.items" item="itm">
-                <div class="item item-text-wrap">
-                    <p>
-                        {{itm.product.name}}
-                    </p>
-                    {{itm.quantity}}
-                    <button class="button button-positive">
-                        ADD
+            <a class="item item-avatar"  ng-repeat="itm in vm.orderDetails.items">
+                <img cache-src="{{vm.imageUrl + itm.product.imageUrl[0]}}"/>
+                <h2>{{itm.product.name}}</h2>
+                <p>{{itm.product.description}}
+                      <button class="button button-positive" style="float:right">
+                        Re-Order
                     </button>
-                </div>
-            </div>
-            <!-- </ion-item> -->
+                </p>
+                
+                </a>
         </ion-list>
         <!-- Ordered Items ends here -->
     </ion-content>

@@ -12,6 +12,15 @@ function orderDetailsCtrl($stateParams, $rootScope, cartService, $scope, $ionicP
         getParamsAndLoadPage();
     }
 
+    vm.reorder = function (productId){
+          var cartItm = {};
+        cartItm.product = {};
+        cartItm.product.id = productId;
+        cartItm.quantity = 1;
+        cartService.appendCartItem(cartItm);
+        appState.checkout(vm.productDetail);
+    }
+
     $rootScope.$on('rootScope:orderDetails', function(event, data) {
         getParamsAndLoadPage();
     });

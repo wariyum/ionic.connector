@@ -44,7 +44,7 @@
                 <img cache-src="{{vm.imageUrl + itm.product.imageUrl[0]}}"/>
                 <h2>{{itm.product.name}}</h2>
                 <p>{{itm.product.description}}
-                      <button class="button button-positive" style="float:right">
+                      <button class="button button-positive" ng-click="vm.reorder(itm.product.id)" style="float:right">
                         Re-Order
                     </button>
                 </p>

@@ -4,54 +4,54 @@
 // 'starter' is the name of this angular module example (also set in a <body> attribute in index.html)
 // the 2nd parameter is an array of 'requires'
 // 'starter.controllers' is found in controllers.js
-angular.module('starter', ['ionic', 'wrConnector', 'ngCordova', 'ngLodash', 'ionic-cache-src', 'ionic-toast', 'ngStorage', 'angularMoment'])
-.run(function($ionicPlatform, $cordovaPushV5) {
-    $ionicPlatform.ready(function() {
+angular.module('starter', ['ionic', 'ngCordova', 'ngLodash', 'ionic-cache-src', 'ionic-toast', 'ngStorage', 'angularMoment'])
+    .run(function($ionicPlatform, $cordovaPushV5) {
+        $ionicPlatform.ready(function() {
 
-        var options = {
-            android: {
-                senderID: "509484359572"
-            },
-            ios: {
-                alert: "true",
-                badge: "true",
-                sound: "true"
-            },
-            windows: {}
-        };
+            var options = {
+                android: {
+                    senderID: "509484359572"
+                },
+                ios: {
+                    alert: "true",
+                    badge: "true",
+                    sound: "true"
+                },
+                windows: {}
+            };
 
-        if($cordovaPushV5 != undefined){
-        // initialize
-        $cordovaPushV5.initialize(options).then(function() {
-            // start listening for new notifications
-            $cordovaPushV5.onNotification();
-            // start listening for errors
-            $cordovaPushV5.onError();
+            if ($cordovaPushV5 != undefined) {
+                // initialize
+                $cordovaPushV5.initialize(options).then(function() {
+                    // start listening for new notifications
+                    $cordovaPushV5.onNotification();
+                    // start listening for errors
+                    $cordovaPushV5.onError();
 
-            // register to get registrationId
-            $cordovaPushV5.register().then(function(registrationId) {
-              console.log(registrationId);
-                // save `registrationId` somewhere;
-            })
+                    // register to get registrationId
+                    $cordovaPushV5.register().then(function(registrationId) {
+                        console.log(registrationId);
+                        // save `registrationId` somewhere;
+                    })
+                });
+            }
+
+
+            // Hide the accessory bar by default (remove this to show the accessory bar above the keyboard
+            // for form inputs)
+            if (window.cordova && window.cordova.plugins.Keyboard) {
+                cordova.plugins.Keyboard.hideKeyboardAccessoryBar(true);
+                cordova.plugins.Keyboard.disableScroll(true);
+
+            }
+            if (window.StatusBar) {
+                // org.apache.cordova.statusbar required
+                StatusBar.styleDefault();
+            }
+
+
         });
-        }
-
-
-        // Hide the accessory bar by default (remove this to show the accessory bar above the keyboard
-        // for form inputs)
-        if (window.cordova && window.cordova.plugins.Keyboard) {
-            cordova.plugins.Keyboard.hideKeyboardAccessoryBar(true);
-            cordova.plugins.Keyboard.disableScroll(true);
-
-        }
-        if (window.StatusBar) {
-            // org.apache.cordova.statusbar required
-            StatusBar.styleDefault();
-        }
-
-
-    });
-})
+    })
 
 
 //***** http Header

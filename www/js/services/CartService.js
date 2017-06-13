@@ -8,7 +8,7 @@
      * Service for all operations related to Cart, like add to cart to Order taking
      */
 
-    angular.module('wrConnector')
+    angular.module('starter')
         .service('cartService', cartService);
 
     cartService.$inject = ['$http', '$state', 'appService', 'appConstants', 'appState', 'ctrlUtilityService', '$rootScope'];
@@ -145,7 +145,7 @@
                             if (response.data.error) {
                                 ctrlUtilityService.showAlert(response.data.error.errorCode);
                             } else {
-                                $rootScope.$broadcast('rootScope:orderPlaced',{});
+                                $rootScope.$broadcast('rootScope:orderPlaced', {});
 
                                 ctrlUtilityService.showAlert('Thank you, Your Order is placed Successfully');
 
@@ -179,7 +179,7 @@
             if (appConstants.mode === 'dev') {
                 console.log('getOrderDetail --- not defined for Dev mode');
             } else {
-                var url = appService.getUrl() + 'connector/' + appConstants.prog_id + '/order/getOrder/'+orderId;
+                var url = appService.getUrl() + 'connector/' + appConstants.prog_id + '/order/getOrder/' + orderId;
 
                 var config = {};
 
@@ -190,7 +190,7 @@
         function cancelOrder(orderId) {
             var data = {};
             //t-admin.wariyum.com/service/connector/1/order/cancelOrder/8
-             if (appConstants.mode === 'dev') {
+            if (appConstants.mode === 'dev') {
                 console.log('getOrderHistory --- not defined for Dev mode');
             } else {
                 var url = appService.getUrl() + 'connector/' + appConstants.prog_id + '/order/cancelOrder/' + orderId;
@@ -201,9 +201,9 @@
             }
         }
 
-        function saveShippingAddr(orderId,shippAddr) {
+        function saveShippingAddr(orderId, shippAddr) {
             // t-admin.wariyum.com/service/connector/1/order/addShippingAddress/14
-               if (appConstants.mode === 'dev') {
+            if (appConstants.mode === 'dev') {
                 console.log('saveShippingAddr --- not defined for Dev mode');
             } else {
                 var url = appService.getUrl() + 'connector/' + appConstants.prog_id + '/order/addShippingAddress/' + orderId;

@@ -9,7 +9,7 @@
      * Service of the app
      */
 
-    angular.module('wrConnector')
+    angular.module('starter')
         .service('FCMService', FCMService);
 
     FCMService.$inject = ['$http', 'appService', 'appConstants'];

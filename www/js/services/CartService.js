@@ -57,8 +57,13 @@
             }
         }
 
-        function addToCart(data) {
-
+        function addToCart(productId) {
+            //call service
+            var cartItm = {};
+            cartItm.product = {};
+            cartItm.product.id = productId;
+            cartItm.quantity = 1;
+            appendCartItem(cartItm);
         }
 
 

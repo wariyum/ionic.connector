@@ -2,10 +2,10 @@ angular.module('starter')
 
 .controller('productsCtrl', productsCtrl);
 
-productsCtrl.$inject = ['productService', 'appService', 'appState', '$stateParams', '$scope', 'lodash'];
+productsCtrl.$inject = ['productService', 'appService', 'appState', '$stateParams', '$scope', 'lodash', 'cartService'];
 
 
-function productsCtrl(productService, appService, appState, $stateParams, $scope, _) {
+function productsCtrl(productService, appService, appState, $stateParams, $scope, _, cartService) {
 
     var vm = this;
     vm.imageUrl = appService.getUrlImg() + appService.getProgId() + '/';
@@ -27,6 +27,10 @@ function productsCtrl(productService, appService, appState, $stateParams, $scope
 
     }
 
+    vm.addToCart = function(productId) {
+        cartService.addToCart(productId);
+    }
+
     vm.moreDataCanBeLoaded = function() {
         return !(vm.totalPages == vm.page);
         // return vm.page === 
@@ -34,7 +38,7 @@ function productsCtrl(productService, appService, appState, $stateParams, $scope
 
     function loadToList(response) {
         if (!response.data || response.data.error) {
-        	vm.noDataBanner = true;
+            vm.noDataBanner = true;
         } else {
             vm.totalPages = response.data.success.totalPages;
             vm.page = vm.page + 1;
@@ -48,12 +52,12 @@ function productsCtrl(productService, appService, appState, $stateParams, $scope
             var lenProds = vm.products.length;
 
 
-           for (var i = 0; i < lenProds; i = i + 2) {
+            for (var i = 0; i < lenProds; i = i + 2) {
                 var tmpProdItm = [];
                 vm.productCols.push(tmpProdItm);
-                    tmpProdItm.push(vm.products[i]);
-                    tmpProdItm.push(vm.products[i + 1]);
-           }
+                tmpProdItm.push(vm.products[i]);
+                tmpProdItm.push(vm.products[i + 1]);
+            }
             $scope.$broadcast('scroll.infiniteScrollComplete');
         }
     }
@@ -61,7 +65,7 @@ function productsCtrl(productService, appService, appState, $stateParams, $scope
 
 
     vm.loadMore = function() {
-    	vm.noDataBanner = false;
+        vm.noDataBanner = false;
         if (vm.categoryId <= 0) {
             vm.header = "Best Deals";
             productService.getProductsPublished(vm.page).then(function(response) {
@@ -69,11 +73,11 @@ function productsCtrl(productService, appService, appState, $stateParams, $scope
                 appState.setListProducts(response.data.success.content);
             });
         } else {
-             vm.header = $stateParams.header;
+            vm.header = $stateParams.header;
             productService.getProductsByCategoryId(vm.categoryId, vm.page).then(function(response) {
                 loadToList(response);
                 appState.setListProducts(response.data.success.content);
-            
+
             });
         }
 

@@ -11,8 +11,14 @@
                         <p><b>{{itm[0].name}}</b></p>
                         <img height="40px" ng-show="itm[0].showOffer" style="float:right;position:top;" src="img/special-offer.jpg">
                         <p style="margin-right: 25%;">{{itm[0].description}}</p>
-                        <button ng-show="itm.unitPrice" class="button  icon"> AED {{itm[0].unitPrice}} </button>
-                        <button ng-click="vm.addToCart(itm[0].id)" class="button button-small  button-positive">ADD CART</button>
+                        <div class="row">
+                            <div class="col col-50">
+                                <button ng-show="itm[0].unitPrice" class="button button-small"> AED {{itm[0].unitPrice}} </button>
+                            </div>
+                            <div class="col col-50">
+                                <button ng-click="vm.addToCart(itm[0].id)" class="button button-small button-positive">ADD CART</button>
+                            </div>
+                        </div>
 
                         <!--itm[0].id-->
                     </div>
@@ -21,8 +27,14 @@
                         <p><b>{{itm[1].name}}</b></p>
                         <img height="40px" ng-show="itm[1].showOffer" style="float:right;position:top;" src="img/special-offer.jpg">
                         <p style="margin-right: 25%;">{{itm[1].description}}</p>
-                        <button ng-show="itm.unitPrice" class="button  icon"> AED {{itm[1].unitPrice}} </button>
-                        <a href="#/app/productDetails/{{itm[1].id}}" class="button  button-small button-positive">Show Details</a>
+                        <div class="row">
+                            <div class="col col-50">
+                                <button ng-show="itm[1].unitPrice" class="button button-small"> AED {{itm[1].unitPrice}} </button>
+                            </div>
+                            <div class="col col-50">
+                                <button ng-click="vm.addToCart(itm[1].id)" class="button button-small button-positive">ADD CART</button>
+                            </div>
+                        </div>
                     </div>
                 </div>
             </div>

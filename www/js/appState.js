@@ -60,7 +60,8 @@
         function getCheckedOutProductSummary() {
             var summary = {}
             summary.price = lodash.sumBy(checkedOutProducts, function(o) {
-                return (o.product.unitPrice * o.qty); });
+                return (o.product.unitPrice * o.qty);
+            });
             summary.count = checkedOutProducts.length;
             return summary;
         }
@@ -68,7 +69,8 @@
         function getIndexOfLikedProduct(productId) {
             // return lodash.findIndex(likedProducts,productId);
             return likedProducts.findIndex(function(o) {
-                return o == productId })
+                return o == productId
+            })
         }
 
         function addLikedProduct(productId) {
@@ -83,6 +85,7 @@
         }
 
         function getProductIndexFromCheckout(productId) {
+
             return lodash.findIndex(checkedOutProducts, { 'id': parseInt(productId) });
         }
 
@@ -149,6 +152,7 @@
 
         function loadCheckedOutProducts(data) {
             if (data != undefined) {
+                checkedOutProducts = [];
                 _.forEach(data.items, function(itm) {
                     var tmp = {};
                     tmp.product = {};

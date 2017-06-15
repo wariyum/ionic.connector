@@ -30,7 +30,7 @@
             saveShippingAddr: saveShippingAddr
         };
 
-        function getCartItems() {
+        function getCartItems(callMe) {
             var data = {};
             if (appConstants.mode === 'dev') {
                 console.log('appendCartItem --- not defined for Dev mode');

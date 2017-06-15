@@ -7,17 +7,15 @@ checkoutCtrl.$inject = ['appState', 'appService', '$state', '$scope', 'credentia
 function checkoutCtrl(appState, appService, $state, $scope, credentialService, ctrlUtilityService, cartService) {
     var vm = this;
     vm.imgUrl = appService.getUrlImg() + appService.getProgId() + '/';
-
-    vm.productsCheckedOut = appState.getCheckedOutProducts();
-
     vm.showProduct = showProduct;
     vm.removeProduct = removeProduct;
 
     $scope.$on('$stateChangeSuccess', function() {
         if ($state.current.name === 'app.checkout') {
+            cartService.getCartItems();
+            vm.productsCheckedOut = appState.getCheckedOutProducts();
             updateSummaryCalc();
         }
-        vm.productsCheckedOut = appState.getCheckedOutProducts();
     });
 
     vm.init = function() {
@@ -28,9 +26,9 @@ function checkoutCtrl(appState, appService, $state, $scope, credentialService, c
         $state.go('app.single', { 'productId': productId });
     }
 
-    function removeProduct(orderId) {
+    function removeProduct(orderId, productId) {
         cartService.removeCartItem(orderId);
-        appState.removeProductFromCheckout(orderId);
+        appState.removeProductFromCheckout(productId);
         updateSummaryCalc();
     }
 

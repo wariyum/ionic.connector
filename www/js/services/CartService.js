@@ -201,15 +201,15 @@
             }
         }
 
-        function saveShippingAddr(orderId, shippAddr) {
+        function saveShippingAddr(shippAddr) {
             // t-admin.wariyum.com/service/connector/1/order/addShippingAddress/14
             if (appConstants.mode === 'dev') {
                 console.log('saveShippingAddr --- not defined for Dev mode');
             } else {
-                var url = appService.getUrl() + 'connector/' + appConstants.prog_id + '/order/addShippingAddress/' + orderId;
+                var url = appService.getUrl() + 'connector/' + appConstants.prog_id + '/order/addShippingAddress/';
                 var config = {};
 
-                return $http.post(url, data, config);
+                return $http.post(url, shippAddr, config);
             }
         }
 

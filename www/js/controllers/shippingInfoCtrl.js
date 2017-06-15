@@ -2,9 +2,9 @@ angular.module('starter')
 
 .controller('shippingInfoCtrl', shippingInfoCtrl);
 
-shippingInfoCtrl.$inject = ['cartService', '$ionicPopup', '$scope', '$rootScope', '$state', '$cordovaGeolocation','appState'];
+shippingInfoCtrl.$inject = ['cartService', '$ionicPopup', '$scope', '$rootScope', '$state', '$cordovaGeolocation', 'appState'];
 
-function shippingInfoCtrl(cartService, $ionicPopup, $scope, $rootScope, $state, $cordovaGeolocation,appState) {
+function shippingInfoCtrl(cartService, $ionicPopup, $scope, $rootScope, $state, $cordovaGeolocation, appState) {
     var vm = this;
 
     vm.shipping = {};
@@ -32,6 +32,16 @@ function shippingInfoCtrl(cartService, $ionicPopup, $scope, $rootScope, $state, 
 
         confirmPopup.then(function(res) {
             if (res) {
+                var shippingAddr = {};
+                shippingAddr.same = true;
+                shippingAddr.address = {};
+                shippingAddr.address.address1 = vm.shipping.address1;
+                shippingAddr.address.address2 = vm.shipping.address2;
+                shippingAddr.address.city = vm.shipping.city;
+                shippingAddr.address.firstName = vm.shipping.firstName;
+                shippingAddr.address.lastName = vm.shipping.lastName;
+
+                cartService.saveShippingAddr(shippingAddr);
                 cartService.sendOrderToProcess();
                 appState.clearCheckedOutProducts();
                 //broadcast event refresh Purchase Hisotry

@@ -1,83 +1,80 @@
-
- angular.module('starter')
+angular.module('starter')
 
 .controller('checkoutCtrl', checkoutCtrl);
 
-checkoutCtrl.$inject = ['appState','appService','$state','$scope','credentialService','ctrlUtilityService','cartService'];
+checkoutCtrl.$inject = ['appState', 'appService', '$state', '$scope', 'credentialService', 'ctrlUtilityService', 'cartService'];
 
-function checkoutCtrl(appState,appService,$state,$scope,credentialService,ctrlUtilityService,cartService) {
-	var vm = this;
-	vm.imgUrl = appService.getUrlImg() + appService.getProgId() + '/';
+function checkoutCtrl(appState, appService, $state, $scope, credentialService, ctrlUtilityService, cartService) {
+    var vm = this;
+    vm.imgUrl = appService.getUrlImg() + appService.getProgId() + '/';
 
-	vm.productsCheckedOut = appState.getCheckedOutProducts();
+    vm.productsCheckedOut = appState.getCheckedOutProducts();
 
-	vm.showProduct = showProduct;
-	vm.removeProduct = removeProduct;
+    vm.showProduct = showProduct;
+    vm.removeProduct = removeProduct;
 
-	$scope.$on('$stateChangeSuccess', function () {
-  	 	if ($state.current.name === 'app.checkout'){
-  	 		updateSummaryCalc();
-  	 	  }
-  	 	vm.productsCheckedOut = appState.getCheckedOutProducts();
-	});
+    $scope.$on('$stateChangeSuccess', function() {
+        if ($state.current.name === 'app.checkout') {
+            updateSummaryCalc();
+        }
+        vm.productsCheckedOut = appState.getCheckedOutProducts();
+    });
 
-	vm.init = function() {
-		
-	}
+    vm.init = function() {
 
-	function showProduct(productId) {
-		 $state.go('app.single',{'productId':productId});
-	}
+    }
 
-	function removeProduct(orderId) {
-		cartService.removeCartItem(orderId);
-		appState.removeProductFromCheckout(orderId);
-		updateSummaryCalc();
-	}
+    function showProduct(productId) {
+        $state.go('app.single', { 'productId': productId });
+    }
 
-	vm.incrementQty = function(productId){
+    function removeProduct(orderId) {
+        cartService.removeCartItem(orderId);
+        appState.removeProductFromCheckout(orderId);
+        updateSummaryCalc();
+    }
 
-		var data = {};
-		data.product = {};
-		data.product.id = productId;
-		data.quantity = 1;
+    vm.incrementQty = function(productId) {
 
-		cartService.appendCartItem(data);
-		//UI update
-		appState.addSubProductQty(productId,1);
-		updateSummaryCalc();
+        var data = {};
+        data.product = {};
+        data.product.id = productId;
+        data.quantity = 1;
 
-	};
+        cartService.appendCartItem(data);
+        //UI update
+        appState.addSubProductQty(productId, 1);
+        updateSummaryCalc();
 
-	vm.decrementQty = function(productId){
+    };
 
-		var data = {};
-		data.product = {};
-		data.product.id = productId;
-		data.quantity = -1;
+    vm.decrementQty = function(productId) {
 
-		cartService.appendCartItem(data);
+        var data = {};
+        data.product = {};
+        data.product.id = productId;
+        data.quantity = -1;
 
-		appState.addSubProductQty(productId,-1);
-		updateSummaryCalc();
-	};
+        cartService.appendCartItem(data);
 
-	vm.checkout = function() {
-		//Scenario - User not logged In - Let them Login & Proceed
-		if(!credentialService.isUserLoggedIn())
-		{
-			ctrlUtilityService.showAlert('Please login before Checkout');
-			$state.go('app.login');
-		}
-		else{
-			//only if user logged in
-			$state.go('app.shippingInfo');
-		}
-	};
+        appState.addSubProductQty(productId, -1);
+        updateSummaryCalc();
+    };
 
-	function updateSummaryCalc() {
-			//calculate total of chekedout products
-  	 		vm.checkoutSummary = appState.getCheckedOutProductSummary();
+    vm.checkout = function() {
+        //Scenario - User not logged In - Let them Login & Proceed
+        if (!credentialService.isUserLoggedIn()) {
+            ctrlUtilityService.showAlert('Please login before Checkout');
+            $state.go('app.login');
+        } else {
+            //only if user logged in
+            $state.go('app.shippingInfo');
+        }
+    };
 
-	}
+    function updateSummaryCalc() {
+        //calculate total of chekedout products
+        vm.checkoutSummary = appState.getCheckedOutProductSummary();
+
+    }
 }

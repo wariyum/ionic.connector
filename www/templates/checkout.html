@@ -1,5 +1,5 @@
 <ion-view view-title="Cart Items" ng-init="vm.init()">
-    <ion-content>
+    <ion-content style="height:60%;">
         <div class="card" ng-show="vm.productsCheckedOut.length === 0">
             <div class="item item-divider">
                 Hey! your cart is Empty.
@@ -25,7 +25,7 @@
                         <button class="button button-icon icon ion-ios-plus-outline" ng-click="vm.incrementQty(itm.id)"></button>
                     </div>
                     <div class="col">
-                        <span class="label">{{itm.qty}}Nos</span>
+                        <span class="label">{{itm.qty}} Nos</span>
                     </div>
                     <div class="col">
                         <button class="button button-icon icon ion-ios-minus-outline" ng-click="vm.decrementQty(itm.id)"></button>
@@ -34,21 +34,38 @@
                         <button class="button button-icon icon ion-ios-information" ng-click="vm.showProduct(itm.id)"></button>
                     </div>
                     <div class="col">
-                        <button class="button button-icon icon ion-ios-trash-outline" ng-click="vm.removeProduct(itm.orderId)"></button>
+                        <button class="button button-icon icon ion-ios-trash-outline" ng-click="vm.removeProduct(itm.id)"></button>
                     </div>
                 </div>
             </a>
         </div>
     </ion-content>
     <!-- footer starts here -->
-    <div class="bar bar-subfooter bar-balanced auto-height">
+
+    <div class="bar" style="top:70%;">
         <div class="row">
-            <p style="color:#000">Total Billed Amount: AED {{vm.checkoutSummary.price}} (No. of items{{vm.checkoutSummary.count}})</p>
+            <!--<p style="color:#000">Total Billed Amount: AED {{vm.checkoutSummary.price}} (No. of items{{vm.checkoutSummary.count}})</p>-->
+            <ion-card>
+
+                <!--<ion-card-header>
+                    Order Summary
+                </ion-card-header>-->
+
+                <!--<ion-card-content>-->
+                <h4>Order Summary</h4>
+                Total Amount: {{vm.checkoutSummary.price}} AED</br>
+
+                Delivery Amount: 0 AED</br>
+                Net Total: {{vm.checkoutSummary.price}} AED
+                <button style="margin:0" class="button button-full button-positive" ng-click="vm.checkout()">
+                    Proceed with Checkout
+                    </button>
+                <!--</ion-card-content>-->
+
+            </ion-card>
         </div>
     </div>
-    <div class="bar bar-footer bar-positive footer-button">
-        <button style="margin:0" class="button button-full button-positive" ng-click="vm.checkout()">
-            Proceed with Checkout
-        </button>
-    </div>
+    <!--<div class="bar bar-footer bar-positive footer-button">
+
+    </div>-->
 </ion-view>

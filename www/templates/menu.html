@@ -1,60 +1,53 @@
-<ion-side-menus enable-menu-with-back-views="true" ng-controller="appCtrl as vm" >
-  <ion-side-menu-content>
-    <ion-nav-bar class="bar-balanced">
-      <!-- <ion-nav-back-button>
+<ion-side-menus enable-menu-with-back-views="true" ng-controller="appCtrl as vm">
+    <ion-side-menu-content>
+        <ion-nav-bar class="bar-balanced">
+            <!-- <ion-nav-back-button>
       </ion-nav-back-button> -->
-  <ion-nav-buttons side="right">
-    <!-- <a class="button button-icon icon ion-cart"></a> -->
-    <a class="button button-icon icon ion-search" ng-click="vm.showSearch()"></a>
-  </ion-nav-buttons>
+            <ion-nav-buttons side="right">
+                <ion-spinner ng-show="showLoader"></ion-spinner>
+                <a class="button button-icon icon ion-ios-cart-outline"></a>
+                <a class="button button-icon icon ion-search" ng-click="vm.showSearch()"></a>
+            </ion-nav-buttons>
 
-      <ion-nav-buttons side="left">
-        <button class="button button-icon button-clear ion-navicon" menu-toggle="left">
+            <ion-nav-buttons side="left">
+                <button class="button button-icon button-clear ion-navicon" menu-toggle="left">
         </button>
-      </ion-nav-buttons>
-    </ion-nav-bar>
-    <ion-nav-view name="menuContent"></ion-nav-view>
-  </ion-side-menu-content>
+            </ion-nav-buttons>
+        </ion-nav-bar>
+        <ion-nav-view name="menuContent"></ion-nav-view>
+    </ion-side-menu-content>
 
-  <ion-side-menu side="left">
-    <ion-header-bar class="bar-calm">
-      <h1 class="title">Business Name</h1>
-    </ion-header-bar>
-    <ion-content ng-init="vm.init()">
-      <ion-list>
-       <ion-item class="item-icon-left" menu-close href="#/app/products/{{progId}}/0/Best_Deals">
-        <i class="icon ion-bag"></i>
-          Best Deals
-        </ion-item>
-        <ion-item class="item-icon-left" menu-close href="#/app/login">
-         <i class="icon ion-ios-person"></i>
-          My Account
-        </ion-item>
-         <ion-item class="item-icon-left" menu-close href="#/app/checkout">
-        <i class="icon ion-android-cart"></i>
-          Cart
-        </ion-item> 
-        <ion-item class="item-icon-left" menu-close href="#/app/purchaseHistory">
-          <i class="icon ion-archive"></i>
-          Purchase History
-        </ion-item>
-        <ion-item class="item-icon-left" menu-close href="#/app/search">
-          <i class="icon ion-search"></i>
-          Search
-        </ion-item>
-        <ion-item class="item-icon-left" menu-close href="#/app/aboutUs">
-          <i class="icon ion-happy-outline"></i>
-          About Us
-        </ion-item>
-        <ion-item class="item-icon-left"  menu-close ng-repeat="itm in categories" href='#/app/products/{{progId}}/{{itm.id}}/{{itm.name}}'>
-         <i class="icon ion-ios-pricetags"></i>
-       
-          {{itm.name}}
-        </ion-item>
-        <ion-item menu-close href="#/app/demo">
-          Demo
-        </ion-item>
-      </ion-list>
-    </ion-content>
-  </ion-side-menu>
+    <ion-side-menu side="left">
+        <ion-header-bar class="bar-calm">
+            <h1 class="title">Business Name</h1>
+        </ion-header-bar>
+        <ion-content ng-init="vm.init()">
+            <ion-list>
+                <ion-item class="item-icon-left" menu-close href="#/app/products/{{progId}}/0/Best_Deals">
+                    <i class="icon ion-bag"></i> Best Deals
+                </ion-item>
+                <ion-item class="item-icon-left" menu-close href="#/app/login">
+                    <i class="icon ion-ios-person"></i> My Account
+                </ion-item>
+                <ion-item class="item-icon-left" menu-close href="#/app/checkout">
+                    <i class="icon ion-android-cart"></i> Cart
+                </ion-item>
+                <ion-item class="item-icon-left" menu-close href="#/app/purchaseHistory">
+                    <i class="icon ion-archive"></i> Purchase History
+                </ion-item>
+                <ion-item class="item-icon-left" menu-close href="#/app/search">
+                    <i class="icon ion-search"></i> Search
+                </ion-item>
+                <ion-item class="item-icon-left" menu-close href="#/app/aboutUs">
+                    <i class="icon ion-happy-outline"></i> About Us
+                </ion-item>
+                <ion-item class="item-icon-left" menu-close ng-repeat="itm in categories" href='#/app/products/{{progId}}/{{itm.id}}/{{itm.name}}'>
+                    <i class="icon ion-ios-pricetags"></i> {{itm.name}}
+                </ion-item>
+                <ion-item menu-close href="#/app/demo">
+                    Demo
+                </ion-item>
+            </ion-list>
+        </ion-content>
+    </ion-side-menu>
 </ion-side-menus>

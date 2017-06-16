@@ -18,6 +18,15 @@ function appCtrl(categoryService, appService, $rootScope, cartService, $state, a
         });
     }
 
+    $rootScope.$on('http-req-started', function(event, data) {
+        $rootScope.showLoader = true;
+    });
+
+    $rootScope.$on('http-req-end', function(event, data) {
+        $rootScope.showLoader = false;
+    });
+
+
     // triggered every time notification received
     $rootScope.$on('$cordovaPushV5:notificationReceived', function(event, data) {
 

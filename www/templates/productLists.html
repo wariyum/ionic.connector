@@ -10,13 +10,15 @@
                         </a>
                         <p><b>{{itm[0].name}}</b></p>
                         <img height="40px" ng-show="itm[0].showOffer" style="float:right;position:top;" src="img/special-offer.jpg">
-                        <p style="margin-right: 25%;">{{itm[0].description}}</p>
+                        <!--<p style="margin-right: 25%;">{{itm[0].description}}</p>-->
                         <div class="row">
                             <div class="col col-50">
                                 <button ng-show="itm[0].unitPrice" class="button button-small"> AED {{itm[0].unitPrice}} </button>
                             </div>
                             <div class="col col-50">
-                                <button ng-click="vm.addToCart(itm[0].id)" class="button button-small button-positive">ADD CART</button>
+                                <a class="tab-item">
+                                    <i class="icon ion-ios-cart-outline" ng-click="vm.addToCart(itm[0].id)"></i>
+                                </a>
                             </div>
                         </div>
 
@@ -26,13 +28,15 @@
                         <img class="product-list-item-img" src="{{vm.imageUrl + itm[1].imageUrl[0]}}" height="40px" />
                         <p><b>{{itm[1].name}}</b></p>
                         <img height="40px" ng-show="itm[1].showOffer" style="float:right;position:top;" src="img/special-offer.jpg">
-                        <p style="margin-right: 25%;">{{itm[1].description}}</p>
+                        <!--<p style="margin-right: 25%;">{{itm[1].description}}</p>-->
                         <div class="row">
                             <div class="col col-50">
                                 <button ng-show="itm[1].unitPrice" class="button button-small"> AED {{itm[1].unitPrice}} </button>
                             </div>
                             <div class="col col-50">
-                                <button ng-click="vm.addToCart(itm[1].id)" class="button button-small button-positive">ADD CART</button>
+                                <a class="tab-item">
+                                    <i class="icon ion-ios-cart-outline" ng-click="vm.addToCart(itm[1].id)"></i>
+                                </a>
                             </div>
                         </div>
                     </div>

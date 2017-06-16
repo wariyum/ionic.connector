@@ -143,5 +143,10 @@ ion-spinner * {
     width: 28px;
     height: 28px;
     stroke: #444;
-    fill: red;
+    fill: white;
+}
+
+.product-list .name {
+    max-height: 2.3em;
+    min-height: 2em;
 }

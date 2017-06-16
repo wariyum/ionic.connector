@@ -8,7 +8,7 @@
                         <a href="#/app/productDetails/{{itm[0].id}}">
                             <img class="product-list-item-img" src="{{vm.imageUrl + itm[0].imageUrl[0]}}" height="40px" />
                         </a>
-                        <p><b>{{itm[0].name}}</b></p>
+                        <h4 class="name">{{itm[0].name}}</h4>
                         <img height="40px" ng-show="itm[0].showOffer" style="float:right;position:top;" src="img/special-offer.jpg">
                         <!--<p style="margin-right: 25%;">{{itm[0].description}}</p>-->
                         <div class="row">
@@ -25,8 +25,10 @@
                         <!--itm[0].id-->
                     </div>
                     <div class="col product-list-item-left" ng-show="{{itm[1]}}">
-                        <img class="product-list-item-img" src="{{vm.imageUrl + itm[1].imageUrl[0]}}" height="40px" />
-                        <p><b>{{itm[1].name}}</b></p>
+                        <a href="#/app/productDetails/{{itm[1].id}}">
+                            <img class="product-list-item-img" src="{{vm.imageUrl + itm[1].imageUrl[0]}}" height="40px" />
+                        </a>
+                        <h4 class="name">{{itm[1].name}}</h4>
                         <img height="40px" ng-show="itm[1].showOffer" style="float:right;position:top;" src="img/special-offer.jpg">
                         <!--<p style="margin-right: 25%;">{{itm[1].description}}</p>-->
                         <div class="row">

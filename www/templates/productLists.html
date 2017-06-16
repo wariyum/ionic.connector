@@ -12,12 +12,14 @@
                         <img height="40px" ng-show="itm[0].showOffer" style="float:right;position:top;" src="img/special-offer.jpg">
                         <!--<p style="margin-right: 25%;">{{itm[0].description}}</p>-->
                         <div class="row">
-                            <div class="col col-50">
-                                <button ng-show="itm[0].unitPrice" class="button button-small"> AED {{itm[0].unitPrice}} </button>
+                            <div class="col col-70">
+                                <p style="color:red;"><strong> AED {{itm[0].unitPrice}}</strong> </p>
                             </div>
-                            <div class="col col-50">
+                            <div class="col col-30">
                                 <a class="tab-item">
-                                    <i class="icon ion-ios-cart-outline" ng-click="vm.addToCart(itm[0].id)"></i>
+                                    <strong>
+                                        <i class="icon ion-ios-cart-outline button-balanced" ng-click="vm.addToCart(itm[0].id)"></i>
+                                    </strong>
                                 </a>
                             </div>
                         </div>
@@ -32,12 +34,14 @@
                         <img height="40px" ng-show="itm[1].showOffer" style="float:right;position:top;" src="img/special-offer.jpg">
                         <!--<p style="margin-right: 25%;">{{itm[1].description}}</p>-->
                         <div class="row">
-                            <div class="col col-50">
-                                <button ng-show="itm[1].unitPrice" class="button button-small"> AED {{itm[1].unitPrice}} </button>
+                            <div class="col col-70">
+                                <p style="color:red;"><strong> AED {{itm[1].unitPrice}}</strong> </p>
                             </div>
-                            <div class="col col-50">
+                            <div class="col col-30">
                                 <a class="tab-item">
-                                    <i class="icon ion-ios-cart-outline" ng-click="vm.addToCart(itm[1].id)"></i>
+                                    <strong>
+                                        <i class="icon ion-ios-cart-outline button-balanced" ng-click="vm.addToCart(itm[1].id)"></i>
+                                    </strong>
                                 </a>
                             </div>
                         </div>

@@ -2,9 +2,9 @@ angular.module('starter')
 
 .controller('checkoutCtrl', checkoutCtrl);
 
-checkoutCtrl.$inject = ['appState', 'appService', '$state', '$scope', 'credentialService', 'ctrlUtilityService', 'cartService'];
+checkoutCtrl.$inject = ['appState', 'appService', '$state', '$scope', 'credentialService', 'ctrlUtilityService', 'cartService', '$rootScope'];
 
-function checkoutCtrl(appState, appService, $state, $scope, credentialService, ctrlUtilityService, cartService) {
+function checkoutCtrl(appState, appService, $state, $scope, credentialService, ctrlUtilityService, cartService, $rootScope) {
     var vm = this;
     vm.imgUrl = appService.getUrlImg() + appService.getProgId() + '/';
     vm.showProduct = showProduct;
@@ -22,6 +22,7 @@ function checkoutCtrl(appState, appService, $state, $scope, credentialService, c
                             appState.loadCheckedOutProducts(response.data.success);
                             vm.productsCheckedOut = appState.getCheckedOutProducts();
                             updateSummaryCalc();
+                            $rootScope.haveCartItems = true;
                         }
                     },
                     function(response) {

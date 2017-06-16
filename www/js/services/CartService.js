@@ -36,11 +36,8 @@
                 console.log('appendCartItem --- not defined for Dev mode');
             } else {
                 var url = appService.getUrl() + 'connector/' + appConstants.prog_id + '/cart/getCart';
-
                 var config = {};
-
                 return $http.get(url, data, config);
-
             }
         }
 

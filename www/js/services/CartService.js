@@ -39,21 +39,8 @@
 
                 var config = {};
 
-                $http.get(url, data, config)
-                    .then(
-                        function(response) {
-                            if (response.data.error) {
-                                ctrlUtilityService.showAlert(response.data.error.errorCode);
-                            } else {
-                                //load to Cart items
-                                appState.loadCheckedOutProducts(response.data.success);
-                            }
-                        },
-                        function(response) {
-                            alert('error');
-                            // failure callback
-                        }
-                    );
+                return $http.get(url, data, config);
+
             }
         }
 

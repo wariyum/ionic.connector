@@ -57,6 +57,10 @@ function appCtrl(categoryService, appService, $rootScope, cartService, $state, a
         $state.go('app.search');
     }
 
+    vm.showCart = function() {
+        $state.go('app.checkout');
+    }
+
     // triggered every time error occurs
     $rootScope.$on('$cordovaPushV5:errorOcurred', function(event, e) {
         alert(error);

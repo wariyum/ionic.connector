@@ -35,15 +35,12 @@ function checkoutCtrl(appState, appService, $state, $scope, credentialService, c
     vm.showRemoveConfirm = function(orderId, productId) {
         var confirmPopup = $ionicPopup.confirm({
             title: 'Remove from Cart',
-            template: 'Shall we item from Cart?'
+            template: 'Shall we remove an item from Cart?'
         });
         confirmPopup.then(function(res) {
             if (res) {
-
-                removeProduct(orderId, productId)
-            } else {
-                //console.log('You are not sure');
-            }
+                removeProduct(orderId, productId);
+            } else {}
         });
     }
 

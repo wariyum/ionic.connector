@@ -10,16 +10,23 @@
         </div>
 
         <div class="list">
-            <a class="item item-avatar" ng-repeat="itm in vm.productsCheckedOut track by $index">
-                <img src="{{vm.imgUrl + itm.product.imageUrl[0]}}" />
-                <h2>{{itm.product.name}}</h2>
+            <a class="item" ng-repeat="itm in vm.productsCheckedOut track by $index">
                 <div class="row">
+
+                    <div class="col col-20">
+                        <img src="{{vm.imgUrl + itm.product.imageUrl[0]}}" height="40px" width="40px" />
+
+                    </div>
+                    <div class="col col-60">
+                        <p><strong>{{itm.product.name}}</strong></p>
+                    </div>
                     <div class="col">
+                        <p><strong>Amount: {{itm.product.unitPrice * itm.qty}}</strong></p>
                     </div>
                 </div>
-                <div class="row">
+                <!--<div class="row">
                     <p>{{itm.product.description}}</p>
-                </div>
+                </div>-->
                 <div class="row row-center">
                     <div class="col">
                         <button class="button button-icon icon ion-ios-plus-outline" ng-click="vm.incrementQty(itm.id)"></button>
@@ -42,30 +49,25 @@
     </ion-content>
     <!-- footer starts here -->
 
-    <div class="bar" style="top:70%;">
+    <div style="position:absolute;top:70%;width:100%;">
         <div class="row">
-            <!--<p style="color:#000">Total Billed Amount: AED {{vm.checkoutSummary.price}} (No. of items{{vm.checkoutSummary.count}})</p>-->
-            <ion-card>
-
-                <!--<ion-card-header>
-                    Order Summary
-                </ion-card-header>-->
-
-                <!--<ion-card-content>-->
+            <div class="col col-90">
                 <h4>Order Summary</h4>
-                Total Amount: {{vm.checkoutSummary.price}} AED</br>
+            </div>
+        </div>
 
+        <div class="row">
+            <div class="col col-70">
+                No. Items: {{vm.checkoutSummary.count}} </br>
+                Total Amount: {{vm.checkoutSummary.price}} AED</br>
                 Delivery Amount: 0 AED</br>
                 Net Total: {{vm.checkoutSummary.price}} AED
+            </div>
+            <div class="col col-30">
                 <button style="margin:0" class="button button-full button-positive" ng-click="vm.checkout()">
-                    Proceed with Checkout
+                    Checkout
                     </button>
-                <!--</ion-card-content>-->
-
-            </ion-card>
+            </div>
         </div>
     </div>
-    <!--<div class="bar bar-footer bar-positive footer-button">
-
-    </div>-->
 </ion-view>

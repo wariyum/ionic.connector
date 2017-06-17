@@ -2,12 +2,10 @@
     <ion-content>
         <div class="list card">
             <a href="#" class="item item-icon-left">
-                <i class="icon ion-paper-airplane"></i>
-                 {{vm.status}}
+                <i class="icon ion-paper-airplane"></i> {{vm.status}}
             </a>
             <a href="#" class="item item-icon-left">
-                <i class="icon ion-clock"></i>
-                 {{vm.dateTime}}
+                <i class="icon ion-clock"></i> {{vm.dateTime}}
             </a>
             <!--   <a href="#" class="item item-icon-left">
                 <i class="icon ion-edit"></i>
@@ -27,29 +25,29 @@
                     Waiting for Long - Not Happy
                 </button>
             </a>
-            <a href="tel:+9715404488"  class="item item-icon-left">
+            <a href="tel:+9715404488" class="item item-icon-left">
                 <i class="icon ion-ios-telephone balanced"></i>
                 <button class="button button-outline button-balanced">
                     Call Us
                 </button>
             </a>
-             <a href="#" class="item item-icon-left">
+            <a href="#" class="item item-icon-left">
                 <i class="icon ion-edit"></i> Feedback
             </a>
         </div>
-       
+
         <!-- Ordered Items starts here -->
         <ion-list>
-            <a class="item item-avatar"  ng-repeat="itm in vm.orderDetails.items">
-                <img cache-src="{{vm.imageUrl + itm.product.imageUrl[0]}}"/>
+            <a class="item item-avatar" ng-repeat="itm in vm.orderDetails.items">
+                <img src="{{vm.imageUrl + itm.product.imageUrl[0]}}" />
                 <h2>{{itm.product.name}}</h2>
                 <p>{{itm.product.description}}
-                      <button class="button button-positive" ng-click="vm.reorder(itm.product.id)" style="float:right">
+                    <button class="button button-positive" ng-click="vm.reorder(itm.product.id)" style="float:right">
                         Re-Order
                     </button>
                 </p>
-                
-                </a>
+
+            </a>
         </ion-list>
         <!-- Ordered Items ends here -->
     </ion-content>

@@ -18,6 +18,7 @@
 
         return {
             getCartItems: getCartItems,
+            // getCartItems2: getCartItems2,
             addToCart: addToCart,
             appendCartItem: appendCartItem,
             removeCartItem: removeCartItem,
@@ -30,6 +31,7 @@
             saveShippingAddr: saveShippingAddr
         };
 
+
         function getCartItems(callMe) {
             var data = {};
             if (appConstants.mode === 'dev') {
@@ -37,7 +39,19 @@
             } else {
                 var url = appService.getUrl() + 'connector/' + appConstants.prog_id + '/cart/getCart';
                 var config = {};
-                return $http.get(url, data, config);
+                $http.get(url, data, config)
+                    .then(
+                        function(response) {
+                            if (response.data.error) {
+                                ctrlUtilityService.showAlert(response.data.error.errorCode);
+                            } else {
+                                callMe(response);
+                            }
+                        },
+                        function(response) {
+                            alert('error');
+                        }
+                    );
             }
         }
 

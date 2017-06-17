@@ -151,6 +151,7 @@ ion-spinner * {
     min-height: 2em;
     overflow: hidden;
     text-overflow: ellipsis;
+    font-size: 18px;
     /*white-space: nowrap;*/
 }
 

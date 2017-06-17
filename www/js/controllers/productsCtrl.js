@@ -2,10 +2,10 @@ angular.module('starter')
 
 .controller('productsCtrl', productsCtrl);
 
-productsCtrl.$inject = ['productService', 'appService', 'appState', '$stateParams', '$scope', 'lodash', 'cartService'];
+productsCtrl.$inject = ['productService', 'appService', 'appState', '$stateParams', '$scope', 'lodash', 'cartService', 'credentialService', 'ctrlUtilityService', '$state'];
 
 
-function productsCtrl(productService, appService, appState, $stateParams, $scope, _, cartService) {
+function productsCtrl(productService, appService, appState, $stateParams, $scope, _, cartService, credentialService, ctrlUtilityService, $state) {
 
     var vm = this;
     vm.imageUrl = appService.getUrlImg() + appService.getProgId() + '/';
@@ -28,7 +28,15 @@ function productsCtrl(productService, appService, appState, $stateParams, $scope
     }
 
     vm.addToCart = function(productId) {
-        cartService.addToCart(productId);
+        if (!credentialService.isUserLoggedIn()) {
+            ctrlUtilityService.showAlert('Please login before Checkout');
+            $state.go('app.login');
+        } else {
+            //only if user logged in
+            // $state.go('app.shippingInfo');
+            cartService.addToCart(productId);
+
+        }
     }
 
     vm.moreDataCanBeLoaded = function() {

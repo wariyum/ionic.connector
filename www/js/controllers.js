@@ -2,9 +2,9 @@ angular.module('starter')
 
 .controller('appCtrl', appCtrl);
 
-appCtrl.$inject = ['categoryService', 'appService', '$rootScope', 'cartService', '$state', 'appConstants'];
+appCtrl.$inject = ['categoryService', 'appService', '$rootScope', 'cartService', '$state', 'appConstants', 'appState'];
 
-function appCtrl(categoryService, appService, $rootScope, cartService, $state, appConstants) {
+function appCtrl(categoryService, appService, $rootScope, cartService, $state, appConstants, appState) {
     var vm = this;
     vm.init = init;
 
@@ -16,6 +16,13 @@ function appCtrl(categoryService, appService, $rootScope, cartService, $state, a
         categoryService.getCategories(appService.getProgId()).then(function(response) {
             $rootScope.categories = response.data.success;
         });
+        var cartAlert = function(response) {
+            //load to Cart items
+            appState.loadCheckedOutProducts(response.data.success);
+            vm.productsCheckedOut = appState.getCheckedOutProducts();
+            $rootScope.haveCartItems = true;
+        }
+        cartService.getCartItems(cartAlert);
     }
 
     $rootScope.$on('http-req-started', function(event, data) {

@@ -10,26 +10,17 @@ function checkoutCtrl(appState, appService, $state, $scope, credentialService, c
     vm.showProduct = showProduct;
     vm.removeProduct = removeProduct;
 
+    var cartUpdate = function(response) {
+        //load to Cart items
+        appState.loadCheckedOutProducts(response.data.success);
+        vm.productsCheckedOut = appState.getCheckedOutProducts();
+        updateSummaryCalc();
+        $rootScope.haveCartItems = true;
+    }
+
     $scope.$on('$stateChangeSuccess', function() {
         if ($state.current.name === 'app.checkout') {
-            cartService.getCartItems()
-                .then(
-                    function(response) {
-                        if (response.data.error) {
-                            ctrlUtilityService.showAlert(response.data.error.errorCode);
-                        } else {
-                            //load to Cart items
-                            appState.loadCheckedOutProducts(response.data.success);
-                            vm.productsCheckedOut = appState.getCheckedOutProducts();
-                            updateSummaryCalc();
-                            $rootScope.haveCartItems = true;
-                        }
-                    },
-                    function(response) {
-                        alert('error');
-                    }
-                );
-
+            cartService.getCartItems(cartUpdate);
         }
     });
 

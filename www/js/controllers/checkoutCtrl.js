@@ -2,9 +2,9 @@ angular.module('starter')
 
 .controller('checkoutCtrl', checkoutCtrl);
 
-checkoutCtrl.$inject = ['appState', 'appService', '$state', '$scope', 'credentialService', 'ctrlUtilityService', 'cartService', '$rootScope'];
+checkoutCtrl.$inject = ['appState', 'appService', '$state', '$scope', 'credentialService', 'ctrlUtilityService', 'cartService', '$rootScope', '$ionicPopup'];
 
-function checkoutCtrl(appState, appService, $state, $scope, credentialService, ctrlUtilityService, cartService, $rootScope) {
+function checkoutCtrl(appState, appService, $state, $scope, credentialService, ctrlUtilityService, cartService, $rootScope, $ionicPopup) {
     var vm = this;
     vm.imgUrl = appService.getUrlImg() + appService.getProgId() + '/';
     vm.showProduct = showProduct;
@@ -30,6 +30,21 @@ function checkoutCtrl(appState, appService, $state, $scope, credentialService, c
 
     function showProduct(productId) {
         $state.go('app.single', { 'productId': productId });
+    }
+
+    vm.showRemoveConfirm = function(orderId, productId) {
+        var confirmPopup = $ionicPopup.confirm({
+            title: 'Remove from Cart',
+            template: 'Shall we item from Cart?'
+        });
+        confirmPopup.then(function(res) {
+            if (res) {
+
+                removeProduct(orderId, productId)
+            } else {
+                //console.log('You are not sure');
+            }
+        });
     }
 
     function removeProduct(orderId, productId) {

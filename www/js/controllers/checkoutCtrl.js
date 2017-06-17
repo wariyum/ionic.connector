@@ -15,7 +15,7 @@ function checkoutCtrl(appState, appService, $state, $scope, credentialService, c
         appState.loadCheckedOutProducts(response.data.success);
         vm.productsCheckedOut = appState.getCheckedOutProducts();
         updateSummaryCalc();
-        $rootScope.haveCartItems = true;
+        appState.showCartIndicator();
     }
 
     $scope.$on('$stateChangeSuccess', function() {
@@ -36,6 +36,7 @@ function checkoutCtrl(appState, appService, $state, $scope, credentialService, c
         cartService.removeCartItem(orderId);
         appState.removeProductFromCheckout(productId);
         updateSummaryCalc();
+        appState.showCartIndicator();
     }
 
     vm.incrementQty = function(productId) {

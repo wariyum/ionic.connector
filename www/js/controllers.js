@@ -20,7 +20,7 @@ function appCtrl(categoryService, appService, $rootScope, cartService, $state, a
             //load to Cart items
             appState.loadCheckedOutProducts(response.data.success);
             vm.productsCheckedOut = appState.getCheckedOutProducts();
-            $rootScope.haveCartItems = true;
+            appState.showCartIndicator();
         }
         cartService.getCartItems(cartAlert);
     }

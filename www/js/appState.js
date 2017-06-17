@@ -49,7 +49,8 @@
             addToLocalStorage: _addToLocalStorage,
             removeFromLocalStorage: _removeFromLocalStorage,
             loadCheckedOutProducts: loadCheckedOutProducts,
-            clearCheckedOutProducts: clearCheckedOutProducts
+            clearCheckedOutProducts: clearCheckedOutProducts,
+            showCartIndicator: showCartIndicator
 
         };
 
@@ -109,6 +110,13 @@
 
         function getCheckedOutProducts() {
             return checkedOutProducts;
+        }
+
+        function showCartIndicator() {
+            if (checkedOutProducts.length > 0)
+                $rootScope.haveCartItems = true;
+            else
+                $rootScope.haveCartItems = false;
         }
 
         function getShownProductId() {

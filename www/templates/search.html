@@ -14,10 +14,13 @@
             <a class="item item-avatar" ng-repeat="itm in vm.products track by $index">
                 <img src="{{vm.imageUrl + itm.imageUrl[0]}}" />
                 <span><strong>{{itm.name}}<strong></p>
-                         <button class="button button-positive" ng-click="vm.order(itm.id)" style="float:right">
+                    <button class="button button-positive" ng-click="vm.order(itm.id)" style="float:right">
                         Order
                     </button>
-                        </a>
+                    <button class="button" ng-click="vm.showDetails(itm.id)" style="float:right">
+                        View
+                    </button>
+            </a>
         </div>
 
         <div class="card" ng-show="vm.products === undefined">

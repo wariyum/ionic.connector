@@ -2,9 +2,9 @@
 
  .controller('searchCtrl', searchCtrl);
 
- searchCtrl.$inject = ['searchService', 'appService', 'cartService', 'appState'];
+ searchCtrl.$inject = ['searchService', 'appService', 'cartService', 'appState', '$state'];
 
- function searchCtrl(searchService, appService, cartService, appState) {
+ function searchCtrl(searchService, appService, cartService, appState, $state) {
      var vm = this;
      vm.search = search;
      vm.imageUrl = appService.getUrlImg() + appService.getProgId() + '/';
@@ -18,5 +18,8 @@
      }
      vm.order = function(productId) {
          cartService.addToCart(productId);
+     }
+     vm.showDetails = function(productId) {
+         $state.go('app.single', { 'productId': productId });
      }
  }

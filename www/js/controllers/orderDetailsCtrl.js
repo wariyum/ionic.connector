@@ -2,9 +2,9 @@ angular.module('starter')
 
 .controller('orderDetailsCtrl', orderDetailsCtrl);
 
-orderDetailsCtrl.$inject = ['$stateParams', '$rootScope', 'cartService', '$scope', '$ionicPopup','$state','moment','appService'];
+orderDetailsCtrl.$inject = ['$stateParams', '$rootScope', 'cartService', '$scope', '$ionicPopup', '$state', 'moment', 'appService'];
 
-function orderDetailsCtrl($stateParams, $rootScope, cartService, $scope, $ionicPopup,$state,moment,appService) {
+function orderDetailsCtrl($stateParams, $rootScope, cartService, $scope, $ionicPopup, $state, moment, appService) {
     var vm = this;
     vm.imageUrl = appService.getUrlImg() + appService.getProgId() + '/';
 
@@ -12,8 +12,8 @@ function orderDetailsCtrl($stateParams, $rootScope, cartService, $scope, $ionicP
         getParamsAndLoadPage();
     }
 
-    vm.reorder = function (productId){
-          var cartItm = {};
+    vm.reorder = function(productId) {
+        var cartItm = {};
         cartItm.product = {};
         cartItm.product.id = productId;
         cartItm.quantity = 1;

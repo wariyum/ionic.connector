@@ -2,10 +2,10 @@ angular.module('starter')
 
 .controller('productDetailCtrl', productDetailCtrl);
 
-productDetailCtrl.$inject = ['productService', '$stateParams', 'appService', 'appState','$ionicSlideBoxDelegate','cartService','$cordovaSocialSharing'];
+productDetailCtrl.$inject = ['productService', '$stateParams', 'appService', 'appState', '$ionicSlideBoxDelegate', 'cartService', '$cordovaSocialSharing'];
 
 
-function productDetailCtrl(productService, $stateParams, appService, appState,$ionicSlideBoxDelegate, cartService,$cordovaSocialSharing) {
+function productDetailCtrl(productService, $stateParams, appService, appState, $ionicSlideBoxDelegate, cartService, $cordovaSocialSharing) {
 
     var vm = this;
 
@@ -23,8 +23,7 @@ function productDetailCtrl(productService, $stateParams, appService, appState,$i
 
 
         var tmp = appState.getIndexOfLikedProduct(vm.productId);
-        if(tmp > 0)
-        {
+        if (tmp > 0) {
             vm.liked = true;
         }
 
@@ -38,14 +37,17 @@ function productDetailCtrl(productService, $stateParams, appService, appState,$i
         appState.getNextProduct(vm.productId);
     }
 
+    function goToCheckOut() {
+        appState.checkout(vm.productDetail);
+    }
     vm.checkout = function() {
         //call service
-        var cartItm = {};
-        cartItm.product = {};
-        cartItm.product.id = vm.productDetail.id;
-        cartItm.quantity = 1;
-        cartService.appendCartItem(cartItm);
-        appState.checkout(vm.productDetail);
+        // var cartItm = {};
+        // cartItm.product = {};
+        // cartItm.product.id = vm.productDetail.id;
+        // cartItm.quantity = 1;
+        // cartService.appendCartItem(cartItm);
+        cartService.addToCart(vm.productDetail.id, goToCheckOut);
     }
 
     vm.share = function() {
@@ -55,10 +57,10 @@ function productDetailCtrl(productService, $stateParams, appService, appState,$i
             .shareViaWhatsApp("Check Out this product from wariyum", image, link)
             .then(function(result) {
                 alert('success');
-              // Success!
+                // Success!
             }, function(err) {
                 alert('failure');
-              // An error occurred. Show a message to the user
+                // An error occurred. Show a message to the user
             });
     }
 

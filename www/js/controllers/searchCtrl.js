@@ -1,20 +1,26 @@
  angular.module('starter')
 
-.controller('searchCtrl', searchCtrl);
+ .controller('searchCtrl', searchCtrl);
 
-searchCtrl.$inject =['searchService','appService'];
+ searchCtrl.$inject = ['searchService', 'appService', 'cartService', 'appState'];
 
-function searchCtrl(searchService,appService) {
-	var vm = this;
-	vm.search = search;
-	vm.imageUrl = appService.getUrlImg() + appService.getProgId() + '/';
+ function searchCtrl(searchService, appService, cartService, appState) {
+     var vm = this;
+     vm.search = search;
+     vm.imageUrl = appService.getUrlImg() + appService.getProgId() + '/';
 
 
-	function search() {
-		//call search service
-		searchService.searchProducts(vm.searchText).then(function (response){
-			vm.products = response.data.success;
-			console.log(vm.products);
-		});
-	}
-}
+     function search() {
+         //call search service
+         searchService.searchProducts(vm.searchText).then(function(response) {
+             vm.products = response.data.success;
+         });
+     }
+     vm.order = function(productId) {
+         var cartItm = {};
+         cartItm.product = {};
+         cartItm.product.id = productId;
+         cartItm.quantity = 1;
+         cartService.appendCartItem(cartItm);
+     }
+ }

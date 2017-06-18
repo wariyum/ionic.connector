@@ -11,11 +11,13 @@
         <!-- product list start from here -->
         <div class="list" ng-if="vm.products">
 
-            <a class="item item-avatar" ng-repeat="itm in vm.products track by $index" href="#/app/productDetails/{{itm.id}}">
-                <img cache-src="{{vm.imageUrl + itm.imageUrl[0]}}" />
-                <h2>{{itm.name}}</h2>
-                <p>{{itm.description}}</p>
-            </a>
+            <a class="item item-avatar" ng-repeat="itm in vm.products track by $index">
+                <img src="{{vm.imageUrl + itm.imageUrl[0]}}" />
+                <span><strong>{{itm.name}}<strong></p>
+                         <button class="button button-positive" ng-click="vm.order(itm.id)" style="float:right">
+                        Order
+                    </button>
+                        </a>
         </div>
 
         <div class="card" ng-show="vm.products === undefined">

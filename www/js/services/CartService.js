@@ -55,17 +55,17 @@
             }
         }
 
-        function addToCart(productId) {
+        function addToCart(productId, callMe) {
             //call service
             var cartItm = {};
             cartItm.product = {};
             cartItm.product.id = productId;
             cartItm.quantity = 1;
-            appendCartItem(cartItm);
+            appendCartItem(cartItm, callMe);
         }
 
 
-        function appendCartItem(data) {
+        function appendCartItem(data, callMe) {
             if (appConstants.mode === 'dev') {
                 console.log('appendCartItem --- not defined for Dev mode');
             } else {
@@ -86,6 +86,8 @@
                                 // appState.checkout(cartItem);
 
                                 ctrlUtilityService.showAlert('Added to cart');
+                                if (callMe)
+                                    callMe();
                             }
                         },
                         function(response) {

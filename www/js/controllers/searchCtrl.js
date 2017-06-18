@@ -17,10 +17,6 @@
          });
      }
      vm.order = function(productId) {
-         var cartItm = {};
-         cartItm.product = {};
-         cartItm.product.id = productId;
-         cartItm.quantity = 1;
-         cartService.appendCartItem(cartItm);
+         cartService.addToCart(productId);
      }
  }

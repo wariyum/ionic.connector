@@ -1,10 +1,13 @@
-<ion-view view-title="Check Out">
+<ion-view view-title="Place Order">
     <ion-content>
         <div class="list">
-            <div class="item item-divider">
-                Delivary Addr. info
-            </div>
-            <label class="item item-input item-select">
+
+            <form name="myForm" novalidate>
+
+                <div class="item item-divider">
+                    Payment & Delivary Address
+                </div>
+                <label class="item item-input item-select">
                 <div class="input-label">
                     Mode of Pay
                 </div>
@@ -12,11 +15,11 @@
                     <option selected>Cash On Delivary - COD</option>
                 </select>
             </label>
-            <div class="item item-divider">
+                <div class="item item-divider">
                 Shipping Address
-            </div>
-            <div class="card">
-                <label class="item item-input item-select">
+                </div>
+                <div class="card">
+                    <label class="item item-input item-select">
                     <div class="input-label">
                         Title
                     </div>
@@ -25,38 +28,38 @@
                         <option>Mrs</option>
                     </select>
                 </label>
-                <label class="item item-input">
+                    <label class="item item-input">
                     <input type="text" placeholder="First Name" ng-model="vm.shipping.firstName" required>
                 </label>
-                <!--ANOTHER TYPE-->
-                <!--END-->
-                <label class="item item-input">
+                    <!--ANOTHER TYPE-->
+                    <!--END-->
+                    <label class="item item-input">
                     <input type="text" placeholder="Last Name" ng-model="vm.shipping.lastName">
                 </label>
-                <label class="item item-input">
+                    <label class="item item-input">
                     <input type="number" placeholder="Mobile Number"
                     ng-model="vm.shipping.contactNo" required>
                 </label>
-               
-                <label class="item item-input">
+                    <label class="item item-input">
                     <input type="text" placeholder="Street Address 1" ng-model="vm.shipping.address1">
                 </label>
-                <label class="item item-input">
+                    <label class="item item-input">
                     <input type="text" placeholder="Street Address 2" ng-model="vm.shipping.address2">
                 </label>
-                <label class="item item-input">
+                    <label class="item item-input">
                     <input type="text" placeholder="City" ng-model="vm.shipping.city">
                 </label>
-                <label class="item item-input">
-                    <input type="number" placeholder="Post Box" ng-model="vm.shipping.pobox">
-                </label>
-            </div>
+                </div>
+                <button style="margin:0" class="button button-full button-positive" ng-disabled="myForm.$invalid" ng-click="vm.showConfirm()">
+                    Place Order
+                </button>
+            </form>
 
         </div>
     </ion-content>
-    <div class="bar bar-footer bar-balanced">
-        <button style="margin:0" class="button button-full button-positive" ng-click="vm.showConfirm()">
-            Place your Order
+    <!--<div class="bar bar-footer bar-balanced">
+        <button style="margin:0" class="button button-full button-positive" ng-disabled="myForm.$invalid" ng-click="vm.showConfirm()">
+           
         </button>
-    </div>
+        </div>-->
 </ion-view>

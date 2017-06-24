@@ -40,6 +40,7 @@ function shippingInfoCtrl(cartService, $ionicPopup, $scope, $rootScope, $state, 
                 order.billingAddress.city = vm.shipping.city;
                 order.billingAddress.firstName = vm.shipping.firstName;
                 order.billingAddress.lastName = vm.shipping.lastName;
+                order.billingAddress.contactNo = vm.shipping.contactNo;
 
                 // cartService.saveorder(order);
                 cartService.sendOrderToProcess(order);

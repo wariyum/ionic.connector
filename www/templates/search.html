@@ -10,7 +10,6 @@
 
         <!-- product list start from here -->
         <div class="list" ng-if="vm.products">
-
             <a class="item item-avatar" ng-repeat="itm in vm.products track by $index">
                 <img src="{{vm.imageUrl + itm.imageUrl[0]}}" />
                 <span><strong>{{itm.name}}<strong></p>

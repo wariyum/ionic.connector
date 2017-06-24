@@ -15,12 +15,10 @@ function productDetailCtrl(productService, $stateParams, appService, appState, $
         vm.liked = false;
         vm.imgUrl = appService.getUrlImg() + appService.getProgId() + '/';
 
-
         productService.getProductDetailsPublished(vm.productId).then(function(response) {
             vm.productDetail = response.data.success;
             $ionicSlideBoxDelegate.update();
         });
-
 
         var tmp = appState.getIndexOfLikedProduct(vm.productId);
         if (tmp > 0) {
@@ -41,12 +39,6 @@ function productDetailCtrl(productService, $stateParams, appService, appState, $
         appState.checkout(vm.productDetail);
     }
     vm.checkout = function() {
-        //call service
-        // var cartItm = {};
-        // cartItm.product = {};
-        // cartItm.product.id = vm.productDetail.id;
-        // cartItm.quantity = 1;
-        // cartService.appendCartItem(cartItm);
         cartService.addToCart(vm.productDetail.id, goToCheckOut);
     }
 

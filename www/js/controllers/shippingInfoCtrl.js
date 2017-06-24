@@ -24,7 +24,7 @@ function shippingInfoCtrl(cartService, $ionicPopup, $scope, $rootScope, $state, 
 
     vm.showConfirm = function() {
 
-        // cartService.saveShippingAddr();
+        // cartService.saveorder();
         var confirmPopup = $ionicPopup.confirm({
             title: 'Order placement confirmation',
             template: 'Shall we place your Order?'
@@ -32,17 +32,17 @@ function shippingInfoCtrl(cartService, $ionicPopup, $scope, $rootScope, $state, 
 
         confirmPopup.then(function(res) {
             if (res) {
-                var shippingAddr = {};
-                shippingAddr.same = true;
-                shippingAddr.address = {};
-                shippingAddr.address.address1 = vm.shipping.address1;
-                shippingAddr.address.address2 = vm.shipping.address2;
-                shippingAddr.address.city = vm.shipping.city;
-                shippingAddr.address.firstName = vm.shipping.firstName;
-                shippingAddr.address.lastName = vm.shipping.lastName;
+                var order = {};
+                order.same = true;
+                order.billingAddress = {};
+                order.billingAddress.address1 = vm.shipping.address1;
+                order.billingAddress.address2 = vm.shipping.address2;
+                order.billingAddress.city = vm.shipping.city;
+                order.billingAddress.firstName = vm.shipping.firstName;
+                order.billingAddress.lastName = vm.shipping.lastName;
 
-                cartService.saveShippingAddr(shippingAddr);
-                cartService.sendOrderToProcess();
+                // cartService.saveorder(order);
+                cartService.sendOrderToProcess(order);
                 appState.clearCheckedOutProducts();
                 //broadcast event refresh Purchase Hisotry
 

@@ -15,7 +15,7 @@ function shippingInfoCtrl(cartService, $ionicPopup, $scope, $rootScope, $state, 
                 if (response.data.error) {
                     ctrlUtilityService.showAlert(response.data.error.errorCode);
                 } else {
-                    alert(response.data.success);
+                    vm.shipping = response.data.success.billingAddress;
                 }
             },
             function(response) {

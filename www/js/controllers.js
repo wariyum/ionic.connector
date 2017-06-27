@@ -27,10 +27,7 @@ function appCtrl(categoryService, appService, $rootScope, cartService, $state, a
 
 
 
-    $rootScope.$on('$cordovaPushV5:errorOccurred', function(event, error) {
-        // handle error
-        $log.debug('cordovaPushV5:errorOccurred ERROR: ' + error);
-    });
+
 
     $rootScope.$on('http-req-started', function(event, data) {
         $rootScope.showLoader = true;
@@ -51,25 +48,10 @@ function appCtrl(categoryService, appService, $rootScope, cartService, $state, a
         // var group = data.additionalData.payload.group || false;
 
         if (foreground) {
-            debugger;
-
-            // Do something if the app is in foreground while receiving to push - handle in app push handling
-            console.log('Receive notification in foreground');
-            alert('foreground');
+            // if you want to do any processing in foreground
         } else {
-            debugger;
 
-            alert('background');
-            // Handle push messages while app is in background or not started
-            console.log('Receive notification in background');
-            // Open FB messanger app when user clicks notification UI when app is in background.
-            // if (typeof data.additionalData.coldstart != "undefined" && data.additionalData.coldstart == false)
-            //     if (!group)
-            //     // Open FB Messenger of specific user chat window
-            //         window.open('fb-messenger://user/' + threadID, '_system', 'location=no');
-            //     else
-            //     // Open FB Messenger of specific group chat window
-            //         window.open('fb-messenger://groupthreadfbid/' + threadID, '_system', 'location=no');
+            // if you want to do any processing on background
         }
 
         var tmp = JSON.parse(data.message);
@@ -104,8 +86,8 @@ function appCtrl(categoryService, appService, $rootScope, cartService, $state, a
     }
 
     // triggered every time error occurs
-    $rootScope.$on('$cordovaPushV5:errorOcurred', function(event, e) {
-        alert(error);
-        // e.message
+    $rootScope.$on('$cordovaPushV5:errorOccurred', function(event, error) {
+        // handle error
+        $log.debug('cordovaPushV5:errorOccurred ERROR: ' + error);
     });
 }

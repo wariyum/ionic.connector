@@ -2,12 +2,27 @@ angular.module('starter')
 
 .controller('shippingInfoCtrl', shippingInfoCtrl);
 
-shippingInfoCtrl.$inject = ['cartService', '$ionicPopup', '$scope', '$rootScope', '$state', '$cordovaGeolocation', 'appState'];
+shippingInfoCtrl.$inject = ['cartService', '$ionicPopup', '$scope', '$rootScope', '$state', '$cordovaGeolocation', 'appState', 'ctrlUtilityService'];
 
-function shippingInfoCtrl(cartService, $ionicPopup, $scope, $rootScope, $state, $cordovaGeolocation, appState) {
+function shippingInfoCtrl(cartService, $ionicPopup, $scope, $rootScope, $state, $cordovaGeolocation, appState, ctrlUtilityService) {
     var vm = this;
 
     vm.shipping = {};
+
+    vm.init = function() {
+        cartService.getLastUsedAddress().then(
+            function(response) {
+                if (response.data.error) {
+                    ctrlUtilityService.showAlert(response.data.error.errorCode);
+                } else {
+                    alert(response.data.success);
+                }
+            },
+            function(response) {
+                alert('error');
+            }
+        );
+    }
 
     vm.getGeoLocation = function() {
         var posOptions = { timeout: 10000, enableHighAccuracy: false };

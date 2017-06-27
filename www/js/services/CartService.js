@@ -27,7 +27,8 @@
             getOrderHistory: getOrderHistory,
             getOrderDetail: getOrderDetail,
             cancelOrder: cancelOrder,
-            saveShippingAddr: saveShippingAddr
+            saveShippingAddr: saveShippingAddr,
+            getLastUsedAddress: getLastUsedAddress
         };
 
 
@@ -161,6 +162,19 @@
                     );
             }
 
+        }
+
+        function getLastUsedAddress() {
+            //admin.wariyum.com/service/connector/1/order/getRecentAddress
+            var data = {};
+            if (appConstants.mode === 'dev') {
+                console.log('getOrderHistory --- not defined for Dev mode');
+            } else {
+                var url = appService.getUrl() + 'connector/' + appConstants.prog_id + '/order/getRecentAddress';
+                var config = {};
+
+                return $http.get(url, data, config);
+            }
         }
 
         function getOrderHistory() {

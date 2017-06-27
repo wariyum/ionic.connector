@@ -17,16 +17,13 @@
                         <img src="{{vm.imgUrl + itm.product.imageUrl[0]}}" height="40px" width="40px" />
 
                     </div>
-                    <div class="col col-60">
+                    <div class="col col-50">
                         <p><strong>{{itm.product.name}}</strong></p>
                     </div>
-                    <div class="col">
+                    <div class="col-30">
                         <p><strong>Amount: {{itm.product.unitPrice * itm.qty}}</strong></p>
                     </div>
                 </div>
-                <!--<div class="row">
-                    <p>{{itm.product.description}}</p>
-                </div>-->
                 <div class="row row-center">
                     <div class="col">
                         <button class="button button-icon icon ion-ios-plus-outline" ng-click="vm.incrementQty(itm.id)"></button>

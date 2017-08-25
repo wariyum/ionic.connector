@@ -82,9 +82,7 @@
                                 //service call
                                 var cartItem = {};
                                 cartItem.product = response.data.success.product;
-                                // cartItem.quantity = 1;
-                                // appState.checkout(cartItem);
-
+                                $rootScope.$broadcast('showCartAlert', {});
                                 ctrlUtilityService.showAlert('Added to cart');
                                 if (callMe)
                                     callMe();
@@ -99,12 +97,12 @@
 
         }
 
-        function removeCartItem(orderId) {
+        function removeCartItem(productId) {
             if (appConstants.mode === 'dev') {
                 console.log('appendCartItem --- not defined for Dev mode');
             } else {
-                var url = appService.getUrl() + 'connector/' + appConstants.prog_id + '/cart/removeCartItem/' + orderId;
-
+                // var url = appService.getUrl() + 'connector/' + appConstants.prog_id + '/cart/removeCartItem/' + orderId;
+                var url = appService.getUrl() + 'inventory/cart/removeCartItemByProductId/'+productId;
                 var config = {};
 
                 $http.delete(url, config)
@@ -114,6 +112,7 @@
                                 ctrlUtilityService.showAlert(response.data.error.errorCode);
                             } else {
                                 ctrlUtilityService.showAlert('Deleted Product');
+                                $rootScope.$broadcast('showCartAlert', {});
                             }
                         },
                         function(response) {

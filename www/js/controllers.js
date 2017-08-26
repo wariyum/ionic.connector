@@ -2,9 +2,9 @@ angular.module('starter')
 
 .controller('appCtrl', appCtrl);
 
-appCtrl.$inject = ['categoryService', 'appService', '$rootScope', 'cartService', '$state', 'appConstants', 'appState'];
+appCtrl.$inject = ['categoryService', 'appService', '$rootScope', 'cartService', '$state', 'appConstants', 'appState','FCMService','$localStorage'];
 
-function appCtrl(categoryService, appService, $rootScope, cartService, $state, appConstants, appState) {
+function appCtrl(categoryService, appService, $rootScope, cartService, $state, appConstants, appState, FCMService,$localStorage) {
     var vm = this;
     vm.init = init;
 
@@ -16,14 +16,47 @@ function appCtrl(categoryService, appService, $rootScope, cartService, $state, a
         categoryService.getCategories(appService.getProgId()).then(function(response) {
             $rootScope.categories = response.data.success;
         });
-        var cartAlert = function(response) {
+
+
+          //look for exisitng registration key in localstorage
+        var fcmId = window.localStorage.getItem('fcmId');
+        var oldFcmId = $localStorage.fcmId;
+        if(!oldFcmId && fcmId)
+            {
+                //1. save the key to server
+                var data = {};
+                data.fcmRegKey = fcmId;
+                data.programId = $rootScope.progId;
+                data.platform = 'Android';
+                FCMService.registerNewDevice(data).then(function(response)
+                {
+                    console.log(data);
+                }).catch(function (response) {
+                    console.log(response);
+                });
+                //2. save the key in local storage
+                $localStorage.fcmId = fcmId;
+            }
+            else if(oldFcmId === fcmId){
+                $angular.noop();
+            }
+            else if(oldFcmId != fcmId){
+                //update fcmID
+            }
+
+
+        $rootScope.$broadcast('showCartAlert', {});
+    }
+
+    $rootScope.$on('showCartAlert', function() {
+        var cartAlertCallBack = function(response) {
             //load to Cart items
             appState.loadCheckedOutProducts(response.data.success);
             vm.productsCheckedOut = appState.getCheckedOutProducts();
             appState.showCartIndicator();
         }
-        cartService.getCartItems(cartAlert);
-    }
+        cartService.getCartItems(cartAlertCallBack);
+    })
 
 
 

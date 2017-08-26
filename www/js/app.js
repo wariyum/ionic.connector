@@ -5,7 +5,7 @@
 // the 2nd parameter is an array of 'requires'
 // 'starter.controllers' is found in controllers.js
 angular.module('starter', ['ionic', 'ngCordova', 'ngLodash', 'ionic-cache-src', 'ionic-toast', 'ngStorage', 'angularMoment'])
-    .run(function($ionicPlatform, $cordovaPushV5) {
+    .run(function($ionicPlatform, $cordovaPushV5, FCMService) {
         $ionicPlatform.ready(function() {
 
             var options = {
@@ -30,8 +30,26 @@ angular.module('starter', ['ionic', 'ngCordova', 'ngLodash', 'ionic-cache-src', 
 
                     // register to get registrationId
                     $cordovaPushV5.register().then(function(registrationId) {
-                        console.log(registrationId);
-                        // save `registrationId` somewhere;
+
+                        window.localStorage.setItem( 'fcmId', registrationId );
+                        //look for exisitng registration key in localstorage
+                        // var isRegKeyExist = false;
+                        // if(!isRegKeyExist)
+                        //     {
+                        //         //1. save the key to server
+                        //         var data = {};
+                        //         data.fcmRegKey = registrationId;
+                        //         data.programId = 37;
+                        //         FCMService.registerNewDevice(data).then(function(response)
+                        //         {
+                        //             alert('saved');
+                        //         }).catch(function (response) {
+                        //             alert('error');
+                        //             console.log(response);
+                        //         });
+                        //         //2. save the key in local storage
+                        //     }
+                        
                     })
                 });
             }

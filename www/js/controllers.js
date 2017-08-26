@@ -38,7 +38,7 @@ function appCtrl(categoryService, appService, $rootScope, cartService, $state, a
                 $localStorage.fcmId = fcmId;
             }
             else if(oldFcmId === fcmId){
-                $angular.noop();
+                // $angular.noop();
             }
             else if(oldFcmId != fcmId){
                 //update fcmID

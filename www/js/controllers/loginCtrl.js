@@ -2,9 +2,9 @@ angular.module('starter')
 
 .controller('loginCtrl', loginCtrl);
 
-loginCtrl.$inject = ['$state', 'appState', '$scope', '$rootScope', 'credentialService', '$ionicPopup','ctrlUtilityService'];
+loginCtrl.$inject = ['$state', 'appState', '$scope', '$rootScope', 'credentialService', '$ionicPopup','ctrlUtilityService','FCMService','$localStorage'];
 
-function loginCtrl($state, appState, $scope, $rootScope, credentialService, $ionicPopup,ctrlUtilityService) {
+function loginCtrl($state, appState, $scope, $rootScope, credentialService, $ionicPopup,ctrlUtilityService, FCMService, $localStorage) {
     var vm = this;
 
     vm.credentials = $rootScope.credentials;
@@ -44,6 +44,16 @@ function loginCtrl($state, appState, $scope, $rootScope, credentialService, $ion
                     $rootScope.credentials = appState.getLocalStorageAll();
 
                     $rootScope.$broadcast('rootScope:credentials', $rootScope.credentials);
+
+                    //FCM - Messaging map the user with FCMID
+                    if($localStorage.fcmId){
+                    var dataMapUser = {};
+                    dataMapUser.fcmKey = $localStorage.fcmId;
+                    FCMService.mapUserToDevice(dataMapUser).then(function (response) {
+                        alert('mapped user fcm');
+                    });
+                    }
+
                     //redirect to Check-out page
                     // $state.go('app.checkout');
                     $state.reload();
